@@ -25,10 +25,11 @@ Create a user-based fitness web-app, where user can create profile, from their p
 - User profile page from premade stored users, age, weight
 - Workouts page, with premade workout lists that user can pick from 
 - When workout selected show list of exercises sets/reps
-- Map page to search location for local parks in area
+
 
 #### 2.0
 
+- Map page to search location for local parks in area
 - More information about exercise selctions, image of muscles used
 - User can create their own workout from list of exercises/sets/reps
     and comment on their workout
