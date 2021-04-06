@@ -10,18 +10,17 @@ db = SQLAlchemy()
 
 class User(db.Model):
     """A user"""
-##add null values##
-##for weight, kg or lb##
 
     __tablename__ = 'users'
 
     user_id = db.Column(db.Integer, autoincrement=True,
                         primary_key=True)
-    user_name = db.Column(db.String, unique=True)
-    password = db.Column(db.String)
-    user_age = db.Column(db.Integer)
-    user_weight = db.Column(db.Integer)
-    user_gender = db.Column(db.String)
+    user_name = db.Column(db.String, unique=True, nullable=False)
+    password = db.Column(db.String, nullable=False)
+    
+    user_age = db.Column(db.Integer, nullable=True)
+    user_weight = db.Column(db.Integer, nullable=True)
+    user_zipcode = db.Column(db.Integer, nullable=True)
 
 
     def __repr__(self):
@@ -35,7 +34,10 @@ class Workout(db.Model):
 
     workout_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    workout_date = db.Column(db.datetime)
+    
+    workout_date = db.Column(db.datetime, nullable=True)
+
+    user = db.relationship('User', backref='workouts')
 
 
     def __repr__(self):
@@ -48,25 +50,48 @@ class Workout_exercise(db.Model):
     __tablename__ = 'workout_exercises'
 
     ##TODO complete table columns/repr
+    we_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    workout_id = db.Column(db.Integer, db.ForeignKey('workouts.workout_id'))
+    exercise_id = db.Column(db.Integer, db.ForeignKey('exercises.exercise_id'))
+    
+    we_sets = db.Column(db.Integer, nullable=False)
+    we_reps = db.Column(db.Integer, nullable=False)
+    we_weight = db.Column(db.Integer, nullable=True)
+
+    workout = db.relationship('Workout', backref='workout_exercises')
+    exercise = db.relationship('Exercise', backref='workout_exercises')
 
 
-class Exercises(db.Model):
+    def __repr__(self):
+        return f'<Workout_exercise we_id={self.we_id} we_sets={self.we_sets} we_reps={self.we_reps}>'
+
+
+class Exercise(db.Model):
     """Specific exercise details"""
 
     __tablename__ = 'exercises'
 
-    ##TODO complete tabel columns/repr
-
+    exercise_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+   
+    exercise_name = db.Column(db.String, nullable=False)
+    exercise_info = db.Column(db.Text, nullable=False)
     
 
+    def __repr__(self):
+        return f'<Exercise exercise_id={self.exercise_id} exercise_name={self.exercise_name}>'
 
 
 
 
+def connect_to_db(flask_app, db_uri='postgresql:///workouts', echo=True):
+    flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+    flask_app.config['SQLALCHEMY_ECHO'] = echo
+    flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+    db.app = flask_app
+    db.init_app(flask_app)
 
-
-
+    print('Connected to the db!')
 
 
 
