@@ -4,8 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-##TO DO 
-###Work on relationships in tables
 
 
 class User(db.Model):
@@ -56,10 +54,10 @@ class Workout_exercise(db.Model):
     
     we_sets = db.Column(db.Integer, nullable=False)
     we_reps = db.Column(db.Integer, nullable=False)
-    ##TODO do I need rep name? #min, sec, miles? 
+    we_repunit = db.Column(db.String, nullable=True)
     we_weight = db.Column(db.String, nullable=True)
-    ## TODO do I need weight name? 
-    we_equipment = db.Column(db.String)
+    we_weightunit = db.Column(db.String, nullable=True) 
+    we_equipment = db.Column(db.String, nullable=True)
 
 
     workout = db.relationship('Workout', backref='workout_exercises')
@@ -80,6 +78,7 @@ class Exercise(db.Model):
     exercise_name = db.Column(db.String, nullable=False)
     exercise_info = db.Column(db.Text, nullable=False)
     
+    api_id = db.Column(db.Integer, nullable=True)
 
     def __repr__(self):
         return f'<Exercise exercise_id={self.exercise_id} exercise_name={self.exercise_name}>'
@@ -101,8 +100,19 @@ def example_data():
                 user_weight='25', user_zipcode='75201')
 
     ###TODO work on additional test informatin 
+    kb_swing = Exercise(exercise_name='kb_swing', 
+                exercise_info='two handed grip and hinge at hips')
+    squat = Exercise(exercise_name='squat',
+                exercise_info='spine straight drive through heels bend at knees')
+    crunch = Exercise(exercise_name='crunch',
+                exercise_info='lay on back on the floor lift shoulders off ground')
 
-    db.session.add_all([jess, ankit, lily])
+    #TODO Workout dates?
+    #TODO Workout_exercises
+
+
+
+    db.session.add_all([jess, ankit, lily, kb_swing, squat, crunch])
     db.session.commit()
 
 
