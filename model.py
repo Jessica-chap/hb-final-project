@@ -35,7 +35,7 @@ class Workout(db.Model):
     workout_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     
-    workout_date = db.Column(db.datetime, nullable=True)
+    workout_date = db.Column(db.DateTime, nullable=True)
 
     user = db.relationship('User', backref='workouts')
 
@@ -57,6 +57,7 @@ class Workout_exercise(db.Model):
     we_sets = db.Column(db.Integer, nullable=False)
     we_reps = db.Column(db.Integer, nullable=False)
     we_weight = db.Column(db.Integer, nullable=True)
+
 
     workout = db.relationship('Workout', backref='workout_exercises')
     exercise = db.relationship('Exercise', backref='workout_exercises')
@@ -80,6 +81,26 @@ class Exercise(db.Model):
     def __repr__(self):
         return f'<Exercise exercise_id={self.exercise_id} exercise_name={self.exercise_name}>'
 
+
+def example_data():
+    """Sample data to help with testing"""
+
+    User.query.delete()
+    Workout.query.delete()
+    Workout_exercise.query.delete()
+    Exercise.query.delete()
+
+    jess = User(user_name='jess', password='wifu', user_age='75', 
+                user_weight='130', user_zipcode='48189')
+    ankit = User(user_name='ankit', password='hubs', user_age='35', 
+                user_weight='180', user_zipcode='48076')
+    lily = User(user_name='lily', password='cats', user_age='16', 
+                user_weight='25', user_zipcode='75201')
+
+    ###TODO work on additional test informatin 
+
+    db.session.add_all([jess, ankit, lily])
+    db.session.commit()
 
 
 
