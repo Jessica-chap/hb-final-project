@@ -56,7 +56,10 @@ class Workout_exercise(db.Model):
     
     we_sets = db.Column(db.Integer, nullable=False)
     we_reps = db.Column(db.Integer, nullable=False)
-    we_weight = db.Column(db.Integer, nullable=True)
+    ##TODO do I need rep name? #min, sec, miles? 
+    we_weight = db.Column(db.String, nullable=True)
+    ## TODO do I need weight name? 
+    we_equipment = db.Column(db.String)
 
 
     workout = db.relationship('Workout', backref='workout_exercises')
