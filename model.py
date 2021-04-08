@@ -55,7 +55,7 @@ class Workout_exercise(db.Model):
     we_sets = db.Column(db.Integer, nullable=False)
     we_reps = db.Column(db.Integer, nullable=False)
     we_repunit = db.Column(db.String, nullable=True)
-    we_weight = db.Column(db.String, nullable=True)
+    we_weight = db.Column(db.Integer, nullable=True)
     we_weightunit = db.Column(db.String, nullable=True) 
     we_equipment = db.Column(db.String, nullable=True)
 
@@ -169,5 +169,5 @@ def connect_to_db(flask_app, db_uri='postgresql:///workouts', echo=True):
 if __name__ == '__main__':
     from server import app
 
-    # connect_to_db(app)
-    connect_to_db(app, echo=False)
+    connect_to_db(app)
+    # connect_to_db(app, echo=False)
