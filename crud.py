@@ -20,7 +20,7 @@ def create_user(user_name, password, user_age, user_weight, user_zipcode ):
 def create_exercise(exercise_name, exercise_info):
     """create and return exercise"""
 
-    exercise = exercise(exercise_name=exercise_name,
+    exercise = Exercise(exercise_name=exercise_name,
                         exercise_info=exercise_info)
 
     db.session.add(exercise)

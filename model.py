@@ -87,8 +87,8 @@ class Exercise(db.Model):
 
 
 
-def example_user_data():
-    """Sample user data to help with testing"""
+def example_data():
+    """Sample data to help with testing"""
 
     User.query.delete()
  
@@ -103,8 +103,6 @@ def example_user_data():
     db.session.commit()
 
 
-def example_exercise_data():
-
     Exercise.query.delete()
 
     kb_swing = Exercise(exercise_name='kb_swing', 
@@ -118,9 +116,6 @@ def example_exercise_data():
     db.session.commit()
     
 
-def example_workout_data():
-    """Sample workout for testing"""
-
     Workout.query.delete()
 
     jess_wrkt = Workout(user_id = jess.user_id, workout_date= datetime.now())
@@ -130,9 +125,6 @@ def example_workout_data():
     db.session.add_all([jess_wrkt, ankit_wrkt, lily_wrkt])
     db.session.commit()
 
-
-def example_workout_exercise_data():
-    """Sample workout for testing"""
 
     Workout_exercise.query.delete()
     
@@ -177,5 +169,5 @@ def connect_to_db(flask_app, db_uri='postgresql:///workouts', echo=True):
 if __name__ == '__main__':
     from server import app
 
-    connect_to_db(app)
-    # connect_to_db(app, echo=False)
+    # connect_to_db(app)
+    connect_to_db(app, echo=False)
