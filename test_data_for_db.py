@@ -3,7 +3,7 @@
 #TODO work in progress to get test data in seperate file 
 
 
-# from model import db, User, Workout, Workout_exercise, Exercise, connect_to_db
+# import model
 # from datetime import datetime
 # from flask_sqlalchemy import SQLAlchemy
 
