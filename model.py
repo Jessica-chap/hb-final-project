@@ -98,8 +98,10 @@ def example_data():
                 user_weight='180', user_zipcode='48076')
     lily = User(user_name='lily', password='cats', user_age='16', 
                 user_weight='25', user_zipcode='75201')
+    riley = User(user_name='riley', password='dogs', user_age='101', 
+                user_weight='100', user_zipcode='48076')
 
-    db.session.add_all([jess, ankit, lily])
+    db.session.add_all([jess, ankit, lily, riley])
     db.session.commit()
 
 
@@ -111,8 +113,11 @@ def example_data():
                 exercise_info='spine straight drive through heels bend at knees')
     crunch = Exercise(exercise_name='crunch',
                 exercise_info='lay on back on the floor lift shoulders off ground')
-                
-    db.session.add_all([kb_swing, squat, crunch])
+    boat_row = Exercise(exercise_name='boat_row', 
+                exercise_info='row row row the boat')
+
+
+    db.session.add_all([kb_swing, squat, crunch, boat_row])
     db.session.commit()
     
 

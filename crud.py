@@ -53,9 +53,9 @@ def create_workout(user, workout_date):
 def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_weight, we_weightunit, we_equipment):
     """create and return workout_exercise"""
 
-    workout_exercise = Workout_exercise(workout=workout.workout_id,
-                        exercise=exercise.exercise_id,
-                        we_sets=we_sets, we_reps=we_reps, we_repunit=we_repunit,
+    workout_exercise = Workout_exercise(workout=workout,
+                        exercise=exercise, we_sets=we_sets, 
+                        we_reps=we_reps, we_repunit=we_repunit,
                         we_weight=we_weight, we_weightunit=we_weightunit, we_equipment=we_equipment)
 
     db.session.add(workout_exercise)
