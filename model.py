@@ -126,8 +126,9 @@ def example_data():
     jess_wrkt = Workout(user_id = jess.user_id, workout_date= datetime.now())
     ankit_wrkt = Workout(user_id = ankit.user_id, workout_date= datetime.now())
     lily_wrkt = Workout(user_id = lily.user_id, workout_date= datetime.now())
+    riley_wrkt = Workout(user_id = riley.user_id, workout_date= datetime.now())
 
-    db.session.add_all([jess_wrkt, ankit_wrkt, lily_wrkt])
+    db.session.add_all([jess_wrkt, ankit_wrkt, lily_wrkt, riley_wrkt])
     db.session.commit()
 
 
@@ -151,7 +152,13 @@ def example_data():
                                 we_weight=5, we_weightunit= 'lb',
                                 we_equipment='swiss ball')
 
-    db.session.add_all([wrkt_kb, wrkt_squat, wrkt_crunch])
+    wrkt_boat_row = Workout_exercise(workout_id= riley_wrkt.workout_id, exercise_id= boat_row.exercise_id,
+                                we_sets= 1, we_reps=60, we_repunit='minutes',
+                                we_weight=1, we_weightunit= 'bodyweight',
+                                 we_equipment='row machine')
+
+
+    db.session.add_all([wrkt_kb, wrkt_squat, wrkt_crunch, wrkt_boat_row])
     db.session.commit()
 
 
