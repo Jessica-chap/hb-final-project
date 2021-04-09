@@ -1,6 +1,5 @@
 """test data for database"""
-
-#TODO work in progress to get test data in seperate file 
+ 
 
 
 from model import db, User, Workout, Workout_exercise, Exercise, connect_to_db

@@ -4,7 +4,6 @@ from model import db, User, Workout, Workout_exercise, Exercise, connect_to_db
 from datetime import datetime
 
 
-#TODO fix dbworkouts and test last two functions
 
 
 def create_user(user_name, password, user_age, user_weight, user_zipcode ):
