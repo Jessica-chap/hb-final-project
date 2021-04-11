@@ -4,9 +4,45 @@
 {% block body %}
   <h1>Welcome! Still working on name!!</h1>
 
-  <h2>I workout!</h2>
-  <ul>
-    <li><a href="/create">Create Account</a></li>
-    <li><a href="/users">Login</a></li>
-  </ul>
+  <h2>Create an Account</h2>
+  <form action="/users" method="POST">
+    <p>
+      User Name <input type="text" name="user_name">
+    </p>
+
+    <p>
+      Password <input type="password" name="password">
+    </p>
+
+    <p>
+      Age <input type="text" name="user_age">
+    </p>
+
+    <p>
+      Weight <input type="text" name="user_weight">
+    </p>
+
+    <p>
+      Zip Code <input type="text" name="user_weight">
+    </p>
+
+    <p>
+      <input type="submit">
+    </p>
+  </form>
+
+  <h2>Login</h2>
+  <form action="/users" method="POST">
+    <p>
+      User Name <input type="text" name="user_name">
+    </p>
+
+    <p>
+      Password <input type="password" name="password">
+    </p>
+
+    <p>
+      <input type="submit">
+    </p>
+  </form>
 {% endblock %}
