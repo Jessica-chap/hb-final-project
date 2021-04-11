@@ -67,7 +67,10 @@ def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_
 #                                 we_weight=1, we_weightunit= 'bodyweight', we_equipment='row machine')
 
 
+def get_user_by_user_name(user_name):
+    """Return a user by user_name"""
 
+    return User.query.filter(User.user_name == user_name).first()
 
 
 
