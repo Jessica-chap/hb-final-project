@@ -45,19 +45,27 @@ def handle_new_user():
 @app.route('/users', methods=['POST'])
 def handle_login():
     """Handle user input at login"""
-##route checked
-##need to work on verification
-##TODO create session?
+    pass
+    # user_name = request.form.get('user_name')
+    # # session['user_name'] = user_name
+    # if user_name == None:
+    #     flash('No account with user name, please create account')
 
-    user_name = request.form.get('user_name')
-    password = request.form.get('password')
+    #     return redirect('/')
+    # else:
+    #     password = request.form.get('password')
 
-    user = crud.get_user_by_user_name(user_name)
-    # user_id = crud.get_user_by_id(user_id)
-
-
-    return redirect(f'/users/{user.user_id}', 
-                flash('Login success!'))
+    #     user = crud.get_user_by_user_name(user_name)
+        
+    #     if password == user.password:
+    #         session['user_name'] = user_name
+    #         flash('Login success!')
+    #         return redirect(f'/users/{user.user_id}') 
+        
+    #     else:
+    #         flash('Wrong password, please try again')
+    #         return redirect('/')
+                        
 
 
 

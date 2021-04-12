@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}Users Page{% endblock %}
+{% block title %}{{user.user_name}}'s Page{% endblock %}
 
 {% block body %}
-<h1>{{user.user_name}} after figuring out how to input</h1>
+<h1>{{user.user_name}}'s page</h1>
 
-<h1>Made it to Profile Page!</h1>
+<ul>
+    <li>Age: {{user.user_age}}</li>
+    <li>Weight: {{user.user_weight}}</li>
+    <li>Zip Code: {{user.user_zipcode}}</li>
+</ul>
+
+
+
 {% endblock %}
