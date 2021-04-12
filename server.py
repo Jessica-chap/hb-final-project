@@ -31,9 +31,11 @@ def create_new_user():
 
 
 @app.route('/new_users', methods=['POST'])
-def new_user():
+def handle_new_user():
     """Handle user input to create account"""
+
     #TODO handle data being returned
+    #TODO create session?
 
 
     return redirect('/user_profile', flash('Account Created Successfully'))
@@ -41,38 +43,39 @@ def new_user():
 
 
 @app.route('/users', methods=['POST'])
-def login_user():
+def handle_login():
     """Handle user input at login"""
 ##route checked
-##need to work on verification/session
+##need to work on verification
+##TODO create session?
 
     user_name = request.form.get('user_name')
     password = request.form.get('password')
 
-    user_name = crud.get_user_by_user_name(user_name)
+    user = crud.get_user_by_user_name(user_name)
     # user_id = crud.get_user_by_id(user_id)
 
 
-    return redirect('/user_profile', 
+    return redirect(f'/users/{user.user_id}', 
                 flash('Login success!'))
 
 
 
 
-# @app.route('/users/<int:user_id>')
-# def show_user(user_id):
-#     """Show profile page of specific user."""
+@app.route('/users/<int:user_id>')
+def show_user(user_id):
+    """Show profile page of specific user."""
 
-#     user = crud.get_user_by_id(user_id)
+    user = crud.get_user_by_id(user_id)
 
-#     return render_template('user_profile.html', user=user)
+    return render_template('user_profile.html', user=user)
 
 
-@app.route('/user_profile')
-def user_profile_page():
-    """Users profile page."""
+# @app.route('/user_profile')
+# def user_profile_page():
+#     """Users profile page."""
 
-    return render_template('user_profile.html')
+#     return render_template('user_profile.html')
 
 
 
