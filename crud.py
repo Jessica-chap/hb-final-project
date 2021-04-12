@@ -4,7 +4,7 @@ from model import db, User, Workout, Workout_exercise, Exercise, connect_to_db
 from datetime import datetime
 
 
-
+####################USER FUNCTIONS#################################
 
 def create_user(user_name, password, user_age, user_weight, user_zipcode ):
     """Create and return a new user."""
@@ -20,6 +20,19 @@ def create_user(user_name, password, user_age, user_weight, user_zipcode ):
 
 # riley = create_user(user_name='riley', password='dogs', user_age='101', user_weight='100', user_zipcode='48076')
 
+def get_user_by_user_name(user_name):
+    """Return a user by user_name"""
+
+    return User.query.filter(User.user_name == user_name).first()
+
+
+def get_user_by_id(user_id):
+    """Return a user by primary key."""
+
+    return User.query.get(user_id)
+
+
+###################EXERCISE FUNCTIONS###########################################
 
 def create_exercise(exercise_name, exercise_info):
     """create and return exercise"""
@@ -65,13 +78,6 @@ def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_
 # wrkt_boat_row = create_workout_exercise(workout= riley_wrkt, exercise= boat_row,
 #                                 we_sets= 1, we_reps=60, we_repunit='minutes',
 #                                 we_weight=1, we_weightunit= 'bodyweight', we_equipment='row machine')
-
-
-def get_user_by_user_name(user_name):
-    """Return a user by user_name"""
-
-    return User.query.filter(User.user_name == user_name).first()
-
 
 
 
