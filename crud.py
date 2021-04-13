@@ -31,6 +31,19 @@ def get_user_by_id(user_id):
 
     return User.query.get(user_id)
 
+def verify_valid_user(user_name):
+    """Return true or false depending on whether user_name in database"""
+    
+    users = User.query.all()
+    
+    for user in users:
+        if user.user_name == user_name:
+            return True
+        else:
+            return False
+        
+
+
 
 ###################EXERCISE FUNCTIONS###########################################
 
