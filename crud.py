@@ -33,14 +33,22 @@ def get_user_by_id(user_id):
 
 def verify_valid_user(user_name):
     """Return true or false depending on whether user_name in database"""
+    ## query for one record instead of all 
     
-    users = User.query.all()
+    user = User.query.filter(User.user_name == user_name).first()
+
+    if user:
+        return True
     
-    for user in users:
-        if user.user_name == user_name:
-            return True
-        else:
-            return False
+    return False
+
+    # users = User.query.all()
+    
+    # for user in users:
+    #     if user.user_name == user_name:
+    #         return True
+    #     else:
+    #         return False
         
 
 

@@ -33,9 +33,6 @@ def create_new_user():
 @app.route('/new_users', methods=['POST'])
 def handle_new_user():
     """Handle user input to create account"""
-    #TODO zipcode is not adding- logic error
-    #TODO is there a better way for the request?
-    #TODO if fields empty redirect to the new users page
 
     user_name = request.form.get('user_name')
     password = request.form.get('password')
