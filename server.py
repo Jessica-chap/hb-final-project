@@ -96,11 +96,12 @@ def show_user(user_id):
     return render_template('user_profile.html', user=user)
 
 
-# @app.route('/user_profile')
-# def user_profile_page():
-#     """Users profile page."""
+@app.route('/start_workout')
+def start_new_workout():
+    """Take user from personal page to page to start creating workout"""
 
-#     return render_template('user_profile.html')
+
+    return render_template('start_workout.html')
 
 
 
