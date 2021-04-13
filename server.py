@@ -33,12 +33,33 @@ def create_new_user():
 @app.route('/new_users', methods=['POST'])
 def handle_new_user():
     """Handle user input to create account"""
+    #TODO zipcode is not adding- logic error
+    #TODO is there a better way for the request?
 
-    #TODO handle data being returned
-    #TODO create session?
+    user_name = request.form.get('user_name')
+    password = request.form.get('password')
+    user_age = request.form.get('user_age')
+    user_weight = request.form.get('user_weight')
+    user_zipcode = request.form.get('user_zipcode')
 
+    if user_name == '' or password == '':
+            flash('Both user name and password field are required, please try again')
+            return redirect('/')
+    
+    else:
+        is_valid_user = crud.verify_valid_user(user_name)
 
-    return redirect('/user_profile', flash('Account Created Successfully'))
+        if is_valid_user == False:
+
+            user =  crud.create_user(user_name, password, user_age, user_weight, user_zipcode)
+            session['user_name'] = user_name
+            flash('Account Created')
+            return redirect(f'/users/{user.user_id}')
+
+        else:
+            flash('Already an account for that user name, please login')
+            return redirect('/')
+
 
 
 
@@ -52,6 +73,7 @@ def handle_login():
     if is_valid_user == False:
         flash('No account with user name, please create account')
         return redirect('/')
+
     else:
         password = request.form.get('password')
         user = crud.get_user_by_user_name(user_name)
@@ -65,8 +87,6 @@ def handle_login():
             flash('Wrong password, please try again')
             return redirect('/')
                         
-
-
 
 
 @app.route('/users/<int:user_id>')
