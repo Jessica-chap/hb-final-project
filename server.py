@@ -1,19 +1,19 @@
 from flask import (Flask, render_template, request, flash, session,
                    url_for, redirect)
+
 from model import connect_to_db
-import crud
 from jinja2 import StrictUndefined
+from datetime import datetime
+import crud
+import os
 
 
 app = Flask(__name__)
 app.secret_key = "sun"
 app.jinja_env.undefined = StrictUndefined
 
+API_KEY = os.environ['WGER_KEY']
 
-##TODO cannot figure out how to get individual user page to show up, can 
-## direct to general profile page but having issues with ID
-
-##TODO work on more details for earch route with profile- login and create
 
 @app.route('/')
 def homepage():
@@ -95,13 +95,20 @@ def show_user(user_id):
 
     return render_template('user_profile.html', user=user)
 
+#http://localhost:5000/users/1 
+#TODO starting point to test create workout
+#Do you have to call session, everytime?
 
-@app.route('/start_workout')
-def start_new_workout():
+@app.route('/create_workout')
+def new_workout_form():
     """Take user from personal page to page to start creating workout"""
+    # date = datetime.now()
+    #TODO need user object when calling function, do I save to session? How can i get from earlier and reuse
+
+    # new_workout = crud.create_workout(session['user_name'], datetime.now())
 
 
-    return render_template('start_workout.html')
+    return render_template('create_workout.html')
 
 
 
