@@ -102,10 +102,11 @@ def show_user(user_id):
 @app.route('/create_workout')
 def new_workout_form():
     """Take user from personal page to page to start creating workout"""
-    # date = datetime.now()
-    #TODO need user object when calling function, do I save to session? How can i get from earlier and reuse
 
-    # new_workout = crud.create_workout(session['user_name'], datetime.now())
+    #TODO why is user_name session not being able to use in create_workout html
+    user = crud.get_user_by_user_name(session['user_name'])
+    new_workout = crud.create_workout(user, datetime.now())
+    # session['new_workout'] = new_workout
 
 
     return render_template('create_workout.html')
