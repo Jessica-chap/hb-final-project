@@ -95,9 +95,7 @@ def show_user(user_id):
 
     return render_template('user_profile.html', user=user)
 
-#http://localhost:5000/users/1 
-#TODO starting point to test create workout
-#Do you have to call session, everytime?
+
 
 @app.route('/create_workout')
 def new_workout_form():
@@ -106,11 +104,40 @@ def new_workout_form():
     #TODO why is user_name session not being able to use in create_workout html
     user = crud.get_user_by_user_name(session['user_name'])
     new_workout = crud.create_workout(user, datetime.now())
-    # session['new_workout'] = new_workout
+    session['user_id'] = user.user_id
+    session['workout_id'] = new_workout.workout_id
+
+    exercise_list = crud.Exercise.query.all()
+    # exercise_name = exercise_list.exercise_name
+    # exercise_info = exercise_list.exercise_info
+    #add to return? ex_name = exercise_name, 
+                            # ex_info = exercise_info,
+
+    return render_template('create_workout.html', 
+                            exercise_list= exercise_list, 
+                            name=user.user_name)
+
+#TODO how do I add the response, and use to create
+#object in table??
+#How do I keep all on one page
+
+@app.route('/create_exercise')
+def create_exercises_for_workout():
+    """handle api request for exercise information"""
+    
+    #make get request for exercises table information- 
+    #exercise_name, exercise_info, and API key
+
+    #url = https://wger.de/api/v2/exercise/
+
+    #add data returned from request to payload
+    # make request for a response that includes the url with
+        #params set in payload
+    #save the response data = 
+    #TODO what is the _embedded
 
 
-    return render_template('create_workout.html')
-
+    pass
 
 
 

@@ -59,7 +59,6 @@ def create_exercise(exercise_name, exercise_info):
 # boat_row = create_exercise(exercise_name='boat_row', exercise_info='row row row the boat')
 
 
-
 def create_workout(user, workout_date):
     """create and return workout"""
 

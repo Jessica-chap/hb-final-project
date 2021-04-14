@@ -2,9 +2,22 @@
 {% block title %}Create Workout{% endblock %}
 
 {% block body %}
-  <h1>Create Workout Page</h1>
+  <h1>{{name}}'s Create Workout Page</h1>
 
-  <h2> User for workout session: input user session name</h2>
+  <h2>Choose an exercise</h2>
+  <p><form action="/add_exercise" method="POST">
+    <select name="exercise_selection">
+      {% for exercise in exercise_list %}
+
+      <option value="{{exercise.exercise_id}}">{{exercise.exercise_name}}</option>
+      {% endfor %}
+
+    </select>
+  </p> 
+  <input type="submit">
+  </form>
+  
+ 
 
  
 {% endblock %}
