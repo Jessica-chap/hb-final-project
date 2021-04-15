@@ -96,7 +96,7 @@ def get_workout_by_id(workout_id):
     
     return User.query.get(user_id)
 
-
+# we_by_ex_id = crud.Workout_exercise.query.filter(exercise.exercise_id == (session['exercise_id']), workout.workout_id == (session['workout_id'])).first()
 
 
 

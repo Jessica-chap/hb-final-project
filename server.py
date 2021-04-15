@@ -138,10 +138,15 @@ def add_exercise_to_workout():
 
     exercise = crud.Exercise.query.get(exercise_selection)
     workout = crud.Workout.query.get(session['workout_id'])
-    we_sets = 10 #test before adding to html
-    we_reps = 5 #test before adding to html
 
-    create_we = (workout, exercise, we_sets, we_reps) ## add additional options after 
+    we_sets = request.form.get('exercise_sets')
+    print('*'*20)
+    print(f'we_sets= {we_sets}')
+    print('*'*20)
+    we_reps = request.form.get('exercise_reps')
+    
+    
+    create_we = crud.create_workout_exercise(workout, exercise, we_sets, we_reps) ## add additional options after 
                                                         ##these are tested
     flash('Successfully added to workout list')
     return redirect('/create_workout')

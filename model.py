@@ -53,7 +53,7 @@ class Workout_exercise(db.Model):
     exercise_id = db.Column(db.Integer, db.ForeignKey('exercises.exercise_id'))
     
     we_sets = db.Column(db.Integer, nullable=False)
-    we_reps = db.Column(db.Integer, nullable=False)
+    we_reps = db.Column(db.Integer, nullable=False)  
     we_repunit = db.Column(db.String, nullable=True)
     we_weight = db.Column(db.Integer, nullable=True)
     we_weightunit = db.Column(db.String, nullable=True) 

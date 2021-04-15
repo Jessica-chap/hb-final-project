@@ -6,13 +6,29 @@
 
   <h2>Choose an exercise</h2>
   <p><form action="/add_exercise" method="POST">
+
+    <h3>Exercise list</h3>
     <select name="exercise_selection">
       {% for exercise in exercise_list %}
 
       <option value="{{exercise.exercise_id}}">{{exercise.exercise_name}}</option>
       {% endfor %}
-
     </select>
+
+    <h3>Exercise sets</h3>
+    <select name="exercise_sets">
+      {% for i in range(1,21) %}
+      <option value = "{{i}}">{{i}}</option>"
+      {% endfor %}
+    </select>
+
+    <h3>Exercise reps</h3>
+    <select name="exercise_reps">
+      {% for i in range(1,50) %}
+      <option value = "{{i}}">{{i}}</option>"
+      {% endfor %}
+    </select>
+
   </p> 
   <input type="submit">
   </form>
