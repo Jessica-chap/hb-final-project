@@ -6,7 +6,7 @@ from datetime import datetime
 
 ####################USER FUNCTIONS#################################
 
-def create_user(user_name, password, user_age, user_weight, user_zipcode ):
+def create_user(user_name, password, user_age=None, user_weight=None, user_zipcode=None ):
     """Create and return a new user."""
 
     user = User(user_name=user_name, password=password,
@@ -30,6 +30,7 @@ def get_user_by_id(user_id):
     """Return a user by primary key."""
 
     return User.query.get(user_id)
+
 
 def verify_valid_user(user_name):
     """Return true or false depending on whether user_name in database"""
@@ -72,7 +73,7 @@ def create_workout(user, workout_date):
 # riley_wrkt = create_workout(user= riley, workout_date= datetime.now())
 
 
-def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_weight, we_weightunit, we_equipment):
+def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit=None, we_weight=None, we_weightunit=None, we_equipment=None):
     """create and return workout_exercise"""
 
     workout_exercise = Workout_exercise(workout=workout,
@@ -90,7 +91,10 @@ def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_
 #                                 we_weight=1, we_weightunit= 'bodyweight', we_equipment='row machine')
 
 
-
+def get_workout_by_id(workout_id):
+    """Return a workout object with id"""
+    
+    return User.query.get(user_id)
 
 
 

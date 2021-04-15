@@ -101,25 +101,18 @@ def show_user(user_id):
 def new_workout_form():
     """Take user from personal page to page to start creating workout"""
 
-    #TODO why is user_name session not being able to use in create_workout html
     user = crud.get_user_by_user_name(session['user_name'])
     new_workout = crud.create_workout(user, datetime.now())
     session['user_id'] = user.user_id
     session['workout_id'] = new_workout.workout_id
 
     exercise_list = crud.Exercise.query.all()
-    # exercise_name = exercise_list.exercise_name
-    # exercise_info = exercise_list.exercise_info
-    #add to return? ex_name = exercise_name, 
-                            # ex_info = exercise_info,
 
     return render_template('create_workout.html', 
                             exercise_list= exercise_list, 
                             name=user.user_name)
 
-#TODO how do I add the response, and use to create
-#object in table??
-#How do I keep all on one page
+#TODO AJAX to keep all on one page
 
 @app.route('/create_exercise')
 def create_exercises_for_workout():
@@ -134,10 +127,33 @@ def create_exercises_for_workout():
     # make request for a response that includes the url with
         #params set in payload
     #save the response data = 
-    #TODO what is the _embedded
-
-
     pass
+
+
+@app.route('/add_exercise', methods=['POST'])
+def add_exercise_to_workout():
+
+    exercise_selection = request.form.get('exercise_selection')
+    session['exercise_id'] = exercise_selection
+
+    exercise = crud.Exercise.query.get(exercise_selection)
+    workout = crud.Workout.query.get(session['workout_id'])
+    we_sets = 10 #test before adding to html
+    we_reps = 5 #test before adding to html
+
+    create_we = (workout, exercise, we_sets, we_reps) ## add additional options after 
+                                                        ##these are tested
+    flash('Successfully added to workout list')
+    return redirect('/create_workout')
+
+    
+
+
+    ##use ex id to create workout_exercise from crud
+    ## on form add drop down for sets/reps
+    ##grab /wkt_id session, assign to new variable 
+
+
 
 
 
