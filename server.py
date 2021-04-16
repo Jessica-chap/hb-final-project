@@ -147,21 +147,16 @@ def add_exercise_to_workout():
     workout = crud.Workout.query.get(session['workout_id'])
 
     we_sets = request.form.get('exercise_sets')
-    print('*'*20)
-    print(we_sets)
-    print('*'*20)
-    we_reps = request.form.get('exercise_reps')
-    print('*'*20)
-    print(we_reps)
-    print('*'*20)
-    
-    create_we = crud.create_workout_exercise(workout, exercise, we_sets, we_reps) 
 
-##get sqlalc object from crud.create_workout_ex 
+    we_reps = request.form.get('exercise_reps')
+
+    create_we = crud.create_workout_exercise(workout, exercise, we_sets, we_reps) 
+    ##               "JS name": model.py name
+    res_dict= {"exercise_reps": create_we.we_reps, 
+                "exercise_sets": create_we.we_sets, 
+                "exercise_selection": create_we.exercise.exercise_name}                                   
     
-                                                        
-    flash('exercise added successfully')
-    return jsonify([we_sets, we_reps])
+    return jsonify(res_dict)
 
     
 

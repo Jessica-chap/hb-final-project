@@ -6,11 +6,11 @@
 
   <h2>Choose an exercise</h2>
 
-    <form id= "exercise-form" action="/add_exercise" method="POST">
+    <form id= "exercise-form">
       
       <p id="add-exercise">  
         <h3>Exercise list</h3>
-          <select id= "exercise-name" name="exercise_selection">
+          <select id= "exercise_name" name="exercise_selection">
            {% for exercise in exercise_list %}
 
               <option  value="{{exercise.exercise_id}}">
@@ -40,7 +40,7 @@
    
     <p>
       <form>
-        <button id="submit-exercise" type="submit">Add</button>
+        <button id="submit-exercise" type="submit" >Add</button>
       </form>
     </p>
 
