@@ -140,23 +140,14 @@ def add_exercise_to_workout():
     workout = crud.Workout.query.get(session['workout_id'])
 
     we_sets = request.form.get('exercise_sets')
-    print('*'*20)
-    print(f'we_sets= {we_sets}')
-    print('*'*20)
     we_reps = request.form.get('exercise_reps')
     
-    
-    create_we = crud.create_workout_exercise(workout, exercise, we_sets, we_reps) ## add additional options after 
-                                                        ##these are tested
-    flash('Successfully added to workout list')
+    create_we = crud.create_workout_exercise(workout, exercise, we_sets, we_reps) 
+                                                        
+    flash(f'{exercise.exercise_info}')
     return redirect('/create_workout')
 
     
-
-
-    ##use ex id to create workout_exercise from crud
-    ## on form add drop down for sets/reps
-    ##grab /wkt_id session, assign to new variable 
 
 
 

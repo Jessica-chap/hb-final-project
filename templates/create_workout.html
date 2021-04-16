@@ -2,38 +2,67 @@
 {% block title %}Create Workout{% endblock %}
 
 {% block body %}
-  <h1>{{name}}'s Create Workout Page</h1>
+  <h1>{{name}}, get this workout started!</h1>
 
   <h2>Choose an exercise</h2>
-  <p><form action="/add_exercise" method="POST">
 
-    <h3>Exercise list</h3>
-    <select name="exercise_selection">
-      {% for exercise in exercise_list %}
+    <form action="/add_exercise" method="POST">
+      
+      <p id="add-exercise">  
+        <h3>Exercise list</h3>
+          <select name="exercise_selection">
+           {% for exercise in exercise_list %}
 
-      <option value="{{exercise.exercise_id}}">{{exercise.exercise_name}}</option>
-      {% endfor %}
-    </select>
+              <option id= "exercise-name" value="{{exercise.exercise_id}}">
+              {{exercise.exercise_name}}</option>
 
+            {% endfor %}
+        </select>
+  </p>
+
+  <p id="add-sets">
     <h3>Exercise sets</h3>
-    <select name="exercise_sets">
-      {% for i in range(1,21) %}
-      <option value = "{{i}}">{{i}}</option>"
-      {% endfor %}
-    </select>
+      <select name="exercise_sets">
+        {% for i in range(1,21) %}
+          <option id="sets" value = "{{i}}">{{i}}</option>"
+        {% endfor %}
+      </select>
+  </p>
 
+  <p id="add-reps">
     <h3>Exercise reps</h3>
-    <select name="exercise_reps">
-      {% for i in range(1,50) %}
-      <option value = "{{i}}">{{i}}</option>"
-      {% endfor %}
-    </select>
+      <select name="exercise_reps">
+        {% for i in range(1,50) %}
+          <option id="reps" value = "{{i}}">{{i}}</option>"
+        {% endfor %}
+      </select>
+  </p>  
+   
+    <p>
+      <form>
+        <button id="submit-exercise" type="submit">Add</button>
+      </form>
+    </p>
 
-  </p> 
-  <input type="submit">
   </form>
-  
- 
+
+  <section id="exercise-table">
+    <table  style="width:60%">
+      <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Info</th>
+        </tr>
+      </thead>
+
+      <tbody id="user-exercise-selections"></tbody>
+
+    </table>
+</section>
+
+  <script src="/static/js/exerciseList.js"></script>
 
  
 {% endblock %}
