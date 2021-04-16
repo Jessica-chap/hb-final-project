@@ -1,5 +1,5 @@
 from flask import (Flask, render_template, request, flash, session,
-                   url_for, redirect)
+                   url_for, redirect, jsonify)
 
 from model import connect_to_db
 from jinja2 import StrictUndefined
@@ -84,7 +84,14 @@ def handle_login():
         else:
             flash('Wrong password, please try again')
             return redirect('/')
-                        
+
+
+@app.route('/logout')
+def user_logout():
+    """log user out of current session"""
+    session.pop('user', None)
+###TODO add HTML button
+    return redirect('/')     
 
 
 @app.route('/users/<int:user_id>')
@@ -140,12 +147,21 @@ def add_exercise_to_workout():
     workout = crud.Workout.query.get(session['workout_id'])
 
     we_sets = request.form.get('exercise_sets')
+    print('*'*20)
+    print(we_sets)
+    print('*'*20)
     we_reps = request.form.get('exercise_reps')
+    print('*'*20)
+    print(we_reps)
+    print('*'*20)
     
     create_we = crud.create_workout_exercise(workout, exercise, we_sets, we_reps) 
+
+##get sqlalc object from crud.create_workout_ex 
+    
                                                         
-    flash(f'{exercise.exercise_info}')
-    return redirect('/create_workout')
+    flash('exercise added successfully')
+    return jsonify([we_sets, we_reps])
 
     
 
