@@ -3,6 +3,15 @@
 {% block title %}{{user.user_name}}'s Page{% endblock %}
 
 {% block body %}
+
+<h2>Future Navigation Bar (WIP)</h2>
+<div class ="navigation-bar">
+  <ul>
+      <li><a href="/create_workout">Create a Workout</a></li>
+      <li><a href="/logout">Logout</a></li>
+  </ul>
+</div>
+
 <h1>{{user.user_name}}'s page</h1>
 
 <ul>
@@ -10,12 +19,6 @@
     <li>Weight: {{user.user_weight}}</li>
     <li>Zip Code: {{user.user_zipcode}}</li>
 </ul>
-<ul>
-    <p>
-      <li><a href="/create_workout">Create a Workout</a></li>
-    </p>
-    
-  </ul>
 
 
 

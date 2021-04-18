@@ -90,7 +90,7 @@ def handle_login():
 def user_logout():
     """log user out of current session"""
     session.pop('user', None)
-###TODO WIP add HTML button
+    flash('Bye! See you tomorrow for another awesome workout!')
     return redirect('/')     
 
 
@@ -117,11 +117,7 @@ def new_workout_form():
     repunit_list = crud.get_we_repunit()
     weightunit_list = crud.get_we_weightunit()
     equipment_list = crud.get_we_equipment()
-    # print('*'*20)
-    # print('*'*20)
-    # print(equipment_list)
-    # print('*'*20)
-    # print('*'*20)
+ 
 
     return render_template('create_workout.html', 
                             exercise_list= exercise_list,

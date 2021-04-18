@@ -36,14 +36,8 @@
                     res.exercise_repunit, res.exercise_info,
                     res.exercise_weight, res.exercise_weightunit, 
                     res.exercise_equipment);
-      // alert('workout successfully added!');
+      
     })
   });
 
 
-
-  //do I  need function to reset
-  //form for user to pick new exercises??
-  //
-  //need to figure out how to get the correct variable 
-  //in add item
