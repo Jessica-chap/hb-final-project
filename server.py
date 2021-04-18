@@ -115,15 +115,19 @@ def new_workout_form():
 
     exercise_list = crud.Exercise.query.all()
     repunit_list = crud.get_we_repunit()
+    weightunit_list = crud.get_we_weightunit()
+    equipment_list = crud.get_we_equipment()
     # print('*'*20)
     # print('*'*20)
-    # print(repunit_list)
+    # print(equipment_list)
     # print('*'*20)
     # print('*'*20)
 
     return render_template('create_workout.html', 
                             exercise_list= exercise_list,
-                            repunit_list=repunit_list, 
+                            repunit_list=repunit_list,
+                            weightunit_list=weightunit_list,
+                            equipment_list=equipment_list, 
                             name=user.user_name)
 
 
@@ -140,20 +144,26 @@ def add_exercise_to_workout():
     we_sets = request.form.get('exercise_sets')
     we_reps = request.form.get('exercise_reps')
     we_repunit = request.form.get('exercise_repunit')
+    we_weight = request.form.get('exercise_weight')
+    we_weightunit = request.form.get('exercise_weightunit')
+    we_equipment = request.form.get('exercise_equipment')
 
     create_we = crud.create_workout_exercise(workout, exercise, 
-                                            we_sets, we_reps, we_repunit)
-    # print('*'*20)                                        
-    # print('*'*20)
-    # print(create_we.we_repunit)
-    # print('*'*20)
+                                            we_sets, we_reps, 
+                                            we_repunit, we_weight, 
+                                            we_weightunit, we_equipment) 
+                                            
+   
 
     ##               "JS name": model.py name          
     res_dict= {"exercise_selection": create_we.exercise.exercise_name, 
                 "exercise_sets": create_we.we_sets,
                 "exercise_reps": create_we.we_reps,
                 "exercise_repunit": create_we.we_repunit, 
-                "exercise_info": create_we.exercise.exercise_info}                                   
+                "exercise_info": create_we.exercise.exercise_info, 
+                "exercise_weight": create_we.we_weight, 
+                "exercise_weightunit": create_we.we_weightunit, 
+                "exercise_equipment": create_we.we_equipment}                                   
     
     return jsonify(res_dict)
 

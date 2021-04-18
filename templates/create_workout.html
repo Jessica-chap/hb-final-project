@@ -4,13 +4,14 @@
 {% block body %}
   <h1>{{name}}, get this workout started!</h1>
 
-  <h2>Choose an exercise</h2>
+  <h2>Choose an exercise</h2> 
+  <h4>Required*</h4>
 
     <form id= "exercise-form">
       
       <p id="add-exercise">  
-        <h3>Exercise list</h3>
-          <select id= "exercise_name" name="exercise_selection">
+        <label>Exercise list*</label>
+          <select id= "exercise_name" name="exercise_selection" required>
            {% for exercise in exercise_list %}
 
               <option  value="{{exercise.exercise_id}}">
@@ -21,8 +22,8 @@
   </p>
 
   <p id="add-sets">
-    <h3>Sets</h3>
-      <select id = "exercise_sets" name="exercise_sets">
+    <label>Sets*</label>
+      <select id = "exercise_sets" name="exercise_sets" required>
         {% for i in range(1,21) %}
           <option value = "{{i}}">{{i}}</option>"
         {% endfor %}
@@ -30,8 +31,8 @@
   </p>
 
   <p id="add-reps">
-    <h3>Reps</h3>
-      <select id = "exercise_reps" name="exercise_reps">
+    <label>Reps*</label>
+      <select id = "exercise_reps" name="exercise_reps" required>
         {% for i in range(1,50) %}
           <option value = "{{i}}">{{i}}</option>"
         {% endfor %}
@@ -39,7 +40,7 @@
   </p> 
 
   <p id="add-repunit">  
-    <h3>Rep Unit</h3>
+    <label>Rep Unit</label>
       <select id= "exercise_repunit" name="exercise_repunit">
        {% for unit in repunit_list %}
           <option  value="{{unit}}">{{unit}}</option>
@@ -48,12 +49,41 @@
     </select>
 </p>
 
-   
+  <p id="add-weight">
+    <label>Enter Weight*</label>
+      <input 
+        id = "exercise_weight" 
+        type = "text"
+        name="exercise_weight" required>
+  </p>
+
+  <p id="add-weightunit">  
+    <label>Weight Unit</label>
+      <select id= "exercise_weightunit" name="exercise_weightunit">
+       {% for unit in weightunit_list %}
+          <option  value="{{unit}}">{{unit}}</option>
+
+        {% endfor %}
+    </select>
+</p>
+
+  <p id="add-equipment">  
+    <label>Equipment</label>
+      <select id= "exercise_equipment" name="exercise_equipment">
+      {% for unit in equipment_list %}
+          <option  value="{{unit}}">{{unit}}</option>
+
+        {% endfor %}
+    </select>
+  </p>
+
     <p>
       <form>
         <button id="submit-exercise" type="submit" >Add</button>
       </form>
     </p>
+
+
 
   </form>
 

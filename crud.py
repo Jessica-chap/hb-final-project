@@ -97,6 +97,15 @@ def get_we_repunit():
     will update with API inormation"""
     return ['repetitions','seconds', 'minutes', 'until failure' ]
 
+def get_we_weightunit():
+    """to test connection betwen server and html
+    will update with API information"""
+    return ['lb', 'kg', 'bodyweight']
+
+def get_we_equipment():
+
+    return['kettlebell', 'dumbells', 'bodyweight', 'swiss ball']
+
 def get_workout_by_id(workout_id):
     """Return a workout object with id"""
     
