@@ -113,8 +113,11 @@ def get_workout_by_id(workout_id):
 
 # we_by_ex_id = crud.Workout_exercise.query.filter(exercise.exercise_id == (session['exercise_id']), workout.workout_id == (session['workout_id'])).first()
 
+# SELECT we_id FROM workout_exercises JOIN workouts ON workout_exercises.workout_id = workouts.workout_id WHERE workouts.user_id = 5;
 
+# SELECT workouts.workout_date, exercises.exercise_name FROM workouts JOIN workout_exercises ON workouts.workout_id=workout_exercises.workout_id JOIN exercises ON workout_exercises.exercise_id= exercises.exercise_id WHERE workouts.workout_id=5 ORDER BY workouts.workout_date;
 
+# SELECT workouts.workout_id FROM workouts JOIN users ON workouts.user_id = users.user_id WHERE workouts.user_id = 4
 
 
 

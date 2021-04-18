@@ -124,7 +124,8 @@ def new_workout_form():
                             repunit_list=repunit_list,
                             weightunit_list=weightunit_list,
                             equipment_list=equipment_list, 
-                            name=user.user_name)
+                            name=user.user_name,
+                            user_id = user.user_id)
 
 
 
