@@ -59,6 +59,7 @@ def create_exercise(exercise_name, exercise_info):
 
 # boat_row = create_exercise(exercise_name='boat_row', exercise_info='row row row the boat')
 
+###################WORKOUT FUNCTIONS#########################################
 
 def create_workout(user, workout_date):
     """create and return workout"""
@@ -72,6 +73,8 @@ def create_workout(user, workout_date):
 
 # riley_wrkt = create_workout(user= riley, workout_date= datetime.now())
 
+
+###################WORKOUT EXERCISE FUNCTIONS#############################
 
 def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit=None, we_weight=None, we_weightunit=None, we_equipment=None):
     """create and return workout_exercise"""
@@ -89,7 +92,10 @@ def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit=None
 # wrkt_boat_row = create_workout_exercise(workout= riley_wrkt, exercise= boat_row,
 #                                 we_sets= 1, we_reps=60, we_repunit='minutes',
 #                                 we_weight=1, we_weightunit= 'bodyweight', we_equipment='row machine')
-
+def get_we_repunit():
+    """to test connection between server and html
+    will update with API inormation"""
+    return ['repetitions','seconds', 'minutes', 'until failure' ]
 
 def get_workout_by_id(workout_id):
     """Return a workout object with id"""

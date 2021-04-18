@@ -90,7 +90,7 @@ def handle_login():
 def user_logout():
     """log user out of current session"""
     session.pop('user', None)
-###TODO add HTML button
+###TODO WIP add HTML button
     return redirect('/')     
 
 
@@ -114,12 +114,53 @@ def new_workout_form():
     session['workout_id'] = new_workout.workout_id
 
     exercise_list = crud.Exercise.query.all()
+    repunit_list = crud.get_we_repunit()
+    # print('*'*20)
+    # print('*'*20)
+    # print(repunit_list)
+    # print('*'*20)
+    # print('*'*20)
 
     return render_template('create_workout.html', 
-                            exercise_list= exercise_list, 
+                            exercise_list= exercise_list,
+                            repunit_list=repunit_list, 
                             name=user.user_name)
 
-#TODO AJAX to keep all on one page
+
+
+@app.route('/add_exercise', methods=['POST'])
+def add_exercise_to_workout():
+
+    exercise_selection = request.form.get('exercise_selection')
+    session['exercise_id'] = exercise_selection
+
+    exercise = crud.Exercise.query.get(exercise_selection)
+    workout = crud.Workout.query.get(session['workout_id'])
+
+    we_sets = request.form.get('exercise_sets')
+    we_reps = request.form.get('exercise_reps')
+    we_repunit = request.form.get('exercise_repunit')
+
+    create_we = crud.create_workout_exercise(workout, exercise, 
+                                            we_sets, we_reps, we_repunit)
+    # print('*'*20)                                        
+    # print('*'*20)
+    # print(create_we.we_repunit)
+    # print('*'*20)
+
+    ##               "JS name": model.py name          
+    res_dict= {"exercise_selection": create_we.exercise.exercise_name, 
+                "exercise_sets": create_we.we_sets,
+                "exercise_reps": create_we.we_reps,
+                "exercise_repunit": create_we.we_repunit, 
+                "exercise_info": create_we.exercise.exercise_info}                                   
+    
+    return jsonify(res_dict)
+
+    
+# print('*'*20)
+# print('*'*20)
+#TODO WIP API details
 
 @app.route('/create_exercise')
 def create_exercises_for_workout():
@@ -135,32 +176,6 @@ def create_exercises_for_workout():
         #params set in payload
     #save the response data = 
     pass
-
-
-@app.route('/add_exercise', methods=['POST'])
-def add_exercise_to_workout():
-
-    exercise_selection = request.form.get('exercise_selection')
-    session['exercise_id'] = exercise_selection
-
-    exercise = crud.Exercise.query.get(exercise_selection)
-    workout = crud.Workout.query.get(session['workout_id'])
-
-    we_sets = request.form.get('exercise_sets')
-
-    we_reps = request.form.get('exercise_reps')
-
-    create_we = crud.create_workout_exercise(workout, exercise, we_sets, we_reps) 
-    ##               "JS name": model.py name
-    res_dict= {"exercise_reps": create_we.we_reps, 
-                "exercise_sets": create_we.we_sets, 
-                "exercise_selection": create_we.exercise.exercise_name}                                   
-    
-    return jsonify(res_dict)
-
-    
-
-
 
 
 

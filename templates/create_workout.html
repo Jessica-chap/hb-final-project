@@ -21,7 +21,7 @@
   </p>
 
   <p id="add-sets">
-    <h3>Exercise sets</h3>
+    <h3>Sets</h3>
       <select id = "exercise_sets" name="exercise_sets">
         {% for i in range(1,21) %}
           <option value = "{{i}}">{{i}}</option>"
@@ -30,13 +30,24 @@
   </p>
 
   <p id="add-reps">
-    <h3>Exercise reps</h3>
+    <h3>Reps</h3>
       <select id = "exercise_reps" name="exercise_reps">
         {% for i in range(1,50) %}
           <option value = "{{i}}">{{i}}</option>"
         {% endfor %}
       </select>
-  </p>  
+  </p> 
+
+  <p id="add-repunit">  
+    <h3>Rep Unit</h3>
+      <select id= "exercise_repunit" name="exercise_repunit">
+       {% for unit in repunit_list %}
+          <option  value="{{unit}}">{{unit}}</option>
+
+        {% endfor %}
+    </select>
+</p>
+
    
     <p>
       <form>
@@ -53,7 +64,11 @@
           <th>Exercise</th>
           <th>Sets</th>
           <th>Reps</th>
+          <th>Rep-Unit</th>
           <th>Info</th>
+          <th>Weight</th>
+          <th>Weight-Unit</th>
+          <th>Equipment</th>
         </tr>
       </thead>
 

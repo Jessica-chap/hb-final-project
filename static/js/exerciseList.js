@@ -1,10 +1,12 @@
 "use strict";
 
-  const addItemToTable = (exercise, sets, reps) => {
+  const addItemToTable = (exercise, sets, reps, repunit, info) => {
     $('#user-exercise-selections').append("<tr>" +
             "<td>" + exercise + "</td>" +
             "<td>" + sets + "</td>" +
             "<td>" + reps + "</td>" +
+            "<td>" + repunit + "</td>" +
+            "<td>" + info + "</td>" +
             "</tr>");
   };
 
@@ -15,13 +17,16 @@
       //'server .get requests : assign from HTML
         'exercise_selection': $("#exercise_name").val(),
         'exercise_sets': $("#exercise_sets").val(),
-        'exercise_reps': $("#exercise_reps").val()
+        'exercise_reps': $("#exercise_reps").val(),
+        'exercise_repunit': $("#exercise_repunit").val() 
     }
 
     $.post("/add_exercise", formInputs, (res) => {
-      console.log(res);
-      addItemToTable(res.exercise_selection, res.exercise_sets, res.exercise_reps);
-      alert('workout successfully added!');
+      console.log(res.exercise_info);
+      addItemToTable(res.exercise_selection, 
+                    res.exercise_sets, res.exercise_reps, 
+                    res.exercise_repunit, res.exercise_info);
+      // alert('workout successfully added!');
     })
   });
 
