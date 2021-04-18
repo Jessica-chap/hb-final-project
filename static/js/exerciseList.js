@@ -17,7 +17,7 @@
 
 
   $('#exercise-form').on('submit', (evt) => {
-    // evt.preventDefault();
+    evt.preventDefault();
     const formInputs = {
       //'server .get requests : assign from HTML
         'exercise_selection': $("#exercise_name").val(),

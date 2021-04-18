@@ -167,7 +167,6 @@ def add_exercise_to_workout():
     
 # print('*'*20)
 # print('*'*20)
-#TODO WIP API details
 
 @app.route('/create_exercise')
 def create_exercises_for_workout():
