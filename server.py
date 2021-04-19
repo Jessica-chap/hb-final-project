@@ -179,19 +179,24 @@ def add_exercise_to_workout():
 def create_exercises_for_workout():
     """handle api request for exercise information"""
     api_test_exercise_selection = request.form.get('api-test-exercise-selection')
-    ex_url = 'https://wger.de/api/v2/exercise/'
+    ex_url = 'https://wger.de/api/v2/exercise/?language=2'
     
     payload = {'apikey': API_KEY, 
                 'api_test_exercise_selection': api_test_exercise_selection}
 
     response = requests.get(ex_url, params=payload)
-    data = response.json()
-    
-    print('*'*20)
-    print(data)
-    print('*'*20)
-    
+    data = response.json() #dictionary
+    exercises = data['results'] #list
 
+    for exercise in exercises:
+        print('*'*20)
+        print(exercise['name'])
+        print('*'*20)
+       
+
+    # print('*'*20)
+    # print('*'*20)
+ 
     return redirect('/create_workout')
 
 
