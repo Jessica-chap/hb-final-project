@@ -5,6 +5,7 @@ from model import connect_to_db
 from jinja2 import StrictUndefined
 from datetime import datetime
 import crud
+import requests
 import os
 
 
@@ -14,6 +15,9 @@ app.jinja_env.undefined = StrictUndefined
 
 API_KEY = os.environ['WGER_KEY']
 
+
+
+###        HANDLE USER ROUTES           ###
 
 @app.route('/')
 def homepage():
@@ -104,6 +108,9 @@ def show_user(user_id):
 
 
 
+####    WORKOUT CREATION ROUTES     ####
+
+
 @app.route('/create_workout')
 def new_workout_form():
     """Take user from personal page to page to start creating workout"""
@@ -168,22 +175,41 @@ def add_exercise_to_workout():
 # print('*'*20)
 # print('*'*20)
 
-@app.route('/create_exercise')
+@app.route('/api_exercise_req')
 def create_exercises_for_workout():
     """handle api request for exercise information"""
+    api_test_exercise_selection = request.form.get('api-test-exercise-selection')
+    ex_url = 'https://wger.de/api/v2/exercise/'
     
-    #make get request for exercises table information- 
-    #exercise_name, exercise_info, and API key
+    payload = {'apikey': API_KEY, 
+                'api_test_exercise_selection': api_test_exercise_selection}
 
-    #url = https://wger.de/api/v2/exercise/
+    response = requests.get(ex_url, params=payload)
+    data = response.json()
+    
+    print('*'*20)
+    print(data)
+    print('*'*20)
+    
 
-    #add data returned from request to payload
-    # make request for a response that includes the url with
-        #params set in payload
-    #save the response data = 
+    return redirect('/create_workout')
+
+
+@app.route('/api_exercise_selection')
+def exercise_selection_for_workout():
+
     pass
 
 
+
+
+
+
+
+
+
+
+    
 
 
 if __name__ == '__main__':

@@ -15,9 +15,8 @@
 
   <h2>Choose an exercise</h2> 
   <h4>Required*</h4>
-
-    <form id= "exercise-form">
-      
+    
+  <form id= "exercise-form">
       <p id="add-exercise">  
         <label>Exercise list*</label>
           <select id= "exercise_name" name="exercise_selection" required>
@@ -115,6 +114,30 @@
 
     </table>
 </section>
+
+<br>
+
+<h4>test API</h4> 
+  <form id= "api-test-form">
+    
+    <p id="api-test-add-exercise" 
+        method="POST" 
+        action="/api_exercise_selection">  
+        <label>test-Exercise list*</label>
+          <input 
+            type = "text"
+            placeholder="Search exercises"
+            name="api_exercise">
+    </p>
+    <p>
+      <form>
+        <button id="API-test-submit-exercise" type="submit" >TEST-API</button>
+      </form>
+    </p>
+  </form>
+
+
+
 
   <script src="/static/js/exerciseList.js"></script>
 
