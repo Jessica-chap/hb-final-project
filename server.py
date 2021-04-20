@@ -4,6 +4,7 @@ from flask import (Flask, render_template, request, flash, session,
 from model import connect_to_db
 from jinja2 import StrictUndefined
 from datetime import datetime
+from pprint import pformat
 import crud
 import requests
 import os
@@ -188,22 +189,24 @@ def create_exercises_for_workout():
     data = response.json() #dictionary
     exercises = data['results'] #list
 
-    for exercise in exercises:
-        print('*'*20)
-        print(exercise['name'])
-        print('*'*20)
-       
+    # for exercise in exercises:
+    #     print('*'*20)
+    #     print(exercise['name'])
+    #     print('*'*20)
 
-    # print('*'*20)
-    # print('*'*20)
  
-    return redirect('/create_workout')
+    return redirect('/create_workout') #TODO ex_result cannot 
+                    #       get passed on redirect, but need to 
+                    #       go to create workout
 
 
-@app.route('/api_exercise_selection')
-def exercise_selection_for_workout():
+# @app.route('/api_exercise_selection', methods= ['POST'])
+# def api_selection_for_workout():
 
-    pass
+
+
+
+#     return redirect('/create_workout')
 
 
 

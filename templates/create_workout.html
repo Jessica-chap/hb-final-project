@@ -124,11 +124,14 @@
         method="POST" 
         action="/api_exercise_selection">  
         <label>test-Exercise list*</label>
-          <input 
-            type = "text"
-            placeholder="Search exercises"
-            name="api_exercise">
+          {% for exercise in ex_results %}
+
+              <option  value="{{exercise.name}}">
+              {{exercise.name}}</option>
+
+          {% endfor %}
     </p>
+
     <p>
       <form>
         <button id="API-test-submit-exercise" type="submit" >TEST-API</button>
