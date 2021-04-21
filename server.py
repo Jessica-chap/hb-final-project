@@ -195,10 +195,30 @@ def create_exercises_for_workout():
     #     print('*'*20)
 
  
-    return redirect('/create_workout') #TODO ex_result cannot 
+    return redirect('/api_equipment_req') #TODO ex_result cannot 
                     #       get passed on redirect, but need to 
                     #       go to create workout
 
+
+@app.route('/api_equipment_req')
+def equipment_req_workout():
+    """make request for equipment list"""
+    api_equipment = request.form.get('exercise_equipment')
+    equip_url = 'https://wger.de/api/v2equipment/?language=2'
+
+    payload = {'apikey': API_KEY, 
+                'api_equipment': api_equipment}
+
+    response = requests.get(equip_url, params=payload)
+    data = response.json() #dictionary
+    api_equipment_list = data['results'] #list
+
+    for equip in api_equipemnt_list:
+        print('*'*20)
+        print(equip['name'])
+        print('*'*20)
+
+    return redirect('/create_workout')
 
 # @app.route('/api_exercise_selection', methods= ['POST'])
 # def api_selection_for_workout():
