@@ -134,9 +134,7 @@ def new_workout_form():
     ex_response = requests.get(ex_url, params=payload)
     ex_data = ex_response.json() #dictionary
     api_exercises_list = ex_data['results'] #list
-    # print('*'*20)
-    # print(api_exercises_list)
-    # print('*'*20)
+  
 
     equip_response = requests.get(equip_url, params=payload)
     equip_data =equip_response.json() #dictionary
