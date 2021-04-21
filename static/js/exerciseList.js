@@ -20,22 +20,22 @@
     evt.preventDefault();
     const formInputs = {
       //'server .get requests : assign from HTML
-        'exercise_selection': $("#exercise_name").val(),
+        'api_exercise_selection': $("#api_exercise_selection").val(),
         'exercise_sets': $("#exercise_sets").val(),
         'exercise_reps': $("#exercise_reps").val(),
         'exercise_repunit': $("#exercise_repunit").val(),
         'exercise_weight': $("#exercise_weight").val(),
         'exercise_weightunit': $("#exercise_weightunit").val(),
-        'exercise_equipment': $("#exercise_equipment").val() 
+        'api_exercise_equipment': $("api_exercise_equipment").val() 
     }
 
     $.post("/add_exercise", formInputs, (res) => {
       console.log(res.exercise_info);
-      addItemToTable(res.exercise_selection, 
+      addItemToTable(res.api_exercise_selection, 
                     res.exercise_sets, res.exercise_reps, 
                     res.exercise_repunit, res.exercise_info,
                     res.exercise_weight, res.exercise_weightunit, 
-                    res.exercise_equipment);
+                    res.api_exercise_equipment);
       
     })
   });

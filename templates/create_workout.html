@@ -17,17 +17,30 @@
   <h4>Required*</h4>
     
   <form id= "exercise-form">
-      <p id="add-exercise">  
-        <label>Exercise list*</label>
-          <select id= "exercise_name" name="exercise_selection" required>
-           {% for exercise in exercise_list %}
 
-              <option  value="{{exercise.exercise_id}}">
-              {{exercise.exercise_name}}</option>
+    <p id="api-exercises">  
+      <label>Exercises*</label>
+        <select id= "api_exercise_selection" 
+                name="api_exercise_selection" required>
+         {% for exercise in api_exercises_list %}
+    
+            <option  value="{{exercise.name}}">
+            {{exercise.name}}</option>
+    
+          {% endfor %}
+      </select>
+    </p>
+    
+    <label>Equipment</label>
+      <select id= "api_exercise_equipment" 
+              name="api_exercise_equipment" required>
+        {% for equip in equipment_list %}
+          <option  value="{{equip}}">{{equip.name}}</option>
 
-            {% endfor %}
-        </select>
-  </p>
+        {% endfor %}
+      </select>
+    </p>
+  
 
   <p id="add-sets">
     <label>Sets*</label>
@@ -75,17 +88,6 @@
     </select>
 </p>
 
-  <p id="add-equipment">  
-    <label>Equipment</label>
-      <select id= "exercise_equipment" name="exercise_equipment">
-      {% for unit in equipment_list %}
-          <option  value="{{unit}}">{{unit}}</option>
-
-        {% endfor %}
-    </select>
-  </p>
-
-    <p>
       <form>
         <button id="submit-exercise" type="submit" >Add</button>
       </form>
@@ -114,41 +116,6 @@
 
     </table>
 </section>
-
-<br>
-
-<h4>test API</h4> 
-  <form id= "api-test-form">
-    
-    <p id="api-test-add-exercise" 
-        method="POST" 
-        action="/api_exercise_selection">  
-        
-    </p>
-      <label for="ex-search">Exercise:</label>
-        <input type="search" plaeholder="Search" id="ex-search" name="ex-search">
-    <p>
-      <form>
-        <p id="add-api-equipment">  
-          <label>Equipment</label>
-            <select id= "api_exercise_equipment" name="exercise_equipment" required>
-             {% for unit in equipment_list %}
-                <option  value="{{unit}}">{{unit}}</option>
-      
-              {% endfor %}
-          </select>
-        </p>
-      </form>
-
-
-      <form>
-        <button id="API-test-submit-exercise" type="submit" >TEST-API</button>
-      </form>
-    </p>
-  </form>
-
-
-
 
 
   <script src="/static/js/exerciseList.js"></script>
