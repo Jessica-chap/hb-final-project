@@ -124,6 +124,8 @@ def new_workout_form():
     api_exercise_selection = request.args.get('api_exercise_selection')
     ex_url = 'https://wger.de/api/v2/exercise/?language=2'
 
+    
+
     api_equipment = request.args.get('api_exercise_equipment')
     equip_url = 'https://wger.de/api/v2/equipment/?language=2'
     
@@ -134,22 +136,11 @@ def new_workout_form():
     ex_response = requests.get(ex_url, params=payload)
     ex_data = ex_response.json() #dictionary
     api_exercises_list = ex_data['results'] #list
-        
-    print('*'*20)
-    print(api_exercises_list)
-    print('*'*20)
-    # for exercise in api_exercises_list:
-    #     print([exercise['id']], [exercise['name']])
-    # # print(api_exercises_list[0]['name'])
-    #     print('*'*20)
-    #     print('*'*20)
-    #TODO - need to create exercise object with information from API
-        #    exercise= crud.create_exercise(exercise_name, exercise_info) 
-    
+
     equip_response = requests.get(equip_url, params=payload)
     equip_data =equip_response.json() #dictionary
     api_equipment_list = equip_data['results'] #list
-     
+
     repunit_list = crud.get_we_repunit()
     weightunit_list = crud.get_we_weightunit()
  
@@ -168,22 +159,21 @@ def new_workout_form():
 def add_exercise_to_workout():
 
     api_exercise_selection = request.form.get('api_exercise_selection')
-    exercise = Exercise.query.filter(Exercise.api_id == api_exercise_selection).first()
+    # exercise = model.Exercise.query.filter(Exercise.api_id == api_exercise_selection).first()
+    exercise = crud.verify_if_exercise(api_exercise_selection)
     if exercise == None:
+        print('*'*20)
+        print(exercise)
+        print('*'*20)
         ex_url = 'https://wger.de/api/v2/exercise/'+api_exercise_selection+'/?language=2'
 
-        
         payload = {'apikey': API_KEY}
         res = requests.get(ex_url, params=payload)
         data = res.json()
-        exercise= crud.create_exercise(data['name'], data['description'], data['api_id']) 
-    
-    
-    print('*'*20)
-    print(api_exercise_selection)#string
-    print('*'*20)
-    
-   
+        exercise= crud.create_exercise(data['name'], data['description'], data['id']) 
+        session['exercise_id'] = exercise.exercise_id
+    # else:
+    #     exercise = 
     workout = crud.Workout.query.get(session['workout_id'])
 
     we_sets = request.form.get('exercise_sets')
@@ -193,14 +183,14 @@ def add_exercise_to_workout():
     we_weightunit = request.form.get('exercise_weightunit')
     we_equipment = request.form.get('api_exercise_equipment')
 
-    create_we = crud.create_workout_exercise(workout, api_exercise_selection, 
+    create_we = crud.create_workout_exercise(workout, exercise, 
                                             we_sets, we_reps, 
                                             we_repunit, we_weight, 
                                             we_weightunit, we_equipment) 
                                             
 
     ##               "JS name": model.py name          
-    res_dict= {"api_exercise_selection": create_we.exercise.name, 
+    res_dict= {"api_exercise_selection": create_we.exercise.exercise_name, 
                 "exercise_sets": create_we.we_sets,
                 "exercise_reps": create_we.we_reps,
                 "exercise_repunit": create_we.we_repunit, 

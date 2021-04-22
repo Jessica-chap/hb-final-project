@@ -44,6 +44,7 @@ def verify_valid_user(user_name):
     return False
 
 
+
 ###################EXERCISE FUNCTIONS###########################################
 
 def create_exercise(exercise_name, exercise_info, api_id):
@@ -59,6 +60,13 @@ def create_exercise(exercise_name, exercise_info, api_id):
     return exercise
 
 # boat_row = create_exercise(exercise_name='boat_row', exercise_info='row row row the boat')
+
+def verify_if_exercise(api_exercise):
+    
+    exercise = Exercise.query.filter(Exercise.api_id == api_exercise).first()
+
+    return exercise
+
 
 ###################WORKOUT FUNCTIONS#########################################
 
