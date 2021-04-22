@@ -16,7 +16,9 @@
   <h2>Choose an exercise</h2> 
   <h4>Required*</h4>
     
-  <form id= "exercise-form">
+  <form id= "exercise-form"
+        action="/add_exercise"
+        method="POST">
 
     <p id="api-exercises">  
       <label>Exercises*</label>
@@ -34,7 +36,7 @@
     <label>Equipment</label>
       <select id= "api_exercise_equipment" 
               name="api_exercise_equipment" required>
-        {% for equip in equipment_list %}
+        {% for equip in api_equipment_list %}
           <option  value="{{equip}}">{{equip.name}}</option>
 
         {% endfor %}

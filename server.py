@@ -134,8 +134,15 @@ def new_workout_form():
     ex_response = requests.get(ex_url, params=payload)
     ex_data = ex_response.json() #dictionary
     api_exercises_list = ex_data['results'] #list
-  
-
+        
+    print('*'*20)
+    print('*'*20)
+    print(api_exercises_list[4]['description'])
+    print('*'*20)
+    print('*'*20)
+    #TODO - need to create exercise object with information from API
+           #exercise= crud.create_exercise(exercise_name, exercise_info) 
+    
     equip_response = requests.get(equip_url, params=payload)
     equip_data =equip_response.json() #dictionary
     api_equipment_list = equip_data['results'] #list
@@ -148,7 +155,7 @@ def new_workout_form():
                             api_exercises_list= api_exercises_list,
                             repunit_list=repunit_list,
                             weightunit_list=weightunit_list,
-                            equipment_list=api_equipment_list, 
+                            api_equipment_list=api_equipment_list, 
                             name=user.user_name,
                             user_id = user.user_id)
 
@@ -159,9 +166,7 @@ def add_exercise_to_workout():
 
     api_exercise_selection = request.form.get('api_exercise_selection')
     session['exercise_id'] = api_exercise_selection
-    # print('*'*20)
-    # print(api_exercise_selection[0])
-    # print('*'*20)
+   
     workout = crud.Workout.query.get(session['workout_id'])
 
     we_sets = request.form.get('exercise_sets')
@@ -179,14 +184,15 @@ def add_exercise_to_workout():
    
 
     ##               "JS name": model.py name          
-    res_dict= {"exercise_selection": create_we.exercise.name, 
+    res_dict= {"api_exercise_selection": create_we.exercise.name, 
                 "exercise_sets": create_we.we_sets,
                 "exercise_reps": create_we.we_reps,
                 "exercise_repunit": create_we.we_repunit, 
                 "exercise_info": create_we.exercise.exercise_info, 
                 "exercise_weight": create_we.we_weight, 
                 "exercise_weightunit": create_we.we_weightunit, 
-                "exercise_equipment": create_we.we_equipment}                                   
+                "api_exercise_equipment": create_we.we_equipment}     
+                             
     
     return jsonify(res_dict)
 

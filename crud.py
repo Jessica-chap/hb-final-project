@@ -102,9 +102,9 @@ def get_we_weightunit():
     will update with API information"""
     return ['lb', 'kg', 'bodyweight']
 
-def get_we_equipment():
+# def get_we_equipment():
 
-    return['kettlebell', 'dumbells', 'bodyweight', 'swiss ball']
+#     return['kettlebell', 'dumbells', 'bodyweight', 'swiss ball']
 
 def get_workout_by_id(workout_id):
     """Return a workout object with id"""
