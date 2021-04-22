@@ -121,10 +121,10 @@ def new_workout_form():
     session['user_id'] = user.user_id
     session['workout_id'] = new_workout.workout_id
 
-    api_exercise_selection = request.form.get('api_exercise_selection')
+    api_exercise_selection = request.args.get('api_exercise_selection')
     ex_url = 'https://wger.de/api/v2/exercise/?language=2'
 
-    api_equipment = request.form.get('api_exercise_equipment')
+    api_equipment = request.args.get('api_exercise_equipment')
     equip_url = 'https://wger.de/api/v2/equipment/?language=2'
     
     payload = {'apikey': API_KEY, 
@@ -136,12 +136,15 @@ def new_workout_form():
     api_exercises_list = ex_data['results'] #list
         
     print('*'*20)
+    print(api_exercises_list)
     print('*'*20)
-    print(api_exercises_list[4]['description'])
-    print('*'*20)
-    print('*'*20)
+    # for exercise in api_exercises_list:
+    #     print([exercise['id']], [exercise['name']])
+    # # print(api_exercises_list[0]['name'])
+    #     print('*'*20)
+    #     print('*'*20)
     #TODO - need to create exercise object with information from API
-           #exercise= crud.create_exercise(exercise_name, exercise_info) 
+        #    exercise= crud.create_exercise(exercise_name, exercise_info) 
     
     equip_response = requests.get(equip_url, params=payload)
     equip_data =equip_response.json() #dictionary
@@ -165,7 +168,21 @@ def new_workout_form():
 def add_exercise_to_workout():
 
     api_exercise_selection = request.form.get('api_exercise_selection')
-    session['exercise_id'] = api_exercise_selection
+    exercise = Exercise.query.filter(Exercise.api_id == api_exercise_selection).first()
+    if exercise == None:
+        ex_url = 'https://wger.de/api/v2/exercise/'+api_exercise_selection+'/?language=2'
+
+        
+        payload = {'apikey': API_KEY}
+        res = requests.get(ex_url, params=payload)
+        data = res.json()
+        exercise= crud.create_exercise(data['name'], data['description'], data['api_id']) 
+    
+    
+    print('*'*20)
+    print(api_exercise_selection)#string
+    print('*'*20)
+    
    
     workout = crud.Workout.query.get(session['workout_id'])
 
@@ -181,7 +198,6 @@ def add_exercise_to_workout():
                                             we_repunit, we_weight, 
                                             we_weightunit, we_equipment) 
                                             
-   
 
     ##               "JS name": model.py name          
     res_dict= {"api_exercise_selection": create_we.exercise.name, 
@@ -200,57 +216,7 @@ def add_exercise_to_workout():
 # print('*'*20)
 # print('*'*20)
 
-# @app.route('/api_exercise_req')
-# def create_exercises_for_workout():
-#     """handle api request for exercise information"""
-#     api_test_exercise_selection = request.form.get('api-test-exercise-selection')
-#     ex_url = 'https://wger.de/api/v2/exercise/?language=2'
-    
-#     payload = {'apikey': API_KEY, 
-#                 'api_test_exercise_selection': api_test_exercise_selection}
 
-#     response = requests.get(ex_url, params=payload)
-#     data = response.json() #dictionary
-#     exercises = data['results'] #list
-
-#     # for exercise in exercises:
-#     #     print('*'*20)
-#     #     print(exercise['name'])
-#     #     print('*'*20)
-
- 
-#     return redirect('/api_equipment_req') #TODO ex_result cannot 
-                    #       get passed on redirect, but need to 
-                    #       go to create workout
-
-
-# @app.route('/api_equipment_req')
-# def equipment_req_workout():
-#     """make request for equipment list"""
-#     api_equipment = request.form.get('api_exercise_equipment')
-#     equip_url = 'https://wger.de/api/v2/equipment/?language=2'
-
-#     payload = {'apikey': API_KEY, 
-#                 'api_equipment': api_equipment}
-
-#     response = requests.get(equip_url, params=payload)
-#     data = response.json() #dictionary
-#     api_equipment_list = data['results'] #list
-
-#     for equip in api_equipment_list:
-#         print('*'*20)
-#         print(equip['name'])
-#         print('*'*20)
-
-#     return redirect('/create_workout')
-
-# @app.route('/api_exercise_selection', methods= ['POST'])
-# def api_selection_for_workout():
-
-
-
-
-#     return redirect('/create_workout')
 
 
 
