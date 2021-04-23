@@ -54,10 +54,10 @@ class Workout_exercise(db.Model):
     
     we_sets = db.Column(db.Integer, nullable=False)
     we_reps = db.Column(db.Integer, nullable=False)  
-    we_repunit = db.Column(db.String, nullable=True)
-    we_weight = db.Column(db.Integer, nullable=True)
-    we_weightunit = db.Column(db.String, nullable=True) 
-    we_equipment = db.Column(db.String, nullable=True)
+    we_repunit = db.Column(db.String, nullable=False)
+    we_weight = db.Column(db.Integer, nullable=False)
+    we_weightunit = db.Column(db.String, nullable=False) 
+    we_equipment = db.Column(db.String, nullable=False)
 
 
     workout = db.relationship('Workout', backref='workout_exercises')

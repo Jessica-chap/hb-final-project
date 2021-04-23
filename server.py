@@ -139,7 +139,7 @@ def new_workout_form():
     equip_response = requests.get(equip_url, params=payload)
     equip_data =equip_response.json() #dictionary
     api_equipment_list = equip_data['results'] #list
-
+ 
     repunit_list = crud.get_we_repunit()
     weightunit_list = crud.get_we_weightunit()
  
@@ -158,11 +158,9 @@ def new_workout_form():
 def add_exercise_to_workout():
 
     api_exercise_selection = request.form.get('api_exercise_selection')
+
     we_equipment = request.form.get('api_exercise_equipment')
-    # print('*'*20)
-    # print(we_equipment) #Getting none returned??
-    # print(api_exercise_selection) ##Correct return 
-    # print('*'*20)
+
     exercise = crud.verify_if_exercise(api_exercise_selection)
     if exercise == None:
         ex_url = 'https://wger.de/api/v2/exercise/'+api_exercise_selection+'/?language=2'
@@ -174,14 +172,8 @@ def add_exercise_to_workout():
         session['exercise_id'] = exercise.exercise_id
     else:
         exercise = exercise
-    
-    # equip_url = 'https://wger.de/api/v2/equipment/'+api_exercise_equipment+'/?language=2'
-    # payload = {'apikey': API_KEY}
-    # res = requests.get(equip_url, params=payload)
-    # data = res.json()
-    # # print(data)
-    # # print('*'*20)
-    # # print('*'*20)
+  
+   
     workout = crud.Workout.query.get(session['workout_id'])
 
     we_sets = request.form.get('exercise_sets')

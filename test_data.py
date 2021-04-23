@@ -65,7 +65,8 @@ def example_data():
     wrkt_squat = Workout_exercise(workout_id= ankit_wrkt.workout_id, 
                                 exercise_id= squat.exercise_id,
                                 we_sets= 5, we_reps=30, we_repunit='seconds',
-                                we_weight=1, we_weightunit= 'bodyweight')
+                                we_weight=1, we_weightunit= 'bodyweight', 
+                                we_equipment='none')
 
     wrkt_crunch = Workout_exercise(workout_id= lily_wrkt.workout_id, 
                                 exercise_id= crunch.exercise_id,

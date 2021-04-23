@@ -27,11 +27,11 @@
         'exercise_repunit': $("#exercise_repunit").val(),
         'exercise_weight': $("#exercise_weight").val(),
         'exercise_weightunit': $("#exercise_weightunit").val(),
-        'api_exercise_equipment': $("api_exercise_equipment").val() 
+        'api_exercise_equipment': $("#api_exercise_equipment").val() 
     }
-
+        console.log(formInputs);
     $.post("/add_exercise", formInputs, (res) => {
-      console.log(res.exercise_info);
+      console.log(formInputs);
       addItemToTable(res.api_exercise_selection, 
                     res.exercise_sets, res.exercise_reps, 
                     res.exercise_repunit, res.exercise_info,
