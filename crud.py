@@ -68,6 +68,10 @@ def verify_if_exercise(api_exercise):
     return exercise
 
 
+# def exercise_by_api_id(api_id):
+
+#     exercise = Exercise.query.filter()
+
 ###################WORKOUT FUNCTIONS#########################################
 
 def create_workout(user, workout_date):
@@ -85,7 +89,7 @@ def create_workout(user, workout_date):
 
 ###################WORKOUT EXERCISE FUNCTIONS#############################
 
-def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit=None, we_weight=None, we_weightunit=None, we_equipment=None):
+def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_weight, we_weightunit, we_equipment):
     """create and return workout_exercise"""
 
     workout_exercise = Workout_exercise(workout=workout,

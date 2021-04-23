@@ -37,7 +37,7 @@
       <select id= "api_exercise_equipment" 
               name="api_exercise_equipment" required>
         {% for equip in api_equipment_list %}
-          <option  value="{{equip}}">{{equip.name}}</option>
+          <option  value="{{equip.id}}">{{equip.name}}</option>
 
         {% endfor %}
       </select>
