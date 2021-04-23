@@ -86,6 +86,10 @@ def create_workout(user, workout_date):
 
 # riley_wrkt = create_workout(user= riley, workout_date= datetime.now())
 
+# def exercises_from_workout(workout_id):
+#     # SELECT exercise_name FROM exercises JOIN workout_exercises ON exercises.exercise_id = workout_exercises.exercise_id  WHERE workout_id = 27;
+#     workout_session = Exercise.
+
 
 ###################WORKOUT EXERCISE FUNCTIONS#############################
 
@@ -120,6 +124,10 @@ def get_workout_by_id(workout_id):
     """Return a workout object with id"""
     
     return User.query.get(user_id)
+
+
+#query to get back workout object - 
+# SELECT exercise_name FROM exercises JOIN workout_exercises ON exercises.exercise_id = workout_exercises.exercise_id  WHERE workout_id = 27;
 
 
 

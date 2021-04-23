@@ -201,6 +201,13 @@ def add_exercise_to_workout():
     
     return jsonify(res_dict)
 
+
+@app.route('/save_workout')
+def save_workout_to_profile():
+
+
+    pass
+
     
 # print('*'*20)
 # print('*'*20)
