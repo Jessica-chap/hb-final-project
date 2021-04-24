@@ -86,10 +86,11 @@ def create_workout(user, workout_date):
 
 # riley_wrkt = create_workout(user= riley, workout_date= datetime.now())
 
-# def exercises_from_workout(workout_id):
+def exercises_from_workout(workout_id):
 #     # SELECT exercise_name FROM exercises JOIN workout_exercises ON exercises.exercise_id = workout_exercises.exercise_id  WHERE workout_id = 27;
-#     workout_session = Exercise.
-
+    exercises_from_workout = Workout_exercise.query.filter(Workout_exercise.workout_id == workout_id).all()
+    #getting back exercise objects
+    return exercises_from_workout
 
 ###################WORKOUT EXERCISE FUNCTIONS#############################
 

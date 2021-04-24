@@ -205,6 +205,8 @@ def add_exercise_to_workout():
 @app.route('/save_workout')
 def save_workout_to_profile():
 
+    save_exercises = exercises_from_workout(session['workout_id'])
+
 
     pass
 
