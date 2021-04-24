@@ -120,9 +120,17 @@
 </section>
 </p>
 
-<form>
-  <button action= "/save_workout" 
-          id="save_workout" 
+<form id = "save_workout_form"
+      action= "/save_workout"
+      method="POST">
+  <p>
+    <label>Name Workout</label>
+      <input 
+        id = "user_saved_workout_name" 
+        type = "text"
+        name="user_saved_workout_name" required>
+  </p>
+  <button id="save_workout" 
           type="submit" >Save Workout</button>
 </form>
 </p>

@@ -202,13 +202,15 @@ def add_exercise_to_workout():
     return jsonify(res_dict)
 
 
-@app.route('/save_workout')
+@app.route('/save_workout', methods=['POST'])
 def save_workout_to_profile():
 
-    save_exercises = exercises_from_workout(session['workout_id'])
+    save_exercises = crud.exercises_from_workout(session['workout_id'])
 
+    user_id = session['user_id']
+    return redirect(f'/users/{user_id}') 
 
-    pass
+    # return render_template('user_profile.html')     
 
     
 # print('*'*20)
