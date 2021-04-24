@@ -205,12 +205,20 @@ def add_exercise_to_workout():
 @app.route('/save_workout', methods=['POST'])
 def save_workout_to_profile():
 
-    save_exercises = crud.exercises_from_workout(session['workout_id'])
+    workout_name = request.form.get('user_saved_workout_name')
+    session['workout_name'] = workout_name
+
+
+    
+    # saved_exercises = crud.exercises_from_workout(session['workout_id'])
+    # session['saved_exercises'] = saved_exercises
 
     user_id = session['user_id']
-    return redirect(f'/users/{user_id}') 
+    # return redirect(f'/users/{user_id}') 
 
-    # return render_template('user_profile.html')     
+    return render_template('user_profile.html', 
+                            user_id= user_id, 
+                            workout_name=workout_name)     
 
     
 # print('*'*20)
