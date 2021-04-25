@@ -206,25 +206,27 @@ def add_exercise_to_workout():
 def save_workout_to_profile():
 
     workout_name = request.form.get('user_saved_workout_name')
+    workout_id = session['workout_id']
+    
     session['workout_name'] = workout_name
 
-
-    
-    # saved_exercises = crud.exercises_from_workout(session['workout_id'])
-    # session['saved_exercises'] = saved_exercises
-
     user_id = session['user_id']
-    # return redirect(f'/users/{user_id}') 
-
+    user = crud.get_user_by_id(user_id)
+    
     return render_template('user_profile.html', 
                             user_id= user_id, 
-                            workout_name=workout_name)     
+                            workout_name=workout_name, 
+                            workout_id=workout_id, 
+                            user=user, 
+                            saved_workout_id = {"name": workout_name, 
+                            "workout_id": workout_id})     
 
     
 # print('*'*20)
 # print('*'*20)
-
-
+# return redirect(f'/users/{user_id}') 
+#new route, render workout when going from profile to saved page 
+ # saved_exercises = crud.exercises_from_workout(session['workout_id'])
 
 
 
