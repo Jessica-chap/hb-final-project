@@ -13,25 +13,9 @@
 
   <h1>{{name}}, get this workout started!</h1>
 
-  <div id="hidden_workout_name">
-    <form id = "workout_name_form"
-        action= "/workout_name"
-        method="GET">
-    <p>
-      <label>Name Workout</label>
-        <input 
-          id = "user_saved_workout_name" 
-          type = "text"
-          name="user_saved_workout_name" required>
-    </p>
-    <form>
-      <button id="save_workout_name" 
-              type="submit">Let's Go!</button>
-    </form>
-  </form>
-</div>
+  
 
-<div id = "hidden_exercise_form">
+<div>
   <h2>Choose an exercise</h2> 
   <h4>Required*</h4>
     
@@ -148,6 +132,7 @@
 </div>
 
   <script src="/static/js/exerciseList.js"></script>
+
 
  
 {% endblock %}

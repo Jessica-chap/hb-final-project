@@ -41,13 +41,15 @@
     })
   });
 
-  function changeHidden() {
-    document.getElementById("#hidden_exercise_form").style.visibility = "block";
-    document.getElementById("#hidden_workout_name").style.visibility = "none";
-  }
+  // function changeHidden() {
+  //   document.getElementById("#hidden_exercise_form").style.visibility = "block";
+  //   document.getElementById("#hidden_workout_name").style.visibility = "none";
+  // }
   
-  const name_wkt_button = document.querySelector('#save_workout_name');
+  // const name_wkt_button = document.querySelector('#save_workout_name');
 
-  name_wkt_button.addEventListener('submit', () =>{
-    changeHidden();
-  });
+  // name_wkt_button.addEventListener('click', () =>{
+  //   console.log('clicked');
+  //   document.getElementById("hidden_exercise_form").style.display = "block";
+  //   document.getElementById("hidden_workout_name").style.display = "none";
+  // });

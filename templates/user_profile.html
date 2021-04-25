@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<h2>Future Navigation Bar (WIP)</h2>
+<h4>Future Navigation Bar (WIP)</h4>
 <div class ="navigation-bar">
   <ul>
       <li><a href="/create_workout">Create a Workout</a></li>
@@ -19,6 +19,27 @@
     <li>Weight: {{user.user_weight}}</li>
     <li>Zip Code: {{user.user_zipcode}}</li>
 </ul>
+
+<h2> Start new workout</h2>
+<div>
+  <form id = "workout_name_form"
+      action= "/workout_name"
+      method="GET">
+  <p>
+    <label>Name Workout</label>
+      <input 
+        id = "user_saved_workout_name" 
+        type = "text"
+        name="user_saved_workout_name" required>
+  </p>
+  <form>
+    <button id="save_workout_name" 
+            type="submit">Let's Go!</button>
+  </form>
+</form>
+</div>
+
+
 
 <h3>Saved Workouts</h3>
 

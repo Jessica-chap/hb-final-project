@@ -130,7 +130,7 @@ def get_name_create_workout():
     print(new_workout)
     print(session['workout_id'])
 
-    return redirect ('/create_workout')
+    return redirect('/create_workout')
 
 
 @app.route('/create_workout')

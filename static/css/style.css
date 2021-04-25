@@ -5,10 +5,10 @@ table, th, td {
     text-align:left;
 }
 
-#hidden_exercise_form {
+/* #hidden_exercise_form {
     display: none;
-}
+} */
 
-#hidden_workout_name {
+/* #hidden_workout_name {
     display: block;
-}
+} */
