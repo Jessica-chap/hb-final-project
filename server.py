@@ -117,7 +117,8 @@ def new_workout_form():
     """Take user from personal page to page to start creating workout"""
 
     user = crud.get_user_by_user_name(session['user_name'])
-    new_workout = crud.create_workout(user, datetime.now())
+    workout_name = 'test_name8' #need to change model to unique name after testing
+    new_workout = crud.create_workout(user, workout_name, datetime.now())
     session['user_id'] = user.user_id
     session['workout_id'] = new_workout.workout_id
 
@@ -158,7 +159,6 @@ def new_workout_form():
 def add_exercise_to_workout():
 
     api_exercise_selection = request.form.get('api_exercise_selection')
-
     we_equipment = request.form.get('api_exercise_equipment')
 
     exercise = crud.verify_if_exercise(api_exercise_selection)

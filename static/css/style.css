@@ -1,0 +1,14 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 6px;
+    text-align:left;
+}
+
+.hidden_exercise_form {
+    display: none;
+}
+
+.hidden_workout_name {
+    display: block;
+}

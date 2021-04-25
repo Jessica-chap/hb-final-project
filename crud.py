@@ -74,10 +74,11 @@ def verify_if_exercise(api_exercise):
 
 ###################WORKOUT FUNCTIONS#########################################
 
-def create_workout(user, workout_date):
+def create_workout(user, workout_name, workout_date):
     """create and return workout"""
 
-    workout = Workout(user=user, workout_date=workout_date)
+    workout = Workout(user=user, workout_name=workout_name, 
+                        workout_date=workout_date)
 
     db.session.add(workout)
     db.session.commit()

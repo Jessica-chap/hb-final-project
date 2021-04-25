@@ -33,13 +33,14 @@ class Workout(db.Model):
     workout_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     
+    workout_name = db.Column(db.String, nullable=False) #unique=True,
     workout_date = db.Column(db.DateTime, nullable=True)
 
     user = db.relationship('User', backref='workouts')
 
 
     def __repr__(self):
-        return f'<Workout workout_id={self.workout_id} workout_date={self.workout_date}>'
+        return f'<Workout workout_id={self.workout_id} workout_name={self.workout_name}>'
 
 
 class Workout_exercise(db.Model):

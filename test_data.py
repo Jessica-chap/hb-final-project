@@ -45,10 +45,18 @@ def example_data():
 
     Workout.query.delete()
 
-    jess_wrkt = Workout(user_id = jess.user_id, workout_date= datetime.now())
-    ankit_wrkt = Workout(user_id = ankit.user_id, workout_date= datetime.now())
-    lily_wrkt = Workout(user_id = lily.user_id, workout_date= datetime.now())
-    riley_wrkt = Workout(user_id = riley.user_id, workout_date= datetime.now())
+    jess_wrkt = Workout(user_id = jess.user_id, 
+                        workout_name= 'Monday',
+                        workout_date= datetime.now())
+    ankit_wrkt = Workout(user_id = ankit.user_id, 
+                        workout_name= 'Tuesday',
+                        workout_date= datetime.now())
+    lily_wrkt = Workout(user_id = lily.user_id,
+                        workout_name= 'Wednesday',
+                        workout_date= datetime.now())
+    riley_wrkt = Workout(user_id = riley.user_id,
+                        workout_name= 'Thursday',
+                        workout_date= datetime.now())
 
     db.session.add_all([jess_wrkt, ankit_wrkt, lily_wrkt, riley_wrkt])
     db.session.commit()
