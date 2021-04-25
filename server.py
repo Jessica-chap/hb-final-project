@@ -110,6 +110,27 @@ def show_user(user_id):
 
 
 ####    WORKOUT CREATION ROUTES     ####
+# @app.route('/new_workout') #updated PP link for create workout
+# def start_workout_page():
+#     return render_template('/create_workout.html')
+
+@app.route('/workout_name', methods=['GET'])
+def get_name_create_workout():
+
+    workout_name = request.args.get('user_saved_workout_name')
+    session['workout_name'] = workout_name
+
+    user_name = session['user_name']
+    user = crud.get_user_by_user_name(user_name)
+
+    new_workout = crud.create_workout(user, workout_name, datetime.now())
+    session['workout_id'] = new_workout.workout_id
+    print('*'*20)
+    print('*'*20)
+    print(new_workout)
+    print(session['workout_id'])
+
+    return redirect ('/create_workout')
 
 
 @app.route('/create_workout')
@@ -117,10 +138,10 @@ def new_workout_form():
     """Take user from personal page to page to start creating workout"""
 
     user = crud.get_user_by_user_name(session['user_name'])
-    workout_name = 'test_name8' #need to change model to unique name after testing
-    new_workout = crud.create_workout(user, workout_name, datetime.now())
     session['user_id'] = user.user_id
-    session['workout_id'] = new_workout.workout_id
+    # workout_name = session['workout_name']
+    # new_workout = crud.create_workout(user, workout_name, datetime.now())
+    # session['workout_id'] = new_workout.workout_id
 
     api_exercise_selection = request.args.get('api_exercise_selection')
     ex_url = 'https://wger.de/api/v2/exercise/?language=2'
