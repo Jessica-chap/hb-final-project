@@ -1,17 +1,17 @@
 "use strict";
 
   const addItemToTable = (exercise, sets, reps, 
-                          repunit, info, weight,
-                          weightunit, equipment) => {
+                          repunit, weight,
+                          weightunit, equipment, info) => {
     $('#user-exercise-selections').append("<tr>" +
             "<td>" + exercise + "</td>" +
             "<td>" + sets + "</td>" +
             "<td>" + reps + "</td>" +
             "<td>" + repunit + "</td>" +
-            "<td>" + info + "</td>" +
             "<td>" + weight + "</td>" +
             "<td>" + weightunit + "</td>" +
             "<td>" + equipment + "</td>" +
+            "<td>" + info + "</td>" +
             "</tr>");
   };
 
@@ -34,9 +34,9 @@
       // console.log(formInputs);
       addItemToTable(res.api_exercise_selection, 
                     res.exercise_sets, res.exercise_reps, 
-                    res.exercise_repunit, res.exercise_info,
-                    res.exercise_weight, res.exercise_weightunit, 
-                    res.api_exercise_equipment);
+                    res.exercise_repunit, res.exercise_weight, 
+                    res.exercise_weightunit, 
+                    res.api_exercise_equipment, res.exercise_info);
       
     })
   });

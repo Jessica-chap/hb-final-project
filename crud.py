@@ -7,7 +7,9 @@ from datetime import datetime
 ####################USER FUNCTIONS#################################
 
 def create_user(user_name, password, user_age=None, user_weight=None, user_zipcode=None ):
-    """Create and return a new user."""
+    """Create and return a new user.
+    
+    """
 
     user = User(user_name=user_name, password=password,
                 user_age=user_age, user_weight=user_weight,
@@ -85,7 +87,7 @@ def create_workout(user, workout_name, workout_date):
 
     return workout
 
-# riley_wrkt = create_workout(user= riley, workout_date= datetime.now())
+# riley_wrkt = create_workout(user= riley, workout_name= Saturday, workout_date= datetime.now())
 
 def exercises_from_workout(workout_id):
 #     # SELECT exercise_name FROM exercises JOIN workout_exercises ON exercises.exercise_id = workout_exercises.exercise_id  WHERE workout_id = 27;
@@ -93,6 +95,19 @@ def exercises_from_workout(workout_id):
     #getting back exercise objects
     return exercises_from_workout
 
+##TODO complete query to get list for showing on
+##Profile page, erro keyword can't be an experession
+# def workout_name_by_user_id(user_id):
+
+#     workouts = Workout.query.filter(Workout.user_id=user_id).all()
+#     name_list = []
+#     for workout in workouts:
+#         name_list.append(workout.workout_name)
+#     return name_list
+
+
+
+    # SELECT workout_name FROM workouts WHERE user_id=user_id;
 ###################WORKOUT EXERCISE FUNCTIONS#############################
 
 def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_weight, we_weightunit, we_equipment):

@@ -110,9 +110,7 @@ def show_user(user_id):
 
 
 ####    WORKOUT CREATION ROUTES     ####
-# @app.route('/new_workout') #updated PP link for create workout
-# def start_workout_page():
-#     return render_template('/create_workout.html')
+
 
 @app.route('/workout_name', methods=['GET'])
 def get_name_create_workout():
@@ -125,10 +123,6 @@ def get_name_create_workout():
 
     new_workout = crud.create_workout(user, workout_name, datetime.now())
     session['workout_id'] = new_workout.workout_id
-    print('*'*20)
-    print('*'*20)
-    print(new_workout)
-    print(session['workout_id'])
 
     return redirect('/create_workout')
 
@@ -139,13 +133,9 @@ def new_workout_form():
 
     user = crud.get_user_by_user_name(session['user_name'])
     session['user_id'] = user.user_id
-    # workout_name = session['workout_name']
-    # new_workout = crud.create_workout(user, workout_name, datetime.now())
-    # session['workout_id'] = new_workout.workout_id
 
     api_exercise_selection = request.args.get('api_exercise_selection')
     ex_url = 'https://wger.de/api/v2/exercise/?language=2'
-
 
     api_exercise_equipment = request.args.get('api_exercise_equipment')
     equip_url = 'https://wger.de/api/v2/equipment/?language=2'
@@ -165,7 +155,6 @@ def new_workout_form():
     repunit_list = crud.get_we_repunit()
     weightunit_list = crud.get_we_weightunit()
  
-
     return render_template('create_workout.html', 
                             api_exercises_list= api_exercises_list,
                             repunit_list=repunit_list,
@@ -217,8 +206,7 @@ def add_exercise_to_workout():
                 "exercise_info": create_we.exercise.exercise_info, 
                 "exercise_weight": create_we.we_weight, 
                 "exercise_weightunit": create_we.we_weightunit, 
-                "api_exercise_equipment": create_we.we_equipment}     
-                             
+                "api_exercise_equipment": create_we.we_equipment}                      
     
     return jsonify(res_dict)
 
