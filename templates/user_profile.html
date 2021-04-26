@@ -3,7 +3,7 @@
 {% block title %}{{user.user_name}}'s Page{% endblock %}
 
 {% block body %}
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <a href="/logout"> <i class="bi bi-box-arrow-left" alt="" width="30" height="24"></i>Logout</a>
@@ -11,17 +11,24 @@
   </div>
 </nav>
 
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>{{user.user_name}}'s page</h1>
+    </div>
+  </div>
+    
+  <div class="row">
+    <div class="col">
+      <ul>
+        <li>Age: {{user.user_age}}</li>
+        <li>Weight: {{user.user_weight}}</li>
+        <li>Zip Code: {{user.user_zipcode}}</li>
+    </ul>
+    </div>
+    <div class="col-8">
+      <h2> Start new workout</h2>
 
-<h1>{{user.user_name}}'s page</h1>
-
-<ul>
-    <li>Age: {{user.user_age}}</li>
-    <li>Weight: {{user.user_weight}}</li>
-    <li>Zip Code: {{user.user_zipcode}}</li>
-</ul>
-
-<h2> Start new workout</h2>
-<div>
   <form id = "workout_name_form"
       action= "/workout_name"
       method="GET">
@@ -37,11 +44,16 @@
             type="submit">Let's Go!</button>
   </form>
 </form>
+    </div>
+  </div>
 </div>
 
 
 
+
+
 <h3>Saved Workouts</h3>
+<a href="/saved_workout">text should be based on workout name, in list</a>
 
 <p id="saved_workout_entry"></p>
 

@@ -96,7 +96,7 @@ def exercises_from_workout(workout_id):
     return exercises_from_workout
 
 ##TODO complete query to get list for showing on
-##Profile page, erro keyword can't be an experession
+##Profile page, error keyword can't be an experession
 # def workout_name_by_user_id(user_id):
 
 #     workouts = Workout.query.filter(Workout.user_id=user_id).all()
@@ -106,7 +106,7 @@ def exercises_from_workout(workout_id):
 #     return name_list
 
 
-
+    #can get correct list with this SQL-
     # SELECT workout_name FROM workouts WHERE user_id=user_id;
 ###################WORKOUT EXERCISE FUNCTIONS#############################
 

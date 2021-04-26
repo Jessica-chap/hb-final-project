@@ -104,6 +104,9 @@ def show_user(user_id):
     """Show profile page of specific user."""
 
     user = crud.get_user_by_id(user_id)
+    #TODO need to add query to get back list of workout names
+    #to generate list on html of href's for links to acces 
+    #saved workout page 
 
     return render_template('user_profile.html', user=user)
 
@@ -233,10 +236,16 @@ def save_workout_to_profile():
     
 # print('*'*20)
 # print('*'*20)
-# return redirect(f'/users/{user_id}') 
-#new route, render workout when going from profile to saved page 
- # saved_exercises = crud.exercises_from_workout(session['workout_id'])
+@app.route('/saved_workout')#/<int:workout_id>
+def access_stored_workouts():
+#need workout id from the href selected when user picks, to put into funtion call
+ # saved_exercises = crud.exercises_from_workout(workout_id)
+    user_id = session['user_id']
+    user = crud.get_user_by_id(user_id)
 
+    return render_template('/saved_workout.html', 
+                            user=user, 
+                            user_id=user_id)
 
 
 

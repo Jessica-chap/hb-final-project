@@ -2,34 +2,43 @@
 {% block title %}Create User{% endblock %}
 
 {% block body %}
-  <h1>Create User Page</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <h6>Please make sure User Name is unique</h6>
+      <form action="/new_users" method="POST">
+        <p>
+          User Name <input type="text" name="user_name" required>
+        </p>
+    
+        <p>
+          Password <input type="password" name="password" required>
+        </p>
+    
+        <p>
+          Age <input type="text" name="user_age">
+        </p>
+    
+        <p>
+          Weight <input type="text" name="user_weight">
+        </p>
+    
+        <p>
+          Zip Code <input type="text" name="user_zipcode">
+        </p>
+    
+        <p>
+          <input type="submit">
+        </p>
+      </form>
+    </div>
+    <div class="col">
+      <h1>Create an account</h1>
+    </div>
+  </div>
+  
 
-  <h2>Create an Account</h2>
-  <form action="/new_users" method="POST">
-    <p>
-      User Name <input type="text" name="user_name" required>
-    </p>
 
-    <p>
-      Password <input type="password" name="password" required>
-    </p>
-
-    <p>
-      Age <input type="text" name="user_age">
-    </p>
-
-    <p>
-      Weight <input type="text" name="user_weight">
-    </p>
-
-    <p>
-      Zip Code <input type="text" name="user_zipcode">
-    </p>
-
-    <p>
-      <input type="submit">
-    </p>
-  </form>
 
  
 {% endblock %}
