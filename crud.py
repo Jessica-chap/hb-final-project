@@ -94,19 +94,26 @@ def exercises_from_workout(workout_id):
     exercises_from_workout = Workout_exercise.query.filter(Workout_exercise.workout_id == workout_id).all()
     #getting back exercise objects
     return exercises_from_workout
+    
 
 ##TODO complete query to get list for showing on
 ##Profile page, error keyword can't be an experession
-# def workout_name_by_user_id(user_id):
+def workout_by_user_id(user_id):
 
+    workouts = Workout.query.filter(Workout.user_id=user_id).all()
+    
+    return workouts
+    #error when attempt to run def wowrkout_by_user_id
+    #(env) vagrant@vagrant:~/src/hb-final-project$ python3 crud.py 
+#   File "crud.py", line 102
 #     workouts = Workout.query.filter(Workout.user_id=user_id).all()
-#     name_list = []
-#     for workout in workouts:
-#         name_list.append(workout.workout_name)
-#     return name_list
+#                                    ^
+# SyntaxError: keyword can't be an expression   
 
 
-    #can get correct list with this SQL-
+
+
+    #can get correct list of names with this SQL, but need the workout object I think- 
     # SELECT workout_name FROM workouts WHERE user_id=user_id;
 ###################WORKOUT EXERCISE FUNCTIONS#############################
 
