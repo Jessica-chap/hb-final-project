@@ -3,13 +3,14 @@
 {% block title %}{{user.user_name}}'s Page{% endblock %}
 
 {% block body %}
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <a href="/logout"> <i class="bi bi-box-arrow-left" alt="" width="30" height="24"></i>Logout</a>
+    </a>
+  </div>
+</nav>
 
-<h4>Future Navigation Bar (WIP)</h4>
-<div class ="navigation-bar">
-  <ul>
-      <li><a href="/logout">Logout</a></li>
-  </ul>
-</div>
 
 <h1>{{user.user_name}}'s page</h1>
 
