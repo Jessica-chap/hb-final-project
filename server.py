@@ -189,16 +189,16 @@ def add_exercise_to_workout():
     else:
         exercise = exercise
     
-    img_url = 'https://wger.de/api/v2/exerciseimage/?exercise='+api_exercise_selection+'/?format=json'
-    payload = {'apikey': API_KEY}
-    img_res = requests.get(img_url, params=payload)
-    img_data = img_res.json() 
-    # img = img_data
-    print('*'*20)
-    print(img_res)
-    print('*'*20)
-    print(img_data)### need to figure out how to get image back
-    print('*'*20)
+    # img_url = 'https://wger.de/api/v2/exerciseimage/?exercise='+api_exercise_selection+'/?format=json'
+    # payload = {'apikey': API_KEY}
+    # img_res = requests.get(img_url, params=payload)
+    # img_data = img_res.json() 
+    # # img = img_data
+    # print('*'*20)
+    # print(img_res)
+    # print('*'*20)
+    # print(img_data)### need to figure out how to get image back
+    # print('*'*20)
 
     workout = crud.Workout.query.get(session['workout_id'])
 
