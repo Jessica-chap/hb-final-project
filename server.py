@@ -83,6 +83,7 @@ def handle_login():
         
         if password == user.password:
             session['user_name'] = user_name
+            session['user_id'] = user.user_id
             flash('Login success!')
             return redirect(f'/users/{user.user_id}') 
         
@@ -136,7 +137,7 @@ def new_workout_form():
     """Take user from personal page to page to start creating workout"""
 
     user = crud.get_user_by_user_name(session['user_name'])
-    session['user_id'] = user.user_id
+    # session['user_id'] = user.user_id
 
     api_exercise_selection = request.args.get('api_exercise_selection')
     ex_url = 'https://wger.de/api/v2/exercise/?language=2'
@@ -240,7 +241,8 @@ def save_workout_to_profile():
 # print('*'*20)
 @app.route('/saved_workout/<int:workout_id>')
 def access_stored_workouts(workout_id):
-#need workout id from the href selected when user picks, to put into funtion call
+
+    #list of workout_exercise objects
     saved_exercises = crud.exercises_from_workout(workout_id)
     
  #also need second query for exercise names, to exercises table?
