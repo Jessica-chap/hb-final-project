@@ -140,7 +140,7 @@ def new_workout_form():
     # session['user_id'] = user.user_id
 
     api_exercise_selection = request.args.get('api_exercise_selection')
-    ex_url = 'https://wger.de/api/v2/exercise/?language=2&limit=50'
+    ex_url = 'https://wger.de/api/v2/exercise/?language=2&limit=280'
 
     api_exercise_equipment = request.args.get('api_exercise_equipment')
     equip_url = 'https://wger.de/api/v2/equipment/?language=2'
