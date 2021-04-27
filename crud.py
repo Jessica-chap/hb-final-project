@@ -87,30 +87,25 @@ def create_workout(user, workout_name, workout_date):
     return workout
 
 # riley_wrkt = create_workout(user= riley, workout_name= Saturday, workout_date= datetime.now())
-# def get_workout_by_id(workout_id):
-#     """Return a workout object with id"""
+
+def get_workout_by_id(workout_id):
+    """Return a workout object with id"""
+
+    workout = Workout.query.filter(Workout.workout_id== workout_id).first()
     
-#     return 
+    return workout
 
 
 
-##TODO complete query to get list for showing on
-##Profile page, error keyword can't be an experession
+##TODO FIXED ERROR!! 
 def workouts_by_user_id(user_id):
 
     workouts = Workout.query.filter(Workout.user_id==user_id).all()
     
     return workouts
 
-    #####CORRECTED ERROR########
-    #error when attempt to run def wowrkout_by_user_id
-    #(env) vagrant@vagrant:~/src/hb-final-project$ python3 crud.py 
-#   File "crud.py", line 102
-#     workouts = Workout.query.filter(Workout.user_id=user_id).all()
-#                                    ^##was missing ==
-# SyntaxError: keyword can't be an expression   
-
-
+    #####CORRECTED ERROR!!!!########
+ 
 ###################WORKOUT EXERCISE FUNCTIONS#############################
 
 def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_weight, we_weightunit, we_equipment):

@@ -225,7 +225,7 @@ def save_workout_to_profile():
     user = crud.get_user_by_id(user_id)
     workouts = crud.workouts_by_user_id(user_id)
     
-    session['workout_name'] = workout_name
+    # session['workout_name'] = workout_name
     
     return render_template('user_profile.html', 
                             user_id= user_id, 
@@ -242,16 +242,16 @@ def save_workout_to_profile():
 def access_stored_workouts(workout_id):
 #need workout id from the href selected when user picks, to put into funtion call
     saved_exercises = crud.exercises_from_workout(workout_id)
-    print('*'*20)
-    print('*'*20)
-    print(saved_exercises)
+    
  #also need second query for exercise names, to exercises table?
+    workout = crud.get_workout_by_id(workout_id)
     user_id = session['user_id']
     user = crud.get_user_by_id(user_id)
 
     return render_template('/saved_workout.html', 
                             user=user, 
-                            user_id=user_id, 
+                            user_id=user_id,
+                            workout=workout, 
                             saved_exercises=saved_exercises)
 
 
