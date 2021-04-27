@@ -140,7 +140,7 @@ def new_workout_form():
     # session['user_id'] = user.user_id
 
     api_exercise_selection = request.args.get('api_exercise_selection')
-    ex_url = 'https://wger.de/api/v2/exercise/?language=2'
+    ex_url = 'https://wger.de/api/v2/exercise/?language=2&limit=50'
 
     api_exercise_equipment = request.args.get('api_exercise_equipment')
     equip_url = 'https://wger.de/api/v2/equipment/?language=2'
@@ -168,7 +168,8 @@ def new_workout_form():
                             name=user.user_name,
                             user_id = user.user_id)
 
-
+# print('*'*20)
+# print('*'*20)
 
 @app.route('/add_exercise', methods=['POST'])
 def add_exercise_to_workout():
@@ -179,16 +180,26 @@ def add_exercise_to_workout():
     exercise = crud.verify_if_exercise(api_exercise_selection)
     if exercise == None:
         ex_url = 'https://wger.de/api/v2/exercise/'+api_exercise_selection+'/?language=2'
-
         payload = {'apikey': API_KEY}
         res = requests.get(ex_url, params=payload)
         data = res.json()
+       
         exercise= crud.create_exercise(data['name'], data['description'], data['id']) 
         session['exercise_id'] = exercise.exercise_id
     else:
         exercise = exercise
-  
-   
+    
+    img_url = 'https://wger.de/api/v2/exerciseimage/?exercise='+api_exercise_selection+'/?format=json'
+    payload = {'apikey': API_KEY}
+    img_res = requests.get(img_url, params=payload)
+    img_data = img_res.json() 
+    # img = img_data
+    print('*'*20)
+    print(img_res)
+    print('*'*20)
+    print(img_data)### need to figure out how to get image back
+    print('*'*20)
+
     workout = crud.Workout.query.get(session['workout_id'])
 
     we_sets = request.form.get('exercise_sets')
