@@ -36,7 +36,6 @@ def get_user_by_id(user_id):
 
 def verify_valid_user(user_name):
     """Return true or false depending on whether user_name in database"""
-    ## query for one record instead of all 
 
     user = User.query.filter(User.user_name == user_name).first()
 
@@ -88,33 +87,30 @@ def create_workout(user, workout_name, workout_date):
     return workout
 
 # riley_wrkt = create_workout(user= riley, workout_name= Saturday, workout_date= datetime.now())
+# def get_workout_by_id(workout_id):
+#     """Return a workout object with id"""
+    
+#     return 
 
-def exercises_from_workout(workout_id):
-#     # SELECT exercise_name FROM exercises JOIN workout_exercises ON exercises.exercise_id = workout_exercises.exercise_id  WHERE workout_id = 27;
-    exercises_from_workout = Workout_exercise.query.filter(Workout_exercise.workout_id == workout_id).all()
-    #getting back exercise objects
-    return exercises_from_workout
 
 
 ##TODO complete query to get list for showing on
 ##Profile page, error keyword can't be an experession
-# def workout_by_user_id(user_id):
+def workouts_by_user_id(user_id):
 
-#     workouts = Workout.query.filter(Workout.user_id=user_id).all()
+    workouts = Workout.query.filter(Workout.user_id==user_id).all()
     
-#     return workouts
+    return workouts
+
+    #####CORRECTED ERROR########
     #error when attempt to run def wowrkout_by_user_id
     #(env) vagrant@vagrant:~/src/hb-final-project$ python3 crud.py 
 #   File "crud.py", line 102
 #     workouts = Workout.query.filter(Workout.user_id=user_id).all()
-#                                    ^
+#                                    ^##was missing ==
 # SyntaxError: keyword can't be an expression   
 
 
-
-
-    #can get correct list of names with this SQL, but need the workout object I think- 
-    # SELECT workout_name FROM workouts WHERE user_id=user_id;
 ###################WORKOUT EXERCISE FUNCTIONS#############################
 
 def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_weight, we_weightunit, we_equipment):
@@ -133,6 +129,14 @@ def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_
 # wrkt_boat_row = create_workout_exercise(workout= riley_wrkt, exercise= boat_row,
 #                                 we_sets= 1, we_reps=60, we_repunit='minutes',
 #                                 we_weight=1, we_weightunit= 'bodyweight', we_equipment='row machine')
+
+def exercises_from_workout(workout_id):
+#     # SELECT exercise_name FROM exercises JOIN workout_exercises ON exercises.exercise_id = workout_exercises.exercise_id  WHERE workout_id = 27;
+    exercises_from_workout = Workout_exercise.query.filter(Workout_exercise.workout_id == workout_id).all()
+    #getting back exercise objects
+    return exercises_from_workout
+
+
 def get_we_repunit():
     """to test connection between server and html
     will update with API inormation"""
@@ -144,14 +148,8 @@ def get_we_weightunit():
     return ['lb', 'kg', 'bodyweight']
 
 
-def get_workout_by_id(workout_id):
-    """Return a workout object with id"""
-    
-    return User.query.get(user_id)
 
 
-#query to get back workout object - 
-# SELECT exercise_name FROM exercises JOIN workout_exercises ON exercises.exercise_id = workout_exercises.exercise_id  WHERE workout_id = 27;
 
 
 

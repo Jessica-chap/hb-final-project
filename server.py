@@ -104,11 +104,12 @@ def show_user(user_id):
     """Show profile page of specific user."""
 
     user = crud.get_user_by_id(user_id)
-    #TODO need to add query to get back list of workout names
-    #to generate list on html of href's for links to acces 
-    #saved workout page 
+    workouts = crud.workouts_by_user_id(user_id)
+ 
 
-    return render_template('user_profile.html', user=user)
+    return render_template('user_profile.html', 
+                            user=user, 
+                            workouts=workouts)
 
 
 
@@ -220,32 +221,38 @@ def save_workout_to_profile():
     workout_name = request.form.get('user_saved_workout_name')
     workout_id = session['workout_id']
     
-    session['workout_name'] = workout_name
-
     user_id = session['user_id']
     user = crud.get_user_by_id(user_id)
+    workouts = crud.workouts_by_user_id(user_id)
+    
+    session['workout_name'] = workout_name
     
     return render_template('user_profile.html', 
                             user_id= user_id, 
                             workout_name=workout_name, 
                             workout_id=workout_id, 
                             user=user, 
-                            saved_workout_id = {"name": workout_name, 
-                            "workout_id": workout_id})     
+                            workouts=workouts)
+                          
 
     
 # print('*'*20)
 # print('*'*20)
-@app.route('/saved_workout')#/<int:workout_id>
-def access_stored_workouts():
+@app.route('/saved_workout/<int:workout_id>')
+def access_stored_workouts(workout_id):
 #need workout id from the href selected when user picks, to put into funtion call
- # saved_exercises = crud.exercises_from_workout(workout_id)
+    saved_exercises = crud.exercises_from_workout(workout_id)
+    print('*'*20)
+    print('*'*20)
+    print(saved_exercises)
+ #also need second query for exercise names, to exercises table?
     user_id = session['user_id']
     user = crud.get_user_by_id(user_id)
 
     return render_template('/saved_workout.html', 
                             user=user, 
-                            user_id=user_id)
+                            user_id=user_id, 
+                            saved_exercises=saved_exercises)
 
 
 

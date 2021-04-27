@@ -53,12 +53,17 @@
 
 
 <h3>Saved Workouts</h3>
-<a href="/saved_workout">text should be based on workout name, in list</a>
-
-<!-- need {% for  %} to go through workout_name list and create href with each-->
-<p id="saved_workout_entry"></p>
-
-
+<div>
+  <ul>
+    
+      {% for workout in workouts %}
+      <li>
+        <a href="/saved_workout/{{workout.workout_id}}">{{workout.workout_name}}</a>
+      </li>
+        {% endfor %}
+   
+  </ul>
+</div>
 
 
 {% endblock %}
