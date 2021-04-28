@@ -113,7 +113,6 @@
           <th>Weight</th>
           <th>Weight-Unit</th>
           <th>Equipment</th>
-          <th>Info</th>
         </tr>
       </thead>
 
@@ -122,12 +121,21 @@
     </table>
 </section>
 </p>
-<a tabindex="0" class="bi bi-info-circle" role="button" data-toggle="popover" data-trigger="focus" title="Info/Img" data-placement="left" data-content="want to produce exercise info/img"></a>
+
+<a tabindex="0" 
+class="bi bi-info-circle" 
+role="button" 
+data-toggle="popover" 
+data-trigger="focus" 
+title="Info/Img" 
+data-placement="left" 
+data-content="want to produce exercise info/img"></a>
 
 <form id = "save_workout_form"
       action= "/save_workout"
       method="POST">
   <p>
+    
   <button id="save_workout" 
           type="submit">Save Workout</button>
 </form>
@@ -135,7 +143,5 @@
 </div>
 
   <script src="/static/js/workouts.js"></script>
-
-
  
 {% endblock %}
