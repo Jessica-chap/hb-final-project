@@ -232,12 +232,10 @@ def save_workout_to_profile():
 
     workout_name = request.form.get('user_saved_workout_name')
     workout_id = session['workout_id']
-    
+    #TODO need conditional to only save workouts with exercises
     user_id = session['user_id']
     user = crud.get_user_by_id(user_id)
     workouts = crud.workouts_by_user_id(user_id)
-    
-    # session['workout_name'] = workout_name
     
     return render_template('user_profile.html', 
                             user_id= user_id, 
@@ -256,7 +254,6 @@ def access_stored_workouts(workout_id):
     #list of workout_exercise objects
     saved_exercises = crud.exercises_from_workout(workout_id)
     
- #also need second query for exercise names, to exercises table?
     workout = crud.get_workout_by_id(workout_id)
     user_id = session['user_id']
     user = crud.get_user_by_id(user_id)
