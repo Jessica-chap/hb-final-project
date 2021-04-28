@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Workouts Home{% endblock %}
+
+
+{% block body %}
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <a href="/users/{{user_id}}">Profile Page</a>
+      <a href="/logout"> <i class="bi bi-box-arrow-left" alt="" width="30" height="24"></i>Logout</a>
+    </a>
+  </div>
+</nav>
+  <h1>Saved Workout Page</h1>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Exercise</th>
+        <th scope="col">Sets</th>
+        <th scope="col">Reps</th>
+        <th scope="col">Rep-Unit</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Weight-Unit</th>
+        <th scope="col">Equipment</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for exercise in saved_exercises %}
+      <tr>
+        <th scope="row">{{exercise.exercise.exercise_name}}</th>
+        <td><a href='#'class='popover-anchor' data-toggle='popover' title='{{exercise.exercise.exercise_name}}'></a>{{exercise.we_sets}}</td>
+        <td>{{exercise.we_reps}}</td>
+        <td>{{exercise.we_repunit}}</td>
+        <td>{{exercise.we_weight}}</td>
+        <td>{{exercise.we_weightunit}}</td>
+        <td>{{exercise.we_equipment}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <script src="/static/js/workouts.js"></script>
+  <script>
+    $('.popover-anchor').popover({
+     html: true
+   });   
+ </script>
+
+
+
+
+{% endblock %}
