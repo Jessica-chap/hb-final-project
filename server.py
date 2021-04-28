@@ -140,7 +140,7 @@ def new_workout_form():
     # session['user_id'] = user.user_id
 
     api_exercise_selection = request.args.get('api_exercise_selection')
-    ex_url = 'https://wger.de/api/v2/exercise/?language=2&limit=280'
+    ex_url = 'https://wger.de/api/v2/exercise/?language=2&limit=150'
 
     api_exercise_equipment = request.args.get('api_exercise_equipment')
     equip_url = 'https://wger.de/api/v2/equipment/?language=2'
@@ -188,17 +188,6 @@ def add_exercise_to_workout():
         session['exercise_id'] = exercise.exercise_id
     else:
         exercise = exercise
-    
-    # img_url = 'https://wger.de/api/v2/exerciseimage/?exercise='+api_exercise_selection+'/?format=json'
-    # payload = {'apikey': API_KEY}
-    # img_res = requests.get(img_url, params=payload)
-    # img_data = img_res.json() 
-    # # img = img_data
-    # print('*'*20)
-    # print(img_res)
-    # print('*'*20)
-    # print(img_data)### need to figure out how to get image back
-    # print('*'*20)
 
     workout = crud.Workout.query.get(session['workout_id'])
 
@@ -233,9 +222,17 @@ def save_workout_to_profile():
     workout_name = request.form.get('user_saved_workout_name')
     workout_id = session['workout_id']
     #TODO need conditional to only save workouts with exercises
+    # if no workout_exercises- don't save name and just reroute
+    #query for workout_exercises= if comes back none 
     user_id = session['user_id']
     user = crud.get_user_by_id(user_id)
     workouts = crud.workouts_by_user_id(user_id)
+    saved_exercises = crud.exercises_from_workout(workout_id)
+    #add flash messages!! 
+    if saved_exercises == []:
+        crud.delete_empty_wkt(workout_id)
+        return redirect('/users/'+ str(user_id))
+
     
     return render_template('user_profile.html', 
                             user_id= user_id, 

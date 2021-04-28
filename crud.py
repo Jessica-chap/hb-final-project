@@ -8,6 +8,9 @@ from datetime import datetime
 
 def create_user(user_name, password, user_age=None, user_weight=None, user_zipcode=None ):
     """Create and return a new user.
+    For example:
+    >>> dock = create_user(user_name='dock', password='test', user_age='50', user_weight='100', user_zipcode='01234')
+     
     
     """
 
@@ -20,7 +23,7 @@ def create_user(user_name, password, user_age=None, user_weight=None, user_zipco
 
     return user
 
-# riley = create_user(user_name='riley', password='dogs', user_age='101', user_weight='100', user_zipcode='48076')
+# dock = create_user(user_name='dock', password='test', user_age=50, user_weight=100, user_zipcode=01234)
 
 def get_user_by_user_name(user_name):
     """Return a user by user_name"""
@@ -60,7 +63,7 @@ def create_exercise(exercise_name, exercise_info, api_id):
 
     return exercise
 
-# boat_row = create_exercise(exercise_name='boat_row', exercise_info='row row row the boat')
+# basic_exercise = create_exercise(exercise_name='basic_exercise', exercise_info='this should be description of exercise')
 
 def verify_if_exercise(api_exercise):
     
@@ -86,7 +89,7 @@ def create_workout(user, workout_name, workout_date):
 
     return workout
 
-# riley_wrkt = create_workout(user= riley, workout_name= Saturday, workout_date= datetime.now())
+# dock_wrkt = create_workout(user= dock, workout_name= Today, workout_date= datetime.now())
 
 def get_workout_by_id(workout_id):
     """Return a workout object with id"""
@@ -105,6 +108,11 @@ def workouts_by_user_id(user_id):
     return workouts
 
     #####CORRECTED ERROR!!!!########
+
+def delete_empty_wkt(workout_id):
+
+   delete_wkt = Workout.query.filter(Workout.workout_id== workout_id).delete()
+   db.session.commit()
  
 ###################WORKOUT EXERCISE FUNCTIONS#############################
 
@@ -121,9 +129,9 @@ def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_
 
     return workout_exercise
 
-# wrkt_boat_row = create_workout_exercise(workout= riley_wrkt, exercise= boat_row,
-#                                 we_sets= 1, we_reps=60, we_repunit='minutes',
-#                                 we_weight=1, we_weightunit= 'bodyweight', we_equipment='row machine')
+# wrkt_basic_exercise = create_workout_exercise(workout= dock_wrkt, exercise= basic_exercise,
+#                                 we_sets= 3, we_reps=12, we_repunit='reps',
+#                                 we_weight=10, we_weightunit= 'lb', we_equipment='dumbell')
 
 def exercises_from_workout(workout_id):
 #     # SELECT exercise_name FROM exercises JOIN workout_exercises ON exercises.exercise_id = workout_exercises.exercise_id  WHERE workout_id = 27;
@@ -154,3 +162,4 @@ def get_we_weightunit():
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
+   

@@ -33,7 +33,7 @@ class Workout(db.Model):
     workout_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     
-    workout_name = db.Column(db.String, unique=True, nullable=False)
+    workout_name = db.Column(db.String, nullable=False)
     workout_date = db.Column(db.DateTime, nullable=True)
 
     user = db.relationship('User', backref='workouts')
