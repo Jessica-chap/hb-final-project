@@ -17,4 +17,4 @@ os.system('createdb workouts')
 model.connect_to_db(server.app)
 model.db.create_all()
 
-# test_data.example_data()
+test_data.example_data()
