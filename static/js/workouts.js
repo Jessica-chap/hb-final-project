@@ -6,8 +6,6 @@
                           weightunit, equipment, info) => {
       const infoPopover =
        `<a tabindex="0" class="bi bi-info-circle" role="button" data-toggle="popover" data-trigger="focus" title="${info}"  data-placement="left" data-content="test"></a>`
-      //console.log(infoPopover)
-      console.log("inside add item to table");
     $('#user-exercise-selections').append("<tr>" +
             "<td><a href='#'class='popover-anchor' data-toggle='popover'>" + exercise + "</a></td>" +
             "<td>" + sets + "</td>" +
@@ -51,9 +49,22 @@
 
   });
 
-  $(function () {
-    $('[data-toggle="popover"]').popover()
-  });
+ function callPopover() {
+  const elements = Array.from(document.getElementsByClassName('popover-anchor__save'));
+  elements.map(element => {
+    element.addEventListener('click',function() {
+      const title = element.getAttribute('title');
+      const content = element.getAttribute('data-content');
+      const id = element.getAttribute('id');
+      const id_nm = '#' + id;
+        $(id_nm).popover({
+              title: `${title}`,
+              content: `<p>${content}</p>`,
+              html: true
+        });
+        $(id_nm).popover("toggle");
+    });
+    });
+ }
 
- 
-
+  window.onload = callPopover();
