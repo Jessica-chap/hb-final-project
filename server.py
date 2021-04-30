@@ -45,11 +45,6 @@ def handle_new_user():
     user_weight = request.form.get('user_weight')
     user_zipcode = request.form.get('user_zipcode')
 
-    # if user_name == '' or password == '':
-    #         flash('Both user name and password field are required, please try again')
-    #         return redirect('/')
-    
-    # else:
     is_valid_user = crud.verify_valid_user(user_name)
 
     if is_valid_user == False:
@@ -221,9 +216,7 @@ def save_workout_to_profile():
 
     workout_name = request.form.get('user_saved_workout_name')
     workout_id = session['workout_id']
-    #TODO need conditional to only save workouts with exercises
-    # if no workout_exercises- don't save name and just reroute
-    #query for workout_exercises= if comes back none 
+ 
     user_id = session['user_id']
     user = crud.get_user_by_id(user_id)
     workouts = crud.workouts_by_user_id(user_id)
