@@ -22,22 +22,34 @@
     </div>
     <div class="col">
       <h2>Login</h2>
-      <form action="/users" method="POST">
+      <!-- <form action="/users" method="POST">
         <p>
           User Name <input type="text" name="user_name" required>
         </p>
-    
         <p>
           Password <input type="password" name="password" required>
         </p>
-    
         <p>
           <form>
             <button type="submit">Log in</button>
           </form>
         </p>  
+      </form> -->
+      <form action="/users" method="POST">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="username" class="form-control" id="homepageusername" 
+                  aria-describedby="emailHelp" placeholder="Enter username"
+                  name="user_name" required>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" 
+                placeholder="Password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-    
+      
       <ul>
         <p>
           <li><a href="/create_user">Create an Account</a></li>
@@ -46,7 +58,7 @@
       </ul>
     </div>
   </div>
-  
+
 
 
 
