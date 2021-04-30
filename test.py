@@ -30,9 +30,11 @@ class FlaskTestsHpCreateUser(unittest.TestCase):#all functions working
         result = self.client.get('/create_user')
         self.assertIn(b'Create an Account', result.data)
 
+    
 
 
-class FlaskTestsUserLogin(unittest.TestCase):
+
+class FlaskTestsUserLogin(unittest.TestCase):#login and logout wrkg
 
     def setUp(self):
         """Setup before test."""
@@ -54,7 +56,12 @@ class FlaskTestsUserLogin(unittest.TestCase):
                                     follow_redirects=True)
         self.assertIn(b'Login success!', result.data)
 
-    
+    def test_user_logout(self):
+        """Test logout route."""
+
+        result = self.client.get('/logout', 
+                                follow_redirects=True)
+        self.assertIn(b'Bye! See you tomorrow for another awesome workout!', result.data)
 
 
 
@@ -67,12 +74,25 @@ class FlaskTestsLoggedInwithDb(unittest.TestCase):
         app.config['SECRET_KEY'] = 'sun'
         self.client = app.test_client()
 
-        # with self.client as c:
-        #     with c.session_transaction() as sess:
-        #         sess['user_id'] = 1
+        connect_to_db(app, "postgresql:///testdb", echo=False)
+        db.create_all()
+        test_data.example_data()
+
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess['user_id'] = 1
+
+    def new_users_creation(self):
+        """New users route to create new account"""
+
+        pass
+    
 
 
     
+
+
+
 
 
 
