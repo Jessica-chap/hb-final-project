@@ -1,5 +1,5 @@
 >>> import crud
->>> import model
+>>> from model import User
 >>> dock = crud.create_user(user_name='dock', password='test', user_age=50, user_weight=100, user_zipcode='01234')
 <__main__.User instance at 0x...>
 

@@ -12,6 +12,9 @@ from flask_sqlalchemy import SQLAlchemy
 def example_data():
     """Sample data to help with testing"""
 
+    Workout_exercise.query.delete()
+    Exercise.query.delete()
+    Workout.query.delete()
     User.query.delete()
  
     jess = User(user_name='jess', password='wifu', user_age='75', 
@@ -27,7 +30,7 @@ def example_data():
     db.session.commit()
 
 
-    Exercise.query.delete()
+   
 
     kb_swing = Exercise(exercise_name='kb_swing', 
                 exercise_info='two handed grip and hinge at hips')
@@ -43,7 +46,7 @@ def example_data():
     db.session.commit()
     
 
-    Workout.query.delete()
+   
 
     jess_wrkt = Workout(user_id = jess.user_id, 
                         workout_name= 'Monday',
@@ -62,7 +65,7 @@ def example_data():
     db.session.commit()
 
 
-    Workout_exercise.query.delete()
+    
     
     wrkt_kb = Workout_exercise(workout_id= jess_wrkt.workout_id, 
                                 exercise_id= kb_swing.exercise_id,

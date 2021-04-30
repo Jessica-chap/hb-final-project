@@ -8,6 +8,8 @@ from datetime import datetime
 # >>> dock = create_user(user_name='dock', password='test', user_age='50', user_weight='100', user_zipcode='01234')
 def create_user(user_name, password, user_age=None, user_weight=None, user_zipcode=None ):
     """Create and return a new user.
+    >>> dock = create_user(user_name='dock', password='test', user_age=50, user_weight=100, user_zipcode='01234')
+        <__main__.User instance at 0x...>
     """
 
     user = User(user_name=user_name, password=password,
