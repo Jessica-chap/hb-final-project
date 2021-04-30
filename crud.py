@@ -5,13 +5,9 @@ from datetime import datetime
 
 
 ####################USER FUNCTIONS#################################
-
+# >>> dock = create_user(user_name='dock', password='test', user_age='50', user_weight='100', user_zipcode='01234')
 def create_user(user_name, password, user_age=None, user_weight=None, user_zipcode=None ):
     """Create and return a new user.
-    For example:
-    >>> dock = create_user(user_name='dock', password='test', user_age='50', user_weight='100', user_zipcode='01234')
-     
-    
     """
 
     user = User(user_name=user_name, password=password,

@@ -1,57 +1,79 @@
 """working on test file"""
-from unittest import TestCase
-from server import app
+import unittest
+import server
 from model import connect_to_db, db
 from flask import session #may not need, depends on if have tests for session
 # from datetime import datetime
 import test_data
 
 
-class FlaskTestsBasic(TestCase):
-    """Flask tests."""
+
+class FlaskTestsHpCreateUser(unittest.TestCase):
+
+    def setUp(self): #working
+        """setup before every test."""
+
+        server.app.config['TESTING'] = True
+        self.client = server.app.test_client()
+
+        
+    def test_home(self):#working
+        """Test homepage page."""
+
+        result = self.client.get('/')
+        self.assertIn(b'Welcome', result.data)
+
+
+    def test_create_user(self):#working
+        """Test create user page."""
+
+        result = self.client.get('/create_user')
+        self.assertIn(b'Create an Account', result.data)
+    
+
+
+
+class FlaskTestsLogin(unittest.TestCase):
+
+    def setUp(self):#working
+        """setup before every test."""
+
+        server.app.config['TESTING'] = True
+        server.app.config['SECRET_KEY'] = 'sun'
+        self.client = server.app.test_client()
+
+    # def test_login(self, user_name, password): #not working
+        """Test login page.
+        Getting error, not sure how to write
+        TypeError: test_login() missing 2 required positional arguments: 'user_name' and 'password'
+        """
+        
+        # should it be return or result = then the self.assert
+        # return self.client.post('/users', data= dict(
+        #                             user_name = 'jess',
+        #                             password = 'wifu'),
+        #                             follow_redirects=True)
+        # self.assertIn(b'Login success!', result.data)
+
+
+class FlaskTestsDatabase(unittest.TestCase):
 
     def setUp(self):
-        """set up before test."""
-        self.client = app.test_client()
+        """Setup before test."""
 
-        app.config['TESTING'] = True
+        server.app.config['TESTING'] = True
+        self.client = server.app.test_client()
 
-    def test_index(self):
-        """Test homepage page."""
+        connect_to_db(server.app, "postgresql:///testdb")
 
-        result = self.client.get("/")
-        self.assertIn(b"Welcome", result.data)
-
-    def test_login(self):
-        """Test login page."""
-
-        result = self.client.post("/login",
-                                  data={"user_id": "rachel", "password": "123"},
-                                  follow_redirects=True)
-        self.assertIn(b"You are a valued user", result.data)
+        db.create_all()
+        test_data.example_data()
 
 
-class FlaskTests(TestCase):
 
-   def setUp(self):
-        """Stuff to do before every test."""
 
-        # Get the Flask test client
-        self.client = app.test_client()
 
-        # Show Flask errors that happen during tests
-        app.config['TESTING'] = True
 
-    def test_index(self):
-        """Test homepage page."""
-
-        result = self.client.get("/")
-        self.assertIn(b"Welcome", result.data)
-
-    def test_login(self):
-        """Test login page."""
-
-        result = self.client.post("/login",
-                                  data={"user_id": "rachel", "password": "123"},
-                                  follow_redirects=True)
-        self.assertIn(b"You are a valued user", result.data)
+if __name__ == "__main__":
+    
+    unittest.main()

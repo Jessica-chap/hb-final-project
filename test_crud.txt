@@ -1,0 +1,6 @@
+>>> import crud
+>>> import model
+>>> dock = crud.create_user(user_name='dock', password='test', user_age='50', user_weight='100', user_zipcode='01234')
+<__users__.User instance at 0x...>
+not sure if my dock returns the above??
+
