@@ -6,10 +6,11 @@ from server import app
 from model import connect_to_db, db, User, Workout, Workout_exercise, Exercise
 from flask import session 
 import test_data
+from datetime import datetime
 
 
 
-class FlaskTestsHpCreateUserRoute(unittest.TestCase):#all functions working 
+class FlaskTestsHpCreateUserRoute(unittest.TestCase):
 
     def setUp(self): 
         """setup before every test."""
@@ -35,7 +36,7 @@ class FlaskTestsHpCreateUserRoute(unittest.TestCase):#all functions working
 
 
 
-class FlaskTestsUserLogin(unittest.TestCase):#login and logout wrkg
+class FlaskTestsUserLogin(unittest.TestCase):
 
     def setUp(self):
         """Setup before test."""
@@ -69,7 +70,7 @@ class FlaskTestsUserLogin(unittest.TestCase):#login and logout wrkg
 
 class FlaskTestsLoggedInwithDb(unittest.TestCase):
 
-    def setUp(self):#working
+    def setUp(self):
         """setup before every test."""
 
         app.config['TESTING'] = True
@@ -112,12 +113,55 @@ class FlaskTestsCrudFunctions(unittest.TestCase):
     
 
     def test_crud_create_user(self):
-
+        """Crud function to create user instance"""
+        
         user = crud.create_user(user_name='dock', password='test', 
                                 user_age=50, user_weight=100, 
                                 user_zipcode='01234') 
                                 #data returned
+
         self.assertEqual('dock', user.user_name)
+
+
+    def test_crud_create_exercise(self):
+       """Crud function to create exericse instance"""
+
+       exercise = crud.create_exercise(exercise_name= 'basic_exercise',
+                                        exercise_info= 'description of exercise',
+                                        api_id=10)
+
+       self.assertEqual('basic_exercise', exercise.exercise_name)
+               
+
+
+    def test_crud_create_workout(self):
+        """Crud function to create workout instance"""
+
+        user = User.query.filter(User.user_name == 'jess').first()
+        workout = crud.create_workout(user=user, 
+                                    workout_name='Monday', 
+                                    workout_date=datetime.now())
+        
+        self.assertEqual('Monday', workout.workout_name)
+
+
+    def test_crud_create_we(self):
+        """Crud function to create workout exercise instance"""
+
+        exercise = Exercise.query.filter(Exercise.exercise_name == 'squat')
+        workout = Workout.query.filter(Workout.workout_id== 1).first() 
+
+        wrkt_exercise = crud.create_workout_exercise(workout= workout, 
+                                                    exercise= exercise,
+                                                    we_sets= 3, we_reps=12, 
+                                                    we_repunit='reps',
+                                                    we_weight=10, 
+                                                    we_weightunit= 'lb',
+                                                    we_equipment='dumbell')
+
+        self.assertEqual('dumbell', workout_exercises.we_equipment )
+
+
 
 
     

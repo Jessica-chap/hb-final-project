@@ -68,9 +68,6 @@ def verify_if_exercise(api_exercise):
     return exercise
 
 
-# def exercise_by_api_id(api_id):
-
-#     exercise = Exercise.query.filter()
 
 ###################WORKOUT FUNCTIONS#########################################
 
@@ -95,15 +92,14 @@ def get_workout_by_id(workout_id):
     return workout
 
 
-
-##TODO FIXED ERROR!! 
+ 
 def workouts_by_user_id(user_id):
 
     workouts = Workout.query.filter(Workout.user_id==user_id).all()
     
     return workouts
 
-    #####CORRECTED ERROR!!!!########
+   
 
 def delete_empty_wkt(workout_id):
 
