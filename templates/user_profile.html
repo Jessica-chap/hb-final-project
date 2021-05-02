@@ -76,7 +76,11 @@
     <button id="submit-weight" type="submit" >Add</button>
   </form>
 </form>
-<input type="hidden" id="custId" name="custId" value="test">
+<p id= "entries_dict" style="display: none;">
+
+  {{entries_dict}}
+</p>
+
 
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
@@ -84,8 +88,17 @@
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script>
   window.onload = function () {
-  const hidden = document.getElementById('custId');
-  console.log('hidden', hidden);
+  const dataArr = [];
+  const wtDataStr = document.getElementById('entries_dict');
+  if(wtDataStr) {
+    const wtDataJson = JSON.parse(wtDataStr.innerText);
+      const dataKeys = Object.keys(wtDataJson);
+      Array.from(dataKeys).map(key => {
+        const date = new Date(key);
+        dataArr.push({x: new Date(date.getFullYear(), date.getMonth(), date.getDay()),
+           y: wtDataJson[key]});
+      });
+  }
   const chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
     theme: "light2",
@@ -100,12 +113,13 @@
     data: [{        
       type: "line",
           indexLabelFontSize: 16,
-      dataPoints: [
-        { y: 130 },
-        { y: 190, indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-        { y: 115 , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+          dataPoints: dataArr
+      // dataPoints: [
+      //   { y: 130 },
+      //   { y: 190, indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
+      //   { y: 115 , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
         
-      ]
+      // ]
     }]
   });
   chart.render();

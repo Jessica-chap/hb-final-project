@@ -8,6 +8,7 @@ from pprint import pformat
 import crud
 import requests
 import os
+import json
 
 
 app = Flask(__name__)
@@ -108,21 +109,24 @@ def show_user(user_id):
     for entry in weight_entries:
         # print(entry.weight_date) #%m-%d-%Y
         # print('*'*20)
-        weight_date = entry.weight_date.strftime('%d %b %Y %H:%M')
+        weight_date = entry.weight_date.strftime("%d %b %Y %H:%M")
         # print(weight_date)
         # print('*'*20)
         # weight_date = entry.weight_date
-        print(weight_date)
+        # print(weight_date)
         entries_dict[weight_date] = entry.weight_input
         # entries_dict['entry.weight_date'] =
-    print(entries_dict)
+  
+    json_dict = json.dumps(entries_dict)
+    print(type(json_dict))
     print('*'*20)
+
  
 
     return render_template('user_profile.html', 
                             user=user, 
                             workouts=workouts, 
-                            entries_dict=entries_dict)
+                            entries_dict=json_dict)
 
 
 ####    WEIGHT TRACKER              ####
