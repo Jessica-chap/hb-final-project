@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Workouts Home{% endblock %}
+{% block title %}{{workout.workout_name}} Workout{% endblock %}
 
 
 {% block body %}
@@ -11,7 +11,7 @@
     </a>
   </div>
 </nav>
-  <h1>Saved Workout Page</h1>
+  <h1>{{workout.workout_name}} Workout</h1>
 
 
   <table class="table">

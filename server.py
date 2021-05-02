@@ -35,6 +35,12 @@ def create_new_user():
 
     return render_template('create_user.html')
 
+@app.route('/about')
+def about_page():
+    """View about page"""
+
+    return render_template('about.html')
+
 
 @app.route('/new_users', methods=['POST'])
 def handle_new_user():
