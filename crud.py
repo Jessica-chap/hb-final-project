@@ -1,6 +1,6 @@
 """CRUD operations"""
 
-from model import db, User, Workout, Workout_exercise, Exercise, connect_to_db
+from model import db, User, Weight, Workout, Workout_exercise, Exercise, connect_to_db
 from datetime import datetime
 
 
@@ -68,6 +68,26 @@ def verify_if_exercise(api_exercise):
     return exercise
 
 
+###################WEIGHT ENTRY FUNCTIONS####################################
+
+
+def create_weight_entry(user, weight_input, weight_date):
+
+    weight = Weight(user=user, weight_input=weight_input, 
+                    weight_date=weight_date)
+    
+    db.session.add(weight)
+    db.session.commit()
+
+    return weight
+
+
+def all_user_weight_entries(user_id):
+
+    entries = Weight.query.filter(Weight.user_id== user_id).all()
+
+    return entries
+
 
 ###################WORKOUT FUNCTIONS#########################################
 
@@ -126,20 +146,18 @@ def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_
 #                                 we_weight=10, we_weightunit= 'lb', we_equipment='dumbell')
 
 def exercises_from_workout(workout_id):
-#     # SELECT exercise_name FROM exercises JOIN workout_exercises ON exercises.exercise_id = workout_exercises.exercise_id  WHERE workout_id = 27;
+
     exercises_from_workout = Workout_exercise.query.filter(Workout_exercise.workout_id == workout_id).all()
-    #getting back exercise objects
+    
     return exercises_from_workout
 
 
 def get_we_repunit():
-    """to test connection between server and html
-    will update with API inormation"""
+   
     return ['repetitions','seconds', 'minutes', 'until failure' ]
 
 def get_we_weightunit():
-    """to test connection betwen server and html
-    will update with API information"""
+   
     return ['lb', 'kg', 'bodyweight']
 
 

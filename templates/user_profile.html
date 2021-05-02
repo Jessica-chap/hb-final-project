@@ -2,6 +2,8 @@
 
 {% block title %}{{user.user_name}}'s Page{% endblock %}
 
+
+
 {% block body %}
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
@@ -20,11 +22,11 @@
   </div>
   <div class="row">
     <div class="col">
-      <ul>
+      <!-- <ul>
         <li>Age: {{user.user_age}}</li>
         <li>Weight: {{user.user_weight}}</li>
         <li>Zip Code: {{user.user_zipcode}}</li>
-    </ul>
+    </ul> -->
     </div>
     <div class="col-8">
       <h2> Start new workout</h2>
@@ -62,6 +64,53 @@
    
   </ul>
 </div>
+<form action="/weight_entry" method="GET">
+  <div>
+    <label>Enter Weight</label>
+        <input 
+          id = "user_weight_entry" 
+          type = "number"
+          name="user_weight_entry" >
+  </div>
+  <form>
+    <button id="submit-weight" type="submit" >Add</button>
+  </form>
+</form>
+<input type="hidden" id="custId" name="custId" value="test">
 
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+  window.onload = function () {
+  const hidden = document.getElementById('custId');
+  console.log('hidden', hidden);
+  const chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2",
+    title:{
+      text: "Weight Tracker"
+    },
+    axisX: {
+		interval: 1,
+		intervalType: "month",
+		valueFormatString: "DD MMM"
+	},
+    data: [{        
+      type: "line",
+          indexLabelFontSize: 16,
+      dataPoints: [
+        { y: 130 },
+        { y: 190, indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
+        { y: 115 , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+        
+      ]
+    }]
+  });
+  chart.render();
+  
+  }
+  </script>
 
 {% endblock %}

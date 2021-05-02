@@ -23,14 +23,14 @@ API_KEY = os.environ['WGER_KEY']
 @app.route('/')
 def homepage():
     """View homepage."""
-##route checked
+
     return render_template('homepage.html')
 
 
 @app.route('/create_user')
 def create_new_user():
     """Create new user page insert profile data."""
-##route checked
+
 
     return render_template('create_user.html')
 
@@ -50,6 +50,7 @@ def handle_new_user():
     if is_valid_user == False:
 
         user =  crud.create_user(user_name, password, user_age, user_weight, user_zipcode)
+        weight = crud.create_weight_entry(user, user_weight, datetime.now())
         session['user_name'] = user_name
         flash('Account Created')
         return redirect(f'/users/{user.user_id}')
@@ -57,7 +58,6 @@ def handle_new_user():
     else:
         flash('Already an account for that user name, please login')
         return redirect('/')
-
 
 
 
@@ -101,14 +101,49 @@ def show_user(user_id):
 
     user = crud.get_user_by_id(user_id)
     workouts = crud.workouts_by_user_id(user_id)
+
+    weight_entries = crud.all_user_weight_entries(user_id)
+
+    entries_dict = {}
+    for entry in weight_entries:
+        # print(entry.weight_date) #%m-%d-%Y
+        # print('*'*20)
+        weight_date = entry.weight_date.strftime('%d %b %Y %H:%M')
+        # print(weight_date)
+        # print('*'*20)
+        # weight_date = entry.weight_date
+        print(weight_date)
+        entries_dict[weight_date] = entry.weight_input
+        # entries_dict['entry.weight_date'] =
+    print(entries_dict)
+    print('*'*20)
  
 
     return render_template('user_profile.html', 
                             user=user, 
-                            workouts=workouts)
+                            workouts=workouts, 
+                            entries_dict=entries_dict)
 
 
+####    WEIGHT TRACKER              ####
 
+
+@app.route('/weight_entry', methods=['GET'])
+def user_weight_tracker_entry():
+
+    weight_entry = request.args.get('user_weight_entry')
+
+    user_id = session['user_id']
+    user = crud.get_user_by_id(user_id)
+    # workouts = crud.workouts_by_user_id(user_id)
+
+    weight = crud.create_weight_entry(user, weight_entry, datetime.now())
+
+    return redirect('/users/'+ str(user_id))
+
+
+# print('*'*20)
+# print('*'*20)
 ####    WORKOUT CREATION ROUTES     ####
 
 
@@ -163,8 +198,7 @@ def new_workout_form():
                             name=user.user_name,
                             user_id = user.user_id)
 
-# print('*'*20)
-# print('*'*20)
+
 
 @app.route('/add_exercise', methods=['POST'])
 def add_exercise_to_workout():

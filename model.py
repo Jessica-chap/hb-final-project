@@ -24,6 +24,23 @@ class User(db.Model):
     def __repr__(self):
         return f'<User user_id={self.user_id} user_name={self.user_name}>'
 
+class Weight(db.Model):
+    """Weight tracker for a user"""
+
+    __tablename__ = 'weighttracker'
+
+    weight_id = db.Column(db.Integer, autoincrement=True,
+                                    primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+
+    weight_input = db.Column(db.Integer, nullable=False)
+    weight_date = db.Column(db.DateTime, nullable=False)
+
+    user = db.relationship('User', backref='weight_tracker')
+
+    # def __repr__(self):
+    #     return f'<Weight weight_input={self.weight_input}>'
+
 
 class Workout(db.Model):
     """User Workout"""

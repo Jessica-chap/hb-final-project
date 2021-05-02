@@ -51,20 +51,14 @@
 
   <p id="add-sets">
     <label>Sets*</label>
-      <select id = "exercise_sets" name="exercise_sets" required>
-        {% for i in range(1,21) %}
-          <option value = "{{i}}">{{i}}</option>"
-        {% endfor %}
-      </select>
+      <input id = "exercise_sets" type = "number" 
+              name="exercise_sets" required>  
   </p>
 
   <p id="add-reps">
     <label>Reps*</label>
-      <select id = "exercise_reps" name="exercise_reps" required>
-        {% for i in range(1,50) %}
-          <option value = "{{i}}">{{i}}</option>"
-        {% endfor %}
-      </select>
+      <input id = "exercise_reps" type = "number" 
+            name="exercise_reps" required>
   </p> 
 
   <p id="add-repunit">  
@@ -81,7 +75,7 @@
     <label>Enter Weight</label>
       <input 
         id = "exercise_weight" 
-        type = "text"
+        type = "number"
         name="exercise_weight" required>
   </p>
 
