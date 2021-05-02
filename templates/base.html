@@ -16,28 +16,28 @@
     {% block head %}{% endblock %}
   </head>
 
-  <body>
+  {% if not session['user_name'] %}
+    <body class="homepage-img">
+    {% endif %}
+
+    {% if session['user_name'] %}
+    <body>
+    {% endif %}
+
     <div class="container">
       <header>
         {% if session['user_name'] %}
-        <div
-        class="p-5 text-center bg-image"
-        style="
-          background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg');
-          height: 100px;
-          margin-top: 0px;
-        "
-      >
+        <div class="signed-in-header-img"></div>
       {% endif %}
-      <div class="mask" style="background-color: transparent;">
+      <div class="nanjo-header" style="background-color: transparent;">
         <div class="d-flex justify-content-center align-items-center h-50">
           <div class="text-white">
             <h1 class="mb-3">Nanjo*test image*</h1>
           </div>
         </div>
       </div>
-      
       </header>
+
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -69,11 +69,11 @@
         </nav>
 
 
-    {% for msg in get_flashed_messages() %}
-    <p class="flash-msg">
-      {{ msg }}
-    </p>
-  {% endfor %}
+      {% for msg in get_flashed_messages() %}
+      <p class="flash-msg">
+        {{ msg }}
+      </p>
+    {% endfor %}
 
 
     {% block body %}{% endblock %}
@@ -83,6 +83,9 @@
 
     {% block after_body %}{% endblock %}
     </div>
+    <footer class="base-footer">
+      <p>Created by: Jessica Chapdelaine &copy 2021</p>
+    </footer>
   </body>
 </html>
 
