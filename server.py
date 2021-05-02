@@ -107,19 +107,14 @@ def show_user(user_id):
 
     entries_dict = {}
     for entry in weight_entries:
-        # print(entry.weight_date) #%m-%d-%Y
-        # print('*'*20)
+     
         weight_date = entry.weight_date.strftime("%d %b %Y %H:%M")
-        # print(weight_date)
-        # print('*'*20)
-        # weight_date = entry.weight_date
-        # print(weight_date)
+     
         entries_dict[weight_date] = entry.weight_input
-        # entries_dict['entry.weight_date'] =
+      
   
     json_dict = json.dumps(entries_dict)
-    print(type(json_dict))
-    print('*'*20)
+   
 
  
 

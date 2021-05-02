@@ -36,10 +36,10 @@ class Weight(db.Model):
     weight_input = db.Column(db.Integer, nullable=False)
     weight_date = db.Column(db.DateTime, nullable=False)
 
-    user = db.relationship('User', backref='weight_tracker')
+    user = db.relationship('User', backref='weighttracker')
 
-    # def __repr__(self):
-    #     return f'<Weight weight_input={self.weight_input}>'
+    def __repr__(self):
+        return f'<Weight weight_input={self.weight_input}>'
 
 
 class Workout(db.Model):

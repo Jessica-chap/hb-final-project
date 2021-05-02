@@ -90,6 +90,21 @@
   window.onload = function () {
   const dataArr = [];
   const wtDataStr = document.getElementById('entries_dict');
+  const testData = [
+    
+			{ x: new Date(2021, 1, 15), y: 185 },
+			{ x: new Date(2021, 1, 23), y: 183 },
+      { x: new Date(2021, 2, 1), y: 180}, 
+      { x: new Date(2021, 2, 8), y: 175 }, 
+      { x: new Date(2021, 2, 16), y: 172 },
+      { x: new Date(2021, 2, 24), y: 170 },
+      { x: new Date(2021, 3, 7), y: 165},
+      { x: new Date(2021, 3, 15), y: 161 },
+      { x: new Date(2021, 3, 23), y: 158 },
+      { x: new Date(2021, 3, 25), y: 157 }
+    
+  ];
+
   if(wtDataStr) {
     const wtDataJson = JSON.parse(wtDataStr.innerText);
       const dataKeys = Object.keys(wtDataJson);
@@ -106,20 +121,20 @@
       text: "Weight Tracker"
     },
     axisX: {
-		interval: 1,
-		intervalType: "month",
 		valueFormatString: "DD MMM"
 	},
+  axisY: {
+    title: "Weight",
+		scaleBreaks: {
+			autoCalculate: true
+  }
+},
     data: [{        
       type: "line",
-          indexLabelFontSize: 16,
-          dataPoints: dataArr
-      // dataPoints: [
-      //   { y: 130 },
-      //   { y: 190, indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-      //   { y: 115 , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-        
-      // ]
+      xValueFormatString: "DD MMM",
+      color: "#33E5FF",
+      dataPoints: testData.concat(dataArr)
+     
     }]
   });
   chart.render();
