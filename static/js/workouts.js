@@ -9,10 +9,8 @@
     $('#user-exercise-selections').append("<tr>" +
             "<td><a href='#'class='popover-anchor' data-toggle='popover'>" + exercise + "</a></td>" +
             "<td>" + sets + "</td>" +
-            "<td>" + reps + "</td>" +
-            "<td>" + repunit + "</td>" +
-            "<td>" + weight + "</td>" +
-            "<td>" + weightunit + "</td>" +
+            "<td>" + reps + " " + repunit +"</td>" +
+            "<td>" + weight + " " + weightunit +"</td>" +
             "<td>" + equipment + "</td>" +
             "</tr>");
   

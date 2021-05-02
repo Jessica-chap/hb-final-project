@@ -154,7 +154,7 @@ def exercises_from_workout(workout_id):
 
 def get_we_repunit():
    
-    return ['repetitions','seconds', 'minutes', 'until failure' ]
+    return ['reps','sec', 'min', 'mi.', 'km', 'until failure' ]
 
 def get_we_weightunit():
    

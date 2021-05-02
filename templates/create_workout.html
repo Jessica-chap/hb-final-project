@@ -38,9 +38,10 @@
       </select>
     </p>
     
-    <label>Equipment</label>
+    <!-- <label>Equipment</label> -->
       <select id= "api_exercise_equipment" 
               name="api_exercise_equipment" required>
+              <option value="Choose Equipment">Choose Equipment</option>
         {% for equip in api_equipment_list %}
           <option  value="{{equip.name}}">{{equip.name}}</option>
 
@@ -103,9 +104,7 @@
           <th>Exercise</th>
           <th>Sets</th>
           <th>Reps</th>
-          <th>Rep-Unit</th>
           <th>Weight</th>
-          <th>Weight-Unit</th>
           <th>Equipment</th>
         </tr>
       </thead>

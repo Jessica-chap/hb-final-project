@@ -20,9 +20,7 @@
         <th scope="col">Exercise</th>
         <th scope="col">Sets</th>
         <th scope="col">Reps</th>
-        <th scope="col">Rep-Unit</th>
         <th scope="col">Weight</th>
-        <th scope="col">Weight-Unit</th>
         <th scope="col">Equipment</th>
       </tr>
     </thead>
@@ -38,10 +36,8 @@
           title='{{exercise.exercise.exercise_name}}'>
           {{exercise.exercise.exercise_name}}</a></td>
         <td>{{exercise.we_sets}}</td>
-        <td>{{exercise.we_reps}}</td>
-        <td>{{exercise.we_repunit}}</td>
-        <td>{{exercise.we_weight}}</td>
-        <td>{{exercise.we_weightunit}}</td>
+        <td>{{exercise.we_reps}} {{exercise.we_repunit}}</td>
+        <td>{{exercise.we_weight}} {{exercise.we_weightunit}}</td>
         <td>{{exercise.we_equipment}}</td>
       </tr>
       
