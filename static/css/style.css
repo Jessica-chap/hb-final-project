@@ -4,4 +4,52 @@ table, th, td {
     padding: 6px;
     text-align:left;
 }
+/* .homepage-img{
+    background-image: url(https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    } */
+.homepage-img {
+    background: no-repeat center/cover url(https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+}
 
+.card{
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: transparent !important;
+    }
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: rgba(0, 0, 0, 0.274);
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.login_btn{
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+    }
+    
+    .login_btn:hover{
+    color: black;
+    background-color: white;
+    }
+    
+    .links{
+    color: rgba(128, 128, 128, 0.918);
+    }
+    
+    .links a{
+    margin-left: 4px;
+    }
