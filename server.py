@@ -18,8 +18,7 @@ app.jinja_env.undefined = StrictUndefined
 API_KEY = os.environ['WGER_KEY']
 
 
-
-###        HANDLE USER ROUTES           ###
+####    JUST RENDER TEMPLATE ROUTES     ####
 
 @app.route('/')
 def homepage():
@@ -32,8 +31,8 @@ def homepage():
 def create_new_user():
     """Create new user page insert profile data."""
 
-
     return render_template('create_user.html')
+
 
 @app.route('/about')
 def about_page():
@@ -42,9 +41,12 @@ def about_page():
     return render_template('about.html')
 
 
+####    LOGIN/OUT AND CREATE     ####
+
+
 @app.route('/new_users', methods=['POST'])
 def handle_new_user():
-    """Handle user input to create account"""
+    """Handle new user input to create User & direct to profile"""
 
     user_name = request.form.get('user_name')
     password = request.form.get('password')
@@ -70,7 +72,7 @@ def handle_new_user():
 
 @app.route('/users', methods=['POST'])
 def handle_login():
-    """Handle user input at login"""
+    """Handle user input and verify to login"""
     
     user_name = request.form.get('user_name')
     is_valid_user = crud.verify_valid_user(user_name)
@@ -96,18 +98,18 @@ def handle_login():
 
 @app.route('/logout')
 def user_logout():
-    """log user out of current session"""
+    """log user out and clear all current sessions"""
     
-
     session_values = iter(session) 
 
     for value in session_values:
         session[value] = None
 
-       
     flash('See you tomorrow for another awesome workout!')
     return redirect('/')     
 
+
+####    USER PROFILE ROUTES     ####
 
 @app.route('/users/<int:user_id>')
 def show_user(user_id):
@@ -124,11 +126,10 @@ def show_user(user_id):
                             entries_dict=json_dict)
 
 
-####    WEIGHT TRACKER              ####
-
 
 @app.route('/weight_entry', methods=['GET'])
 def user_weight_tracker_entry():
+    """New weight entry from user adds to db"""
 
     weight_entry = request.args.get('user_weight_entry')
 
@@ -160,7 +161,7 @@ def get_name_create_workout():
 
 @app.route('/create_workout')
 def new_workout_form():
-    """Take user from personal page to page to start creating workout"""
+    """Personal page to create workout with API call"""
 
     user = crud.get_user_by_user_name(session['user_name'])
 
@@ -194,9 +195,9 @@ def new_workout_form():
                             user_id = user.user_id)
 
 
-
 @app.route('/add_exercise', methods=['POST'])
 def add_exercise_to_workout():
+    """Get user input to create workout exercise with some API values"""
 
     api_exercise_selection = request.form.get('api_exercise_selection')
     we_equipment = request.form.get('api_exercise_equipment')
@@ -242,6 +243,8 @@ def add_exercise_to_workout():
 
 @app.route('/save_workout', methods=['POST'])
 def save_workout_to_profile():
+    """Verifies not empty workout before save"""
+    #TODO- Future v3.0 - refactor and clean funtion and smarter queries
 
     workout_name = request.form.get('user_saved_workout_name')
     workout_id = session['workout_id']
@@ -251,7 +254,7 @@ def save_workout_to_profile():
     workouts = crud.workouts_by_user_id(user_id)
     saved_exercises = crud.exercises_from_workout(workout_id)
     json_dict = crud.weight_entries_dict(user_id)
-    #add flash messages!! 
+    
     if saved_exercises == []:
         crud.delete_empty_wkt(workout_id)
         flash('Workout not saved, no exercises input')
@@ -270,7 +273,7 @@ def save_workout_to_profile():
     
 @app.route('/saved_workout/<int:workout_id>')
 def access_stored_workouts(workout_id):
-
+    """Pulls all exercises from saved workout for saved wrkt page"""
     
     saved_exercises = crud.exercises_from_workout(workout_id)
     
