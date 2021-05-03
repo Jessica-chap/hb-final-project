@@ -1,4 +1,4 @@
-"""CRUD operations"""
+"""CRUD functions"""
 
 from model import db, User, Weight, Workout, Workout_exercise, Exercise, connect_to_db
 from datetime import datetime
@@ -8,8 +8,7 @@ import json
 ####################USER FUNCTIONS#################################
 
 def create_user(user_name, password, user_age=None, user_weight=None, user_zipcode=None ):
-    """Create and return a new user.
-    """
+    """Create and return a new user."""
 
     user = User(user_name=user_name, password=password,
                 user_age=user_age, user_weight=user_weight,
@@ -20,7 +19,6 @@ def create_user(user_name, password, user_age=None, user_weight=None, user_zipco
 
     return user
 
-# dock = create_user(user_name='dock', password='test', user_age=50, user_weight=100, user_zipcode=01234)
 
 def get_user_by_user_name(user_name):
     """Return a user by user_name"""
@@ -60,7 +58,6 @@ def create_exercise(exercise_name, exercise_info, api_id):
 
     return exercise
 
-# basic_exercise = create_exercise(exercise_name='basic_exercise', exercise_info='this should be description of exercise')
 
 def verify_if_exercise(api_exercise):
     
@@ -73,6 +70,7 @@ def verify_if_exercise(api_exercise):
 
 
 def create_weight_entry(user, weight_input, weight_date):
+    """create and return weight object"""
 
     weight = Weight(user=user, weight_input=weight_input, 
                     weight_date=weight_date)
@@ -84,6 +82,7 @@ def create_weight_entry(user, weight_input, weight_date):
 
 
 def all_user_weight_entries(user_id):
+    """All weight entries from one user"""
 
     entries = Weight.query.filter(Weight.user_id== user_id).all()
 
@@ -91,6 +90,7 @@ def all_user_weight_entries(user_id):
 
 
 def weight_entries_dict(user_id):
+    """Weight entry in json format for graph on profile page"""
 
     weight_entries = all_user_weight_entries(user_id)
 
@@ -107,7 +107,7 @@ def weight_entries_dict(user_id):
 ###################WORKOUT FUNCTIONS#########################################
 
 def create_workout(user, workout_name, workout_date):
-    """create and return workout"""
+    """Create and return workout"""
 
     workout = Workout(user=user, workout_name=workout_name, 
                         workout_date=workout_date)
@@ -117,7 +117,6 @@ def create_workout(user, workout_name, workout_date):
 
     return workout
 
-# dock_wrkt = create_workout(user= dock, workout_name= Today, workout_date= datetime.now())
 
 def get_workout_by_id(workout_id):
     """Return a workout object with id"""
@@ -127,21 +126,23 @@ def get_workout_by_id(workout_id):
     return workout
 
 
- 
 def workouts_by_user_id(user_id):
+    """Return all workouts for specific user"""
 
     workouts = Workout.query.filter(Workout.user_id==user_id).all()
     
     return workouts
 
-   
 
 def delete_empty_wkt(workout_id):
+    """Deletes specific workout object"""
 
    delete_wkt = Workout.query.filter(Workout.workout_id== workout_id).delete()
    db.session.commit()
  
+
 ###################WORKOUT EXERCISE FUNCTIONS#############################
+
 
 def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_weight, we_weightunit, we_equipment):
     """create and return workout_exercise"""
@@ -156,11 +157,9 @@ def create_workout_exercise(workout, exercise, we_sets, we_reps, we_repunit, we_
 
     return workout_exercise
 
-# wrkt_basic_exercise = create_workout_exercise(workout= dock_wrkt, exercise= basic_exercise,
-#                                 we_sets= 3, we_reps=12, we_repunit='reps',
-#                                 we_weight=10, we_weightunit= 'lb', we_equipment='dumbell')
 
 def exercises_from_workout(workout_id):
+    """All exercises from a specific workout"""
 
     exercises_from_workout = Workout_exercise.query.filter(Workout_exercise.workout_id == workout_id).all()
     
@@ -168,10 +167,12 @@ def exercises_from_workout(workout_id):
 
 
 def get_we_repunit():
+    """Hardcode repunit input data"""
    
     return ['reps','sec', 'min', 'mi.', 'km', 'until failure' ]
 
 def get_we_weightunit():
+    """Hardcode weightunit input data"""
    
     return ['lb', 'kg', 'bodyweight']
 
