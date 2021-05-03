@@ -1,4 +1,4 @@
-"""working on test file"""
+"""Test file for some crud functions, routes, login and out, and session"""
 import os
 import unittest
 import crud 
