@@ -1,4 +1,4 @@
-
+"""Data model for app"""
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 
@@ -65,7 +65,6 @@ class Workout_exercise(db.Model):
 
     __tablename__ = 'workout_exercises'
 
-    ##TODO complete table columns/repr
     we_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     workout_id = db.Column(db.Integer, db.ForeignKey('workouts.workout_id'))
     exercise_id = db.Column(db.Integer, db.ForeignKey('exercises.exercise_id'))
@@ -122,4 +121,4 @@ if __name__ == '__main__':
     from server import app
 
     connect_to_db(app)
-    # connect_to_db(app, echo=False)
+    
