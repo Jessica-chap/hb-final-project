@@ -28,7 +28,7 @@ table, th, td {
     height: 370px;
     margin-top: auto;
     margin-bottom: auto;
-    width: 400px;
+    /* width: 400px; */
     background-color: transparent !important;
     }
 
@@ -63,3 +63,7 @@ box-shadow: 0 0 0 0 !important;
     .links a{
     margin-left: 4px;
     }
+/* 
+    .user-profile-img{
+        background-image: url(https://www.iconsdb.com/icons/preview/orange/user-4-xxl.png);
+    } */

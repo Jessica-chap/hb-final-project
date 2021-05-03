@@ -98,19 +98,14 @@ def handle_login():
 def user_logout():
     """log user out of current session"""
     
-    print('*'*20)
-    print('*'*20)  
 
     session_values = iter(session) 
 
     for value in session_values:
-        print(value)
-        # session.pop(next(session_values), None)
         session[value] = None
 
-    print(session)
        
-    flash('Bye! See you tomorrow for another awesome workout!')
+    flash('See you tomorrow for another awesome workout!')
     return redirect('/')     
 
 

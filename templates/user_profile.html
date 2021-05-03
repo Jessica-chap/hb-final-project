@@ -1,80 +1,100 @@
 {% extends 'base.html' %}
 
-{% block title %}{{user.user_name}}'s Page{% endblock %}
+{% block title %}Nanjo: {{user.user_name}}'s Profile{% endblock %}
 
 
 
 {% block body %}
 
   <div class="row">
-    <div class="col">
-      <h1>{{user.user_name}}'s page</h1>
-    </div>
-  </div>
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../static/img/user-4-16.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{user.user_name}}</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">weight?</a>
+        </div>
+      </div>
 
-  <div class="row">
-    <div class="col">
+      
+      <h3>{{user.user_name}}</h3>
+        <div>
+          <h5>Saved Workouts</h5>
+          <ul>
+              {% for workout in workouts %}
+              <li>
+                <a href="/saved_workout/{{workout.workout_id}}">{{workout.workout_name}}</a>
+              </li>
+                {% endfor %}
+          </ul>
+        </div>
+    </div>
+
+  <div class="col-8">
+    <div class="card text-center">
+        <div class="card-header">
+          Start a new workout
+        </div>
+          <div class="card-body">
+            <h5 class="card-title">Workout Tracker</h5>
+            <p class="card-text">Name, customize and save your workouts easily with our 
+                                  easy to use workout tracker app.</p>
+
+              <form id = "workout_name_form"
+                    action= "/workout_name"
+                    method="GET">
+                    <p>
+                        <input  id = "user_saved_workout_name" 
+                                type = "text"
+                                placeholder="Name workout"
+                                name="user_saved_workout_name" required>
+                    </p>
+                      <form>
+                        <button id="save_workout_name" 
+                                class="btn btn-primary"
+                                type="submit">Push Yourself!</button>
+                      </form>
+              </form>
+          </div>
+        <!-- <div class="card-footer text-muted">
+          2 days ago
+        </div> -->
+    </div>
+
+
+
+ <!-- <div class="col"> -->
       <!-- <ul>
         <li>Age: {{user.user_age}}</li>
         <li>Weight: {{user.user_weight}}</li>
         <li>Zip Code: {{user.user_zipcode}}</li>
     </ul> -->
-    </div>
-    <div class="col-8">
-      <h2> Start new workout</h2>
-
-  <form id = "workout_name_form"
-      action= "/workout_name"
-      method="GET">
-  <p>
-    <label>Name Workout</label>
-      <input 
-        id = "user_saved_workout_name" 
-        type = "text"
-        name="user_saved_workout_name" required>
-  </p>
-  <form>
-    <button id="save_workout_name" 
-            type="submit">Let's Go!</button>
-  </form>
-</form>
-    </div>
-  </div>
-</div>
+    <!-- </div> -->
 
 
 
-<h3>Saved Workouts</h3>
-<div>
-  <ul>
-    
-      {% for workout in workouts %}
-      <li>
-        <a href="/saved_workout/{{workout.workout_id}}">{{workout.workout_name}}</a>
-      </li>
-        {% endfor %}
-   
-  </ul>
-</div>
-<form action="/weight_entry" method="GET">
   <div>
-    <label>Enter Weight</label>
-        <input 
-          id = "user_weight_entry" 
-          type = "number"
-          name="user_weight_entry" >
+    <form action="/weight_entry" method="GET">
+      <label>Enter Weight</label>
+          <input 
+            id = "user_weight_entry" 
+            type = "number"
+            name="user_weight_entry" >
+  
+            <form>
+              <button id="submit-weight" type="submit" >Add</button>
+            </form>
+    </form>
+  <p id= "entries_dict" style="display: none;">
+        {{entries_dict}}
+  </p>
+</div>
+
+    <div id="chartContainer" style="height: 250px; width: 100%;"></div>
+
   </div>
-  <form>
-    <button id="submit-weight" type="submit" >Add</button>
-  </form>
-</form>
-<p id= "entries_dict" style="display: none;">
-
-  {{entries_dict}}
-</p>
-
-
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</div>
 
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
