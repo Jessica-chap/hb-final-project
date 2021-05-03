@@ -42,18 +42,18 @@
             <ul class="navbar-nav ms-auto">
               <!-- if not in session -->
               {% if session['user_name'] is not defined or session['user_name'] == None %}
-              <li class="nav-item">
-                <a class="nav-link" href="/">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/create_user">Create Account</a>
-              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/create_user">Create Account</a>
+                </li>
               {% else %}
                 <li class="nav-item">
-                <a class="nav-link" href="/users/{{session['user_id']}}">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
+                  <a class="nav-link" href="/users/{{session['user_id']}}">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a>
                 </li>
               {% endif %}
               <!-- should show for both -->
