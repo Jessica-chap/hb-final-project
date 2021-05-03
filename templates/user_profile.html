@@ -36,16 +36,23 @@
         </div>
       </div>
 
-        <div>
-          <p><h5>Saved Workouts</h5></p>
+        
+          <!-- <p><h5>Saved Workouts</h5></p>
           <ul>
               {% for workout in workouts %}
               <li>
                 <a href="/saved_workout/{{workout.workout_id}}">{{workout.workout_name}}</a>
               </li>
                 {% endfor %}
-          </ul>
-        </div>
+          </ul> -->
+          <div class="list-group" style="width: 16rem;">
+            <h5>Saved Workouts</h5> 
+              {% for workout in workouts %}
+                <a href="/saved_workout/{{workout.workout_id}}" 
+                class="list-group-item list-group-item-action">{{workout.workout_name}}</a>
+              {% endfor %}
+  
+          </div>
     </div>
 
   <div class="col-8">

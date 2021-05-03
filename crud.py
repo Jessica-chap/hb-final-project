@@ -2,6 +2,7 @@
 
 from model import db, User, Weight, Workout, Workout_exercise, Exercise, connect_to_db
 from datetime import datetime
+import json
 
 
 ####################USER FUNCTIONS#################################
@@ -87,6 +88,20 @@ def all_user_weight_entries(user_id):
     entries = Weight.query.filter(Weight.user_id== user_id).all()
 
     return entries
+
+
+def weight_entries_dict(user_id):
+
+    weight_entries = all_user_weight_entries(user_id)
+
+    entries_dict = {}
+    for entry in weight_entries:
+        weight_date = entry.weight_date.strftime("%d %b %Y %H:%M")
+        entries_dict[weight_date] = entry.weight_input
+        
+    json_dict = json.dumps(entries_dict)
+
+    return json_dict
 
 
 ###################WORKOUT FUNCTIONS#########################################

@@ -116,21 +116,8 @@ def show_user(user_id):
     user = crud.get_user_by_id(user_id)
     workouts = crud.workouts_by_user_id(user_id)
 
-    weight_entries = crud.all_user_weight_entries(user_id)
-
-    entries_dict = {}
-    for entry in weight_entries:
-     
-        weight_date = entry.weight_date.strftime("%d %b %Y %H:%M")
-     
-        entries_dict[weight_date] = entry.weight_input
-      
-  
-    json_dict = json.dumps(entries_dict)
+    json_dict = crud.weight_entries_dict(user_id)
    
-
- 
-
     return render_template('user_profile.html', 
                             user=user, 
                             workouts=workouts, 
@@ -147,15 +134,12 @@ def user_weight_tracker_entry():
 
     user_id = session['user_id']
     user = crud.get_user_by_id(user_id)
-    # workouts = crud.workouts_by_user_id(user_id)
 
     weight = crud.create_weight_entry(user, weight_entry, datetime.now())
 
     return redirect('/users/'+ str(user_id))
 
 
-# print('*'*20)
-# print('*'*20)
 ####    WORKOUT CREATION ROUTES     ####
 
 
@@ -179,7 +163,6 @@ def new_workout_form():
     """Take user from personal page to page to start creating workout"""
 
     user = crud.get_user_by_user_name(session['user_name'])
-    # session['user_id'] = user.user_id
 
     api_exercise_selection = request.args.get('api_exercise_selection')
     ex_url = 'https://wger.de/api/v2/exercise/?language=2&limit=150'
@@ -267,27 +250,28 @@ def save_workout_to_profile():
     user = crud.get_user_by_id(user_id)
     workouts = crud.workouts_by_user_id(user_id)
     saved_exercises = crud.exercises_from_workout(workout_id)
+    json_dict = crud.weight_entries_dict(user_id)
     #add flash messages!! 
     if saved_exercises == []:
         crud.delete_empty_wkt(workout_id)
+        flash('Workout not saved, no exercises input')
         return redirect('/users/'+ str(user_id))
 
-    
+    flash('Workout Saved - Crushing it!')
     return render_template('user_profile.html', 
                             user_id= user_id, 
                             workout_name=workout_name, 
                             workout_id=workout_id, 
                             user=user, 
-                            workouts=workouts)
+                            workouts=workouts,
+                            entries_dict=json_dict)
                           
 
     
-# print('*'*20)
-# print('*'*20)
 @app.route('/saved_workout/<int:workout_id>')
 def access_stored_workouts(workout_id):
 
-    #list of workout_exercise objects
+    
     saved_exercises = crud.exercises_from_workout(workout_id)
     
     workout = crud.get_workout_by_id(workout_id)
