@@ -1,4 +1,7 @@
-"""Input data from test data user"""
+"""Input data from test data user
+    will not use after completion of project, unless additional testing
+    or adding new features
+"""
 
 
 import os
