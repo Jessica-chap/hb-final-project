@@ -1,42 +1,49 @@
 {% extends 'base.html' %}
-{% block title %}{{workout.workout_name}} Workout{% endblock %}
+{% block title %}Nanjo: {{workout.workout_name}} Workout{% endblock %}
 
 
 {% block body %}
-  <h1>{{workout.workout_name}} Workout</h1>
+<div class="row">
+  <div class="col">
+    <h1>{{workout.workout_name}} Workout</h1>
+  </div>
+</div>
 
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Exercise</th>
-        <th scope="col">Sets</th>
-        <th scope="col">Reps</th>
-        <th scope="col">Weight</th>
-        <th scope="col">Equipment</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for exercise in saved_exercises %}
-      <tr>
-        <td scope="row">
-          <a href='#' 
-            class='popover-anchor__save'
-          id='popover-anchor__save-{{loop.index}}'
-          data-content='{{exercise.exercise.exercise_info}}'
-          data-toggle='popover-anchor__save' 
-          title='{{exercise.exercise.exercise_name}}'>
-          {{exercise.exercise.exercise_name}}</a></td>
-        <td>{{exercise.we_sets}}</td>
-        <td>{{exercise.we_reps}} {{exercise.we_repunit}}</td>
-        <td>{{exercise.we_weight}} {{exercise.we_weightunit}}</td>
-        <td>{{exercise.we_equipment}}</td>
-      </tr>
-      
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Exercise</th>
+          <th scope="col">Sets</th>
+          <th scope="col">Reps</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Equipment</th>
+        </tr>
+      </thead>
+        <tbody>
+        {% for exercise in saved_exercises %}
+        <tr>
+          <td scope="row">
+            <a href='#' 
+              class='popover-anchor__save'
+              id='popover-anchor__save-{{loop.index}}'
+              data-content='{{exercise.exercise.exercise_info}}'
+              data-toggle='popover-anchor__save' 
+              title='{{exercise.exercise.exercise_name}}'>
+            {{exercise.exercise.exercise_name}}</a></td>
+          <td>{{exercise.we_sets}}</td>
+          <td>{{exercise.we_reps}} {{exercise.we_repunit}}</td>
+          <td>{{exercise.we_weight}} {{exercise.we_weightunit}}</td>
+          <td>{{exercise.we_equipment}}</td>
+        </tr>
+        
 
       {% endfor %}
     </tbody>
   </table>
+  </div>
+</div>
 
   <script src="/static/js/workouts.js"></script>
 

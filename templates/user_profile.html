@@ -36,15 +36,6 @@
         </div>
       </div>
 
-        
-          <!-- <p><h5>Saved Workouts</h5></p>
-          <ul>
-              {% for workout in workouts %}
-              <li>
-                <a href="/saved_workout/{{workout.workout_id}}">{{workout.workout_name}}</a>
-              </li>
-                {% endfor %}
-          </ul> -->
           <div class="list-group" style="width: 16rem;">
             <h5>Saved Workouts</h5> 
               {% for workout in workouts %}
@@ -81,39 +72,13 @@
                       </form>
               </form>
           </div>
-        <!-- <div class="card-footer text-muted">
-          2 days ago
-        </div> -->
     </div>
 
-
-
- <!-- <div class="col"> -->
-      <!-- <ul>
-        <li>Age: {{user.user_age}}</li>
-        <li>Weight: {{user.user_weight}}</li>
-        <li>Zip Code: {{user.user_zipcode}}</li>
-    </ul> -->
-    <!-- </div> -->
-
-
-
   <div>
-    <!-- <form action="/weight_entry" method="GET">
-          <input 
-            id = "user_weight_entry" 
-            type = "number"
-            name="user_weight_entry" 
-            placeholder="New weight entry">
-  
-            <form>
-              <button id="submit-weight" type="submit" >Add</button>
-            </form>
-    </form> -->
-  <p id= "entries_dict" style="display: none;">
-        {{entries_dict}}
-  </p>
-</div>
+    <p id= "entries_dict" style="display: none;">
+          {{entries_dict}}
+    </p>
+  </div>
 
     <div id="chartContainer" style="height: 250px; width: 100%;"></div>
 

@@ -4,7 +4,7 @@
 {% block body %}
 
 <div class="row">
-  <div class="col">
+  <div class="col-4">
     <div class="d-flex justify-content-center h-100">
       <div class="card">
         <div class="card-header">
@@ -88,90 +88,12 @@
             </form>
           </div>
        </div>
+      </div>
       </div> 
-<div>
-  
 
-
-
-
-    
-  <!-- <form id= "exercise-form"
-        action="/add_exercise"
-        method="POST">
-
-    <p id="api-exercises">  
-        <select id= "api_exercise_selection" 
-                name="api_exercise_selection" required>
-          <option value="Choose Exercise">Choose Exercise</option>
-            {% for exercise in api_exercises_list %}
-              <option  value="{{exercise.id}}">{{exercise.name}}</option>
-            {% endfor %}
-      </select>
-    </p>
-    <p>
-      <select id= "api_exercise_equipment" 
-              name="api_exercise_equipment" required>
-              <option value="Choose Equipment">Choose Equipment</option>
-        {% for equip in api_equipment_list %}
-          <option  value="{{equip.name}}">{{equip.name}}</option>
-
-        {% endfor %}
-      </select>
-    </p>
-  
-
-  <p id="add-sets">
-    <label>Sets*</label>
-      <input id = "exercise_sets" type = "number" 
-              name="exercise_sets" required>  
-  </p>
-
-  <p id="add-reps">
-    <label>Reps*</label>
-      <input id = "exercise_reps" type = "number" 
-            name="exercise_reps" required>
-  </p> 
-
-  <p id="add-repunit">  
-    <label>Rep Unit</label>
-      <select id= "exercise_repunit" name="exercise_repunit">
-       {% for unit in repunit_list %}
-          <option  value="{{unit}}">{{unit}}</option>
-
-        {% endfor %}
-    </select>
-</p>
-
-  <p id="add-weight">
-    <label>Enter Weight</label>
-      <input 
-        id = "exercise_weight" 
-        type = "number"
-        name="exercise_weight" required>
-  </p>
-
-  <p id="add-weightunit">  
-    <label>Weight Unit</label>
-      <select id= "exercise_weightunit" name="exercise_weightunit">
-       {% for unit in weightunit_list %}
-          <option  value="{{unit}}">{{unit}}</option>
-
-        {% endfor %}
-    </select>
-</p>
-
-      <form>
-        <button id="submit-exercise" type="submit" >Add Exercise</button>
-      </form>
-    </p>
-  </form> -->
-
-
-
-  <div class="col">
+  <div class="col-8">
   <section id="exercise-table">
-    <table  class=".table" style="width:50%">
+    <table  class=".table" style="width:100%">
       <thead>
         <tr>
           <th>Exercise</th>
@@ -188,18 +110,13 @@
 </section>
 </p>
 
-
-<form id = "save_workout_form"
-      action= "/save_workout"
-      method="POST">
-  <p>
-    
-  <button id="save_workout" 
-          type="submit">Save Workout</button>
-</form>
-</p>
-      </div>
-    </div>
+    <p>
+      <form id = "save_workout_form"
+            action= "/save_workout"
+            method="POST">
+        <button id="save_workout" type="submit">Save Workout</button>
+      </form>
+    </p>
   </div>
 </div>
 

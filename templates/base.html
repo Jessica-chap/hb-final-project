@@ -19,22 +19,21 @@
   {% if session['user_name'] is not defined or session['user_name'] == None %}
     <body class="homepage-img">
       <div class="container">
-   
+
       {% else %}
         <body>
-    
-    <div class="container">
-      <header>
-        <div class="signed-in-header-img"></div>
-          <div class="nanjo-header" style="background-color: transparent;">
-            <div class="d-flex justify-content-center align-items-center h-50">
-              <div class="text-white">
-                <h1 class="mb-3">Nanjo*test image*</h1>
-              </div>
-            </div>
-          </div>
-      </header>
-  {% endif %}
+          <div class="container">
+            <header>
+              <div class="signed-in-header-img"></div>
+                <div class="nanjo-header" style="background-color: transparent;">
+                  <div class="d-flex justify-content-center align-items-center h-50">
+                    <div class="text-white">
+                      <h1 class="mb-3">Nanjo*test image*</h1>
+                    </div>
+                  </div>
+                </div>
+            </header>
+      {% endif %}
 
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -83,6 +82,7 @@
     <footer class="base-footer">
       <p>Created by: Jessica Chapdelaine &copy 2021</p>
     </footer>
+    </body>
   </body>
 </html>
 
