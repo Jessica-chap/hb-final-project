@@ -1,7 +1,5 @@
-"""test data for database"""
+"""test data for database testing"""
  
-
-
 from model import db, User, Workout, Workout_exercise, Exercise, connect_to_db
 
 from datetime import datetime
@@ -45,8 +43,6 @@ def example_data():
     db.session.commit()
     
 
-   
-
     jess_wrkt = Workout(user_id = jess.user_id, 
                         workout_name= 'Monday',
                         workout_date= datetime.now())
@@ -64,8 +60,6 @@ def example_data():
     db.session.commit()
 
 
-    
-    
     wrkt_kb = Workout_exercise(workout_id= jess_wrkt.workout_id, 
                                 exercise_id= kb_swing.exercise_id,
                                 we_sets= 3, we_reps=20, we_repunit='repetitions',
@@ -93,6 +87,7 @@ def example_data():
 
     db.session.add_all([wrkt_kb, wrkt_squat, wrkt_crunch, wrkt_boat_row])
     db.session.commit()
+
 
 
 
