@@ -6,8 +6,8 @@
 <div class="row">
   <div class="col-4">
     <div class="d-flex justify-content-center h-100">
-      <div class="card">
-        <div class="card-header">
+      <div class="card-create-wkt">
+        <div class="card-header" style="background-color: #F4713E; color: white;">
           <h4>Create a new workout</h4>
         </div>
           <div class="card-body" style="height: fit-content;">
@@ -15,7 +15,7 @@
                   action="/add_exercise" method="POST">
               <div class="input-group form-group">
                 <p id="api-exercises">  
-                  <select id= "api_exercise_selection" 
+                  <select id= "api_exercise_selection" class="form-control-add-ex"
                           name="api_exercise_selection" required>
                     <option value="Choose Exercise">Choose Exercise</option>
                       {% for exercise in api_exercises_list %}
@@ -27,7 +27,7 @@
 
               <div class="input-group form-group">
                 <p>
-                  <select id= "api_exercise_equipment" 
+                  <select id= "api_exercise_equipment" class="form-control-add-ex"
                           name="api_exercise_equipment" required>
                     <option value="Choose Equipment">Choose Equipment</option>
                       {% for equip in api_equipment_list %}
@@ -40,7 +40,8 @@
 
               <div class="input-group form-group">
                 <p id="add-sets">
-                  <input id = "exercise_sets" type = "number" 
+                  <input id = "exercise_sets" class="form-control-add-ex"
+                          type = "number" 
                           placeholder="Sets"
                           name="exercise_sets" required>  
                 </p>
@@ -48,7 +49,8 @@
 
               <div class="input-group form-group">
                 <p id="add-reps">
-                  <input id = "exercise_reps" type = "number"
+                  <input id = "exercise_reps" class="form-control-add-ex"
+                          type = "number"
                           placeholder="Reps" 
                           name="exercise_reps" required>
                 </p> 
@@ -56,7 +58,8 @@
 
               <div class="input-group form-group">
                 <p id="add-repunit">  
-                    <select id= "exercise_repunit" name="exercise_repunit">
+                    <select id= "exercise_repunit" class="form-control-add-ex"
+                            name="exercise_repunit">
                       <option value="Rep unit">Choose Rep Unit</option>
                      {% for unit in repunit_list %}
                         <option  value="{{unit}}">{{unit}}</option>
@@ -68,7 +71,8 @@
               <div class="input-group form-group">
                   <p id="add-weight">                 
                     <input 
-                      id = "exercise_weight" type = "number"
+                      id = "exercise_weight" class="form-control-add-ex"
+                      type = "number"
                       placeholder="Enter Weight"
                       name="exercise_weight" required>
                   </p>
@@ -76,7 +80,8 @@
 
               <div class="input-group form-group">
                 <p id="add-weightunit">  
-                    <select id= "exercise_weightunit" name="exercise_weightunit">
+                    <select id= "exercise_weightunit" class="form-control-add-ex"
+                            name="exercise_weightunit">
                       <option value="Weight unit">Choose Weight Unit</option>
                         {% for unit in weightunit_list %}
                           <option  value="{{unit}}">{{unit}}</option>            

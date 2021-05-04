@@ -14,6 +14,10 @@ body {
     width: 10%;
     color: black;
   } 
+  #aboutbg{
+      background-color: white;
+      opacity: 0.9;
+  }
 
 /* need to update image */
 .signed-in-header-img{
@@ -31,8 +35,7 @@ body {
     height: 600px;
     margin-top: auto;
     margin-bottom: auto;
-    /* width: 400px; */
-    background-color: transparent !important;
+    background-color: transparent;
     }
 
 .form-control-signin-up{
@@ -40,6 +43,27 @@ body {
     border-radius: 25px;
     border-width: thin
 }
+
+.nanjo-session{
+    font-family: 'Roboto', sans-serif;
+    font-size: 50pt;
+    font-style: italic;
+
+}
+
+.card-create-wkt{
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: transparent;
+}
+
+.form-control-add-ex{
+    font-size: 13pt;
+    border-radius: 25px;
+    border-width: thin 
+}
+
     
 .card{
     height: fit-content;
@@ -71,8 +95,13 @@ box-shadow: 0 0 0 0 !important;
 
 }
 
+a:link{
+    color: #4EBBA2;
+    font-style: italic;
+}
+
 .login_btn{
-    color: black;
+    color: white;
     background-color: #f4723e;
     opacity: 0.9;
     width: 100px;
@@ -91,9 +120,6 @@ box-shadow: 0 0 0 0 !important;
     margin-left: 4px;
     }
 
-    /* #wkt-card{
-        background-color: #f4713e;
-    } */
 
 
     table, th, td {
