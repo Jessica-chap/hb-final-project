@@ -1,3 +1,10 @@
+/* font-family: 'Noto Sans JP', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
+body {
+    font-family: 'Noto Sans JP', sans-serif; 
+}
+
 
 .base-footer {
     margin: 0 auto;
