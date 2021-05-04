@@ -137,8 +137,9 @@ def workouts_by_user_id(user_id):
 def delete_empty_wkt(workout_id):
     """Deletes specific workout object"""
 
-   delete_wkt = Workout.query.filter(Workout.workout_id== workout_id).delete()
-   db.session.commit()
+
+    delete_wkt = Workout.query.filter(Workout.workout_id== workout_id).delete()
+    db.session.commit()
  
 
 ###################WORKOUT EXERCISE FUNCTIONS#############################
