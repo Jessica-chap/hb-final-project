@@ -7,7 +7,9 @@
   <div class="col-4">
     <div class="d-flex justify-content-center h-100">
       <div class="card-create-wkt">
-        <div class="card-header" style="background-color: #F4713E; color: white;">
+        <div class="card-header" style="background-color: #4EBBA2; 
+                                        border-radius: 24px;
+                                        color: white; text-align: center;">
           <h4>Create a new workout</h4>
         </div>
           <div class="card-body" style="height: fit-content;">
@@ -89,16 +91,17 @@
                     </select>
                 </p>
               </div>
-            <button id="submit-exercise" type="submit">Add Exercise</button>
+            <button id="submit-exercise" class="btn_createwkt" 
+                    type="submit">Add Exercise</button>
             </form>
           </div>
        </div>
       </div>
       </div> 
 
-  <div class="col-8">
+  <div class="col-8" style="background-color: #4EBBA2; border-radius: 24px;">
   <section id="exercise-table">
-    <table  class=".table" style="width:100%">
+    <table  class=".table" style="width:100%; background-color: white;">
       <thead>
         <tr>
           <th>Exercise</th>
@@ -119,7 +122,7 @@
       <form id = "save_workout_form"
             action= "/save_workout"
             method="POST">
-        <button id="save_workout" type="submit">Save Workout</button>
+        <button id="save_workout" class="btn_createwkt" type="submit">Save Workout</button>
       </form>
     </p>
   </div>

@@ -61,7 +61,9 @@ body {
 .form-control-add-ex{
     font-size: 13pt;
     border-radius: 25px;
-    border-width: thin 
+    border-width: thin; 
+    background-color: #FAF5F5;
+    width: 250pt;
 }
 
     
@@ -100,6 +102,22 @@ a:link{
     font-style: italic;
 }
 
+.profile_btn:hover{
+    color: black;
+    background-color: white;
+}
+
+.btn_createwkt{
+    color: white;
+    background-color: #f4723e;
+    font-weight: 300;
+    border-radius: 5px;
+}
+.btn_createwkt:hover{
+    color: black;
+    background-color: white;
+}
+
 .login_btn{
     color: white;
     background-color: #f4723e;
@@ -120,11 +138,19 @@ a:link{
     margin-left: 4px;
     }
 
+table, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 6px;
+    text-align:center;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 10px;
+}
 
-
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 6px;
-        text-align:left;
-    }
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 6px;
+    text-align:left;
+}
