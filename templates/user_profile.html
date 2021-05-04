@@ -9,8 +9,8 @@
   <div class="row">
     <div class="col-4">
       <div class="card" style="width: 16rem;">
-        <img class="card-img-top" style="height: 13rem;" 
-              src="../static/img/orangeuser.png" alt="User image icon">
+        <img class="card-img-top" 
+              src="../static/img/black-outline-user.jpg" alt="User image icon">
         <div class="card-body">
           <h5 class="card-title">{{user.user_name}}</h5>
           <p class="card-text">
@@ -18,7 +18,7 @@
                 <li>Age: {{user.user_age}}</li>
                 <li>Zip Code: {{user.user_zipcode}}</li>
             </ul>
-
+            <p>
             <form action="/weight_entry" method="GET">
               <div class="input-group mb-3">
                 <input type="number" id = "user_weight_entry"
@@ -29,10 +29,12 @@
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="submit">Add</button>
                 </div>
+               
               </div>
+              <label>New weight entry</label>
             </form>
-              
           </p>
+          
         </div>
       </div>
 

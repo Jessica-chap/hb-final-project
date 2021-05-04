@@ -3,6 +3,7 @@ font-family: 'Roboto', sans-serif; */
 
 body {
     font-family: 'Noto Sans JP', sans-serif; 
+    line-height: 1.4em;
 }
 
 
@@ -26,6 +27,19 @@ body {
     height: 100%;
 }
 
+.card-signin-up{
+    height: 600px;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* width: 400px; */
+    background-color: transparent !important;
+    }
+
+.form-control-signin-up{
+    font-size: 14pt;
+
+}
+    
 .card{
     height: fit-content;
     margin-top: auto;
@@ -34,14 +48,23 @@ body {
     background-color: transparent !important;
     }
 
+.nanjo-header{
+    text-align: center;
+    font-size: xxx-large;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
 .input-group-prepend span{
 width: 50px;
-background-color: #FFC312;
+background-color: #F4713E;
+opacity: 0.9;
 color: rgba(0, 0, 0, 0.274);
 border:0 !important;
 }
 
 input:focus{
+size: 20;
 outline: 0 0 0 0  !important;
 box-shadow: 0 0 0 0 !important;
 
@@ -49,7 +72,8 @@ box-shadow: 0 0 0 0 !important;
 
 .login_btn{
     color: black;
-    background-color: #FFC312;
+    background-color: #f4723e;
+    opacity: 0.9;
     width: 100px;
     }
     
@@ -59,7 +83,7 @@ box-shadow: 0 0 0 0 !important;
     }
     
     .links{
-    color: rgba(128, 128, 128, 0.918);
+    color: black;
     }
     
     .links a{
