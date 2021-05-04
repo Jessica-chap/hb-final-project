@@ -37,7 +37,8 @@ body {
 
 .form-control-signin-up{
     font-size: 14pt;
-
+    border-radius: 25px;
+    border-width: thin
 }
     
 .card{
@@ -89,6 +90,10 @@ box-shadow: 0 0 0 0 !important;
     .links a{
     margin-left: 4px;
     }
+
+    /* #wkt-card{
+        background-color: #f4713e;
+    } */
 
 
     table, th, td {
