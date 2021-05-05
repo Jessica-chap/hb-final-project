@@ -21,23 +21,24 @@
   
   {% if session['user_name'] is not defined or session['user_name'] == None %}
     <body class="homepage-img">
-      <div class="container">
+      <!-- <div class="container"> -->
 
       {% else %}
         <body class="session-blur-img">
           <header>
-            <div class="signed-in-header" style="background-color: #F4713E; height: 120px;">
+            <div class="signed-in-header" style="background-color:transparent; height: 100px;">
               <div class="text-white" style="text-align: center; vertical-align: auto;">
                 <h1 class="nanjo-session" >Nanjo</h1>
                 <p>BELIEVE | WORK HARD | GROW</p>
               </div>
             </div>
           </header>
-          <div class="container">
+          <!-- <div class="container"> -->
            
       {% endif %}
 
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;
+                                                                opacity: 0.8;">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
@@ -64,8 +65,8 @@
             </ul>
           </div>
           </div>
-        </nav>
-
+        </nav><br><br>
+      <div class="container">
 
       {% for msg in get_flashed_messages() %}
       <p class="flash-msg">

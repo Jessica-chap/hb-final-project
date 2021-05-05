@@ -6,33 +6,37 @@
 
 {% block body %}
 
-  <div class="row">
+  <div class="row" style="opacity: 0.93;">
     <div class="col-4">
-      <div class="card" style="width: 16rem;">
-        <img class="card-img-top" 
-              src="../static/img/black-outline-user.jpg" alt="User image icon">
-        <div class="card-body">
-          <h5 class="profile-card-title">{{user.user_name}}</h5>
-          <p class="card-text">
-            <ul>
-                <li>Age: {{user.user_age}}</li>
-                <li>Zip Code: {{user.user_zipcode}}</li>
-            </ul>
-            <p>
-            <form action="/weight_entry" method="GET">
-              <div class="input-group mb-3">
-                <input type="number" id = "user_weight_entry"
-                        style="font-size: 11pt;"
-                        class="form-control" 
-                        name="user_weight_entry"
-                        placeholder="New weight entry" aria-label="New weight entry" 
-                        aria-describedby="enter-new-weight">
-                <div class="input-group-append" style="border-radius: 10pt;">
-                  <button class="btn btn-outline-secondary profile_btn" type="submit"
-                            style="background-color: #f4723e; color: white; 
-                            font-weight: 300;">Add</button>
-                </div>
-               
+      <div class="card" style="width: 16rem; background-color:  white; opacity: 0.93;
+                              border-radius: 10pt;">
+        <div class="prof-card-header" style="margin-left: auto; 
+                    margin-right: auto;">
+          <img class="card-img-top" style="width: 7rem;"
+                src="../static/img/black-user-icon.svg" alt="User image icon">
+        </div>
+          <div class="card-body" style="background-color: white; opacity: 0.93;">
+            <h5 class="profile-card-title">{{user.user_name}}</h5>
+            <p class="card-text">
+              <ul>
+                  <li>Age: {{user.user_age}}</li>
+                  <li>Zip Code: {{user.user_zipcode}}</li>
+              </ul>
+              <p>
+              <form action="/weight_entry" method="GET">
+                <div class="input-group mb-3">
+                  <input type="number" id = "user_weight_entry"
+                          style="font-size: 11pt;"
+                          class="form-control" 
+                          name="user_weight_entry"
+                          placeholder="New weight entry" aria-label="New weight entry" 
+                          aria-describedby="enter-new-weight">
+                  <div class="input-group-append" style="border-radius: 10pt;">
+                    <button class="btn btn-outline-secondary profile_btn" type="submit"
+                              style="background-color: #f4723e; color: white; 
+                              font-weight: 300;">Add</button>
+                  </div>
+                
               </div>
             </form>
           </p>
@@ -40,7 +44,9 @@
         </div>
       </div><br>
 
-          <div class="list-group" style="width: 16rem; border-color: black; border-width: thin; border-radius: 10pt;">
+          <div class="list-group" style="width: 16rem; border-color: black;   
+                                        border-width: thin; border-radius: 10pt;
+                                        opacity: 0.93; background-color: white; opacity: 0.93;">
             <h5 class="profile-card-title">Saved Workouts</h5> 
               {% for workout in workouts %}
                 <a href="/saved_workout/{{workout.workout_id}}" 
@@ -51,7 +57,8 @@
     </div>
 
   <div class="col-8"><br>
-    <div class="card text-center" style="border-color: black; border-width: thin; border-radius: 10pt;">
+    <div class="card text-center" style="border-color: black; border-width: thin; 
+                                  border-radius: 10pt; height: 38%">
         <div class="card-header">
           Start a new workout
         </div>
@@ -80,14 +87,14 @@
               </form>
           </div>
     </div>
-    <br><br>
+    <br><br><br>
   <div>
     <p id= "entries_dict" style="display: none;">
           {{entries_dict}}
     </p>
   </div>
 
-    <div id="chartContainer" style="height: 250px; width: 100%;"></div>
+    <div id="chartContainer" style="height: 250px; width: 100%; opacity: 0.93;"></div>
 
   </div>
 </div>
@@ -141,7 +148,7 @@
     data: [{        
       type: "line",
       xValueFormatString: "DD MMM",
-      color: "#4EBBA2",
+      color: "#f4723e",
       dataPoints: testData.concat(dataArr)
      
     }]
