@@ -68,12 +68,20 @@
         </nav><br><br>
       <div class="container">
 
-      {% for msg in get_flashed_messages() %}
+      <!-- {% for msg in get_flashed_messages() %}
       <p class="flash-msg">
         {{ msg }}
       </p>
-    {% endfor %}
-
+    {% endfor %} -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
 
     {% block body %}{% endblock %}
 

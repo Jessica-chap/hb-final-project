@@ -8,18 +8,22 @@ body {
 }
 
 
+
 .base-footer {
     position: sticky;
-    /* bottom: 0; */
     margin: 0 auto;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    background-color: white;
+    opacity: 0.8;
     color: black;
   } 
+
   #aboutbg{
       background-color: white;
       opacity: 0.9;
+      border-radius: 10pt;
   }
 
 /* need to update image */
@@ -69,7 +73,7 @@ body {
 
 .form-control-add-ex{
     font-size: 13pt;
-    border-radius: 25px;
+    border-radius: 0.7rem;
     border-width: thin; 
     background-color: #FAF5F5;
     width: 250pt;
@@ -77,7 +81,7 @@ body {
 
     
 .name-wkt-card{
-    border-radius: 10pt;
+    border-radius: 0.7rem;
     border-width: thin;
     border-color: black;
 }
@@ -135,7 +139,7 @@ a:link{
     color: white;
     background-color: #f4723e;
     font-weight: 300;
-    border-radius: 5px;
+    border-radius: 0.7rem;
 }
 .btn_createwkt:hover{
     color: black;
@@ -163,18 +167,21 @@ a:link{
     }
 
 table, th {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 6px;
-    text-align:center;
-    font-size: medium;
-    font-weight: bold;
-    border-radius: 10pt;
-}
-
-table, td {
-    border: 1px solid black;
+    border: none;
     border-collapse: collapse;
     padding: 6px;
     text-align:left;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 0.7rem;
+}
+
+table, td {
+    border-bottom: 1px solid #000;
+    padding: 6px;
+    text-align:left;
+}
+
+table td:first-child{
+    border-left: none;
 }

@@ -65,7 +65,7 @@ def handle_new_user():
         return redirect(f'/users/{user.user_id}')
 
     else:
-        flash('Already an account for that user name, please login')
+        flash('Already an account for that user name, please login', 'error')
         return redirect('/')
 
 
@@ -78,7 +78,7 @@ def handle_login():
     is_valid_user = crud.verify_valid_user(user_name)
 
     if is_valid_user == False:
-        flash('No account with user name, please create account')
+        flash('No account with user name, please create account', 'error')
         return redirect('/')
 
     else:
@@ -92,7 +92,7 @@ def handle_login():
             return redirect(f'/users/{user.user_id}') 
         
         else:
-            flash('Wrong password, please try again')
+            flash('Wrong password, please try again','error')
             return redirect('/')
 
 
@@ -257,7 +257,7 @@ def save_workout_to_profile():
     
     if saved_exercises == []:
         crud.delete_empty_wkt(workout_id)
-        flash('Workout not saved, no exercises input')
+        flash('Workout not saved, no exercises input','error')
         return redirect('/users/'+ str(user_id))
 
     flash('Workout Saved - Crushing it!')
