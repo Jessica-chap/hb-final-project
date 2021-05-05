@@ -14,8 +14,7 @@ def example_data():
     Exercise.query.delete()
     Workout.query.delete()
     User.query.delete()
-    Weight.query.delete()
- 
+    
     jess = User(user_name='jess', password='wifu', user_age='75', 
                 user_weight='130', user_zipcode='48189')
     ankit = User(user_name='ankit', password='hubs', user_age='35', 

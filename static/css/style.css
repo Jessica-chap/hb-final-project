@@ -4,6 +4,7 @@ font-family: 'Roboto', sans-serif; */
 body {
     font-family: 'Noto Sans JP', sans-serif; 
     line-height: 1.4em;
+    min-height: 100%;
 }
 
 
@@ -11,7 +12,7 @@ body {
     margin: 0 auto;
     margin-left: auto;
     margin-right: auto;
-    width: 10%;
+    width: 30%;
     color: black;
   } 
   #aboutbg{
@@ -67,19 +68,28 @@ body {
 }
 
     
-.card{
-    height: fit-content;
-    margin-top: auto;
-    margin-bottom: auto;
-    /* width: 400px; */
-    background-color: transparent !important;
-    }
+.name-wkt-card{
+    border-radius: 10pt;
+    border-width: thin;
+    border-color: black;
+}
+
+.profile-card-title{
+    font-size: medium;
+    text-align: center;
+    font-weight: 400;
+    color: #4EBBA2;
+    font-size: xx-large;
+    font-family: 'Roboto', sans-serif;
+}
+
 
 .nanjo-header{
     text-align: center;
     font-size: xxx-large;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
+    font-weight: 550;
+    /* font-style: italic; */
 }
 
 .input-group-prepend span{
@@ -98,7 +108,6 @@ box-shadow: 0 0 0 0 !important;
 }
 
 a:link{
-    color: #4EBBA2;
     font-style: italic;
 }
 
@@ -145,7 +154,7 @@ table, th {
     text-align:center;
     font-size: medium;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 10pt;
 }
 
 table, td {

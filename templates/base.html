@@ -18,6 +18,7 @@
     {% block head %}{% endblock %}
   </head>
 
+  
   {% if session['user_name'] is not defined or session['user_name'] == None %}
     <body class="homepage-img">
       <div class="container">
@@ -79,9 +80,10 @@
     
 
       {% block after_body %}{% endblock %}
-    </div>
-    <footer class="base-footer">
-      <p>Created by: Jessica Chapdelaine &copy 2021</p>
+    </div><br><br><br><br>
+    <footer class="base-footer" style="text-align: center;">
+      <hr>
+      <p>Created by: <a href="/about">Jessica Chapdelaine</a> &copy 2021</p>
     </footer>
     </body>
   </body>
