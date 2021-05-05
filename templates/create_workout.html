@@ -7,10 +7,10 @@
   <div class="col-4">
     <div class="d-flex justify-content-center h-100">
       <div class="card-create-wkt">
-        <div class="card-header" style="background-color: #4EBBA2; 
-                                        border-radius: 10pt;
+        <div class="card-header" style="background-color: #f4723e; 
+                                        border-radius: 1pt;
                                         opacity: 0.93;
-                                        color: black; text-align: center;">
+                                        color: white; text-align: center;">
           <h4>Create a new workout</h4>
         </div>
           <div class="card-body" style="height: fit-content;">
@@ -92,11 +92,13 @@
                     </select>
                   </p>
                 </div>
-                <button class="btn_createwkt"
-                      action="/users/{{session['user_id']}}" 
-                        type="submit">Not ready yet?</button>
-              <button id="submit-exercise" class="btn_createwkt" 
-                    type="submit">Add Exercise</button>
+                <div class="btns-space-form">
+                  <button id="submit-exercise" class="btn_createwkt" 
+                      type="submit">Add Exercise</button><span></span>
+                  <button class="btn_createwkt"
+                        action="/users/{{session['user_id']}}" 
+                          type="submit">Not ready yet?</button>
+                </div>
             </form>
     
           </div>
@@ -104,7 +106,7 @@
       </div>
       </div> 
 
-  <div class="col-8" style="background-color: #4EBBA2; border-radius: 0.7rem; 
+  <div class="col-8" style="background-color: transparent; border-radius: 0.7rem; 
                             opacity: 0.93;">
     <p>
       <form id = "save_workout_form"
