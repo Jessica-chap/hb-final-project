@@ -1,13 +1,21 @@
 
-# Project Title
+# <img src="https://cdn.shopify.com/shopifycloud/hatchful-web/assets/d80321286525089fe6b5a5d4759d0efd.svg" width="30%"> Nanjo
 
 A brief description of what this project does and who it's for
+
+## Creator
+
+
 
 
 ## Appendix
 
 * [Authors](#authors)
 * [Tech Stack](#tech_stack)
+* [Features](#features)
+* [Future Roadmap](#future)
+* [Installation](#install)
+* [License](#license)
 
   
 ## <a name="authors"></a>Authors
@@ -24,7 +32,7 @@ A brief description of what this project does and who it's for
 * PostgreSQL, Jinja, Bootstrap, jQuery, Ajax
 
   
-## Features
+## <a name="features"></a>Features
 
 - Light/dark mode toggle
 - Live previews
@@ -36,8 +44,17 @@ A brief description of what this project does and who it's for
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
+## <a name="future"></a>Future Roadmap
+
+* More accessibility features for all users, and responsiveness for different devices
+* Additional automated testing
+* Fine tune current features and make user profile more robust
+* Build larger database - premade workouts for users to select from
+* Web scraping images for all exercises, and more customization to workouts
+* Implement Search for parks in area, to take workout outside
+
   
-## Installation 
+## <a name="install"></a>Installation 
 
 Install my-project with npm
 
@@ -46,7 +63,7 @@ Install my-project with npm
   cd my-project
 ```
     
-## License
+## <a name="license"></a>License
 
 MIT License
 
