@@ -61,7 +61,7 @@ body {
 
 .form-control-signin-up{
     font-size: 13pt;
-    border-radius: 0.7rem;
+    /* border-radius: 0.7rem; */
     border-width: thin; 
     background-color: #FAF5F5;
     width: 150pt;
