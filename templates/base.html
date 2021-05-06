@@ -86,10 +86,14 @@
 
       {% block after_body %}{% endblock %}
     </div>
-    <footer class="base-footer">
-      
-      <p>Created by: <a href="/about">Jessica Chapdelaine</a> &copy 2021</p>
-    </footer>
+
+    {% if session['user_name'] is not defined or session['user_name'] == None %}
+      <footer></footer>
+    {% else %}
+      <footer class="base-footer">     
+        <p>Created by: <a href="/about">Jessica Chapdelaine</a> &copy 2021</p>
+      </footer>
+    {% endif %}
     </body>
   </body>
 </html>
