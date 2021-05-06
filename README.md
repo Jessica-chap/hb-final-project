@@ -46,7 +46,7 @@ technologies and gain more experience in the field.
 
 - Login and Create Account<br />
 
-![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/homepage.png)<br />
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/homepage_pic.png)<br />
 ![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/sign_up.png)
 
 - Personal Profile Page<br />
