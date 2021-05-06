@@ -66,3 +66,7 @@
  }
 
   window.onload = callPopover();
+
+  function addExercise() {
+    
+  }

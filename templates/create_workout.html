@@ -20,7 +20,7 @@
                 <p id="api-exercises">  
                   <select id= "api_exercise_selection" class="form-control-add-ex"
                           name="api_exercise_selection" required>
-                    <option value="0" selected>Choose Exercise</option>
+                    <option value="0" disabled selected>Choose Exercise</option>
                       {% for exercise in api_exercises_list %}
                         <option  value="{{exercise.id}}">{{exercise.name}}</option>
                       {% endfor %}
@@ -32,7 +32,7 @@
                 <p>
                   <select id= "api_exercise_equipment" class="form-control-add-ex"
                           name="api_exercise_equipment" required>
-                    <option value="0" selected>Choose Equipment</option>
+                    <option value="0" disabled selected>Choose Equipment</option>
                       {% for equip in api_equipment_list %}
                         <option  value="{{equip.name}}">{{equip.name}}</option>
 
@@ -63,7 +63,7 @@
                 <p id="add-repunit">  
                     <select id= "exercise_repunit" class="form-control-add-ex"
                             name="exercise_repunit">
-                      <option value="0" selected>Choose Rep Unit</option>
+                      <option value="0" disabled selected>Choose Rep Unit</option>
                      {% for unit in repunit_list %}
                         <option  value="{{unit}}">{{unit}}</option>
                       {% endfor %}
@@ -85,18 +85,19 @@
                 <p id="add-weightunit">  
                     <select id= "exercise_weightunit" class="form-control-add-ex"
                             name="exercise_weightunit">
-                      <option value="0" selected >Choose Weight Unit</option>
+                      <option value="0" disabled selected >Choose Weight Unit</option>
                         {% for unit in weightunit_list %}
                           <option  value="{{unit}}">{{unit}}</option>            
                         {% endfor %}
                     </select>
                   </p>
                 </div>
+                <p style="color: white;">*All fields required before adding exercise</p>
                 <div class="btns-space-form" style="text-align: center;">
+                  <button onclick="goBack()" class="btn_createwkt">Not ready yet?</button>
                   <button id="submit-exercise" class="btn_createwkt" style="margin-right: 10px  ;"
                       type="submit">Add Exercise</button>
                 </form>
-                        <button onclick="goBack()" class="btn_createwkt">Not ready yet?</button>
                 </div>
             
     
@@ -143,7 +144,6 @@
     function goBack(){
       window.history.back()
     }
-    
   </script>
   <script src="/static/js/workouts.js"></script>
  
