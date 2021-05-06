@@ -1,5 +1,5 @@
 
-# <img src="https://cdn.shopify.com/shopifycloud/hatchful-web/assets/d80321286525089fe6b5a5d4759d0efd.svg" width="30%"> Nanjo
+# <img src="../static/img/nanjo-logo.svg" width="30%"> Nanjo
 
 A brief description of what this project does and who it's for
 
