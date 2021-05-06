@@ -1,47 +1,73 @@
-## Project Proposal
 
-### Overview
+# Project Title
 
-Create a user-based fitness web-app, where user can create profile, from their profile page choose preloaded workouts or create their own. Plus if they want to take the workout outside, utilize google maps to find local park near them. 
-
-### Technologies required (besides typical Hackbright tech stack)
-
-- List any APIs or data sources you're planning on using here
-    For the workout/exercise information 
-    https://wger.de/en/software/api
-
-    For park location 
-    https://developers.google.com/maps/documentation/places/web-service/overview
-
-### Data
-
-- List data you'll want to store in your database
-        --Link in Frodo for data model--
-
-### Roadmap
-
-#### MVP
-
-- User profile page from premade stored users, age, weight
-- Workouts page, with premade workout lists that user can pick from 
-- When workout selected show list of exercises sets/reps
+A brief description of what this project does and who it's for
 
 
-#### 2.0
+## Appendix
 
-- Map page to search location for local parks in area
-- More information about exercise selctions, image of muscles used
-- User can create their own workout from list of exercises/sets/reps
-    and comment on their workout
-- Save workouts to days of week to set schedule for the week
+* [Authors](#authors)
+* [Tech Stack](#tech_stack)
 
-#### 3.0
+  
+## <a name="authors"></a>Authors
 
-- 'Maybe 2.0' - Create unique user login
-- User can store and recall past saved workouts
-- Share location of park with other users, or non-users
-- Larger library of premade workouts/ no equipment workouts
+- [@Jessica-chap](https://github.com/Jessica-chap)
 
-### Notes
+  
+## <a name="tech_stack"></a>Tech Stack
 
-For the 'far' future, want to work on building with my own data for the workouts 
+**Languages/Frameworks** 
+* Python, Javascript, SQLAlchemy, Flask, Json, HTML, CSS
+
+**Databases/Other** 
+* PostgreSQL, Jinja, Bootstrap, jQuery, Ajax
+
+  
+## Features
+
+- Light/dark mode toggle
+- Live previews
+- Fullscreen mode
+- Cross platform
+
+  
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+  
+## Installation 
+
+Install my-project with npm
+
+```bash 
+  npm install my-project
+  cd my-project
+```
+    
+## License
+
+MIT License
+
+Copyright (c) [2021 [Jessica Chapdelaine]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+  
