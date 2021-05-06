@@ -61,11 +61,11 @@ def handle_new_user():
         user =  crud.create_user(user_name, password, user_age, user_weight, user_zipcode)
         weight = crud.create_weight_entry(user, user_weight, datetime.now())
         session['user_name'] = user_name
-        flash('Account Created')
+        # flash('Account Created')
         return redirect(f'/users/{user.user_id}')
 
     else:
-        flash('Already an account for that user name, please login', 'error')
+        flash('Already an account for that user name, please login')
         return redirect('/')
 
 
@@ -78,7 +78,7 @@ def handle_login():
     is_valid_user = crud.verify_valid_user(user_name)
 
     if is_valid_user == False:
-        flash('No account with user name, please create account', 'error')
+        flash('No account with user name, please create account')
         return redirect('/')
 
     else:
@@ -88,11 +88,11 @@ def handle_login():
         if password == user.password:
             session['user_name'] = user_name
             session['user_id'] = user.user_id
-            flash('Login success!')
+            # flash('Login success!')
             return redirect(f'/users/{user.user_id}') 
         
         else:
-            flash('Wrong password, please try again','error')
+            flash('Wrong password, please try again')
             return redirect('/')
 
 
@@ -105,7 +105,7 @@ def user_logout():
     for value in session_values:
         session[value] = None
 
-    flash('See you tomorrow for another awesome workout!')
+    # flash('See you tomorrow for another awesome workout!')
     return redirect('/')     
 
 
@@ -257,10 +257,10 @@ def save_workout_to_profile():
     
     if saved_exercises == []:
         crud.delete_empty_wkt(workout_id)
-        flash('Workout not saved, no exercises input','error')
+        # flash('Workout not saved, no exercises input','error')
         return redirect('/users/'+ str(user_id))
 
-    flash('Workout Saved - Crushing it!')
+    # flash('Workout Saved - Crushing it!')
     return render_template('user_profile.html', 
                             user_id= user_id, 
                             workout_name=workout_name, 

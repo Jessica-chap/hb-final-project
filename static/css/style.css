@@ -10,14 +10,16 @@ body {
 
 
 .base-footer {
-    position: sticky;
     margin: 0 auto;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
     background-color: white;
-    opacity: 0.8;
+    opacity: 0.65;
     color: black;
+    position: fixed;
+    bottom:0;
+    text-align: center;
   } 
 
   #aboutbg{
@@ -41,26 +43,32 @@ body {
 .session-blur-img{
     background: no-repeat center/cover url(https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80);
     height: 100%;
-    /* filter: blur(20px); */
+
 }
 
 .card-signin-up{
-    height: 600px;
+    height: auto;
     margin-top: auto;
     margin-bottom: auto;
-    background-color: transparent;
+    background-color: white;
+    opacity: 0.91;
+    border-radius: 0.5rem;
     }
 
-.form-control-signin-up{
-    font-size: 14pt;
-    border-radius: 25px;
-    border-width: thin
-}
 
+.form-control-signin-up{
+    font-size: 13pt;
+    border-radius: 0.7rem;
+    border-width: thin; 
+    background-color: #FAF5F5;
+    width: 150pt;
+    height: 25pt;
+}
 .nanjo-session{
     font-family: 'Roboto', sans-serif;
-    font-size: xxx-large;
+    font-size: 2.7rem;
     font-style: italic;
+    color: black;
 
 }
 
@@ -78,6 +86,7 @@ body {
     background-color: #FAF5F5;
     width: 250pt;
 }
+
 
     
 .name-wkt-card{
@@ -106,13 +115,16 @@ body {
 
 .nanjo-header{
     text-align: center;
-    font-size: xxx-large;
+    font-size: 6.5rem;
+    font-style: italic;
     font-family: 'Roboto', sans-serif;
-    font-weight: 550;
+    font-weight: 250;
+    color: black;
+    opacity: 0.85;
 }
 
 .input-group-prepend span{
-width: 50px;
+width: 15px;
 background-color: #F4713E;
 opacity: 0.9;
 color: rgba(0, 0, 0, 0.274);
@@ -172,6 +184,17 @@ a:link{
     .links a{
     margin-left: 4px;
     }
+
+.popover-header{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: black;
+    opacity: 0.7;
+    border-color: #0645AD;
+    border-width: thick;
+    font-size: 15pt;
+}
 
 table, th, tr {
     border: none;

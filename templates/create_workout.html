@@ -92,9 +92,9 @@
                     </select>
                   </p>
                 </div>
-                <div class="btns-space-form">
-                  <button id="submit-exercise" class="btn_createwkt" 
-                      type="submit">Add Exercise</button><span></span>
+                <div class="btns-space-form" style="text-align: center;">
+                  <button id="submit-exercise" class="btn_createwkt" style="margin-right: 10px  ;"
+                      type="submit">Add Exercise</button>
                   <button class="btn_createwkt"
                         action="/users/{{session['user_id']}}" 
                           type="submit">Not ready yet?</button>
@@ -111,7 +111,8 @@
     <p>
       <form id = "save_workout_form"
             action= "/save_workout"
-            method="POST">
+            method="POST"
+            style="text-align: right">
         <button id="save_workout" class="btn_createwkt" 
                 type="submit">Save Workout</button>
       </form>
