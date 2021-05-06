@@ -1,16 +1,29 @@
 
 # <img src="../static/img/nanjo-logo.svg" width="30%"> Nanjo
 
-A brief description of what this project does and who it's for
+Practical fitness tracker:
+
+* users can create an individual account
+* track their bodyweight
+* create workouts with customizable measurements/inputs
+* save these workouts to use in the future
 
 ## Creator
 
+This project is the culmination of what I learned during
+the first 10 weeks of my Hackbright, Perficient sponsored, 
+full stack engineering boot camp. 
 
+Prior to entering the technology field, the past 20 years of my career has been customer service centered, and I hope to use that experience in understanding customer needs and building products to reflect that expertise.
 
+In the future I plan to expand the app as I learn new 
+technologies and gain more experience in the field.
+
+- GitHub[@Jessica-chap](https://github.com/Jessica-chap)
 
 ## Appendix
 
-* [Authors](#authors)
+
 * [Tech Stack](#tech_stack)
 * [Features](#features)
 * [Future Roadmap](#future)
@@ -18,7 +31,6 @@ A brief description of what this project does and who it's for
 * [License](#license)
 
   
-## <a name="authors"></a>Authors
 
 - [@Jessica-chap](https://github.com/Jessica-chap)
 
