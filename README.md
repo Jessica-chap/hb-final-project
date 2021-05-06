@@ -46,7 +46,8 @@ technologies and gain more experience in the field.
 
 - Login and Create Account<br />
 
-![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/sign_in_page.png)
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/homepage.png)<br />
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/sign_up.png)
 
 - Personal Profile Page<br />
 
@@ -54,7 +55,7 @@ technologies and gain more experience in the field.
 
 - Visual Weight Tracker<br />
 
-![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/create_account.png)
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/weight_tracker.png)
 
 - Workout Creation with custom entries<br />
 
