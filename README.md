@@ -1,5 +1,5 @@
 
-# <img src="../static/img/nanjo-logo.svg" width="30%"> Nanjo
+# <img src="https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/favicon.png" width="30%"> Nanjo
 
 Practical fitness tracker:
 
@@ -32,8 +32,6 @@ technologies and gain more experience in the field.
 
   
 
-- [@Jessica-chap](https://github.com/Jessica-chap)
-
   
 ## <a name="tech_stack"></a>Tech Stack
 
@@ -46,15 +44,22 @@ technologies and gain more experience in the field.
   
 ## <a name="features"></a>Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- Login and Create Account
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+- Personal Profile Page
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+- Visual Weight Tracker
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+- Workout Creation with custom entries
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+- Revisit previously saved workouts
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
   
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 ## <a name="future"></a>Future Roadmap
 
@@ -68,12 +73,12 @@ technologies and gain more experience in the field.
   
 ## <a name="install"></a>Installation 
 
-Install my-project with npm
+<!-- Install my-project with npm
 
 ```bash 
   npm install my-project
   cd my-project
-```
+``` -->
     
 ## <a name="license"></a>License
 
