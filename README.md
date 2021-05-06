@@ -1,5 +1,5 @@
 
-# <img src="https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/favicon.png" width="30%"> Nanjo
+# <img src="https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/favicon.png"> Nanjo
 
 Practical fitness tracker:
 
@@ -44,20 +44,25 @@ technologies and gain more experience in the field.
   
 ## <a name="features"></a>Features
 
-- Login and Create Account
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+- Login and Create Account<br />
 
-- Personal Profile Page
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/sign_in_page.png)
 
-- Visual Weight Tracker
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+- Personal Profile Page<br />
 
-- Workout Creation with custom entries
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/create_account.png)
 
-- Revisit previously saved workouts
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+- Visual Weight Tracker<br />
+
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/create_account.png)
+
+- Workout Creation with custom entries<br />
+
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/create_account.png)
+
+- Revisit previously saved workouts<br />
+
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/create_account.png)
 
   
 

@@ -87,6 +87,8 @@ def example_data():
     db.session.add_all([wrkt_kb, wrkt_squat, wrkt_crunch, wrkt_boat_row])
     db.session.commit()
 
+    #http://localhost:5000/
+
 
 
 
