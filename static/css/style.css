@@ -99,7 +99,7 @@ body {
     text-align: center;
     font-weight: 400;
     color: #f4723e;
-    font-size: xx-large;
+    font-size: 1.9rem;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -107,15 +107,17 @@ body {
     text-align: left;
     font-weight: 800;
     color: #f4723e;
-    font-size: xx-large;
+    font-size: 1.9rem;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
+    margin-top: 15pt;
+    
 }
 
 
 .nanjo-header{
     text-align: center;
-    font-size: 6.5rem;
+    font-size:  5.5rem;
     font-style: italic;
     font-family: 'Roboto', sans-serif;
     font-weight: 250;
