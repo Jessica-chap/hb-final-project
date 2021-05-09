@@ -166,7 +166,7 @@ def new_workout_form():
     user = crud.get_user_by_user_name(session['user_name'])
 
     api_exercise_selection = request.args.get('api_exercise_selection')
-    ex_url = 'https://wger.de/api/v2/exercise/?language=2&limit=150'
+    ex_url = 'https://wger.de/api/v2/exercise/?language=2&limit=250'
 
     api_exercise_equipment = request.args.get('api_exercise_equipment')
     equip_url = 'https://wger.de/api/v2/equipment/?language=2'

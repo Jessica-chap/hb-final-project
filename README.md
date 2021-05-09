@@ -27,7 +27,7 @@ technologies and gain more experience in the field.
 * [Tech Stack](#tech_stack)
 * [Features](#features)
 * [Future Roadmap](#future)
-* [Installation](#install)
+<!-- * [Installation](#install) -->
 * [License](#license)
 
   
@@ -51,7 +51,7 @@ technologies and gain more experience in the field.
 
 - Personal Profile Page<br />
 
-![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/create_account.png)
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/profile_page.png)
 
 - Visual Weight Tracker<br />
 
@@ -59,11 +59,11 @@ technologies and gain more experience in the field.
 
 - Workout Creation with custom entries<br />
 
-![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/create_account.png)
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/create_wkt.png)
 
 - Revisit previously saved workouts<br />
 
-![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/create_account.png)
+![App Screenshot](https://github.com/Jessica-chap/hb-final-project/blob/main/static/img/saved_wkt_page.png)
 
   
 
@@ -76,8 +76,8 @@ technologies and gain more experience in the field.
 * Web scraping images for all exercises, and more customization to workouts
 * Implement Search for parks in area, to take workout outside
 
-  
-## <a name="install"></a>Installation 
+<!--   
+## <a name="install"></a>Installation  -->
 
 <!-- Install my-project with npm
 
