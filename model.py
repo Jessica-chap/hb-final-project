@@ -115,6 +115,7 @@ def connect_to_db(flask_app, db_uri='postgresql:///workouts', echo=True):
     print('Connected to the db!')
 
 
+# final commit
 
 
 if __name__ == '__main__':
