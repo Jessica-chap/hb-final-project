@@ -90,7 +90,6 @@ body {
     width: 250pt;
 }
 
-
     
 .name-wkt-card{
     border-radius: 0.7rem;
@@ -223,3 +222,4 @@ table, td {
 table td:first-child{
     border-left: none;
 }
+/* final commit */

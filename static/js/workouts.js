@@ -80,3 +80,5 @@
     password.setAttribute('type', type);
     this.classList.toggle('bi-eye-slash');
   });
+
+  // final commit
